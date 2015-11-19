@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<flow-app>
+	   <callback-url>http://192.168.6.20:38080/portal-admin/</callback-url>
+	   <ip-address>119.145.114.224;192.168.1.20</ip-address>
+	</flow-app>
+</config>

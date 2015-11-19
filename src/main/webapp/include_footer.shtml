@@ -1,0 +1,53 @@
+<script src="resources/assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+<script src="resources/assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
+
+<script src="resources/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="resources/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+<!--<script src="resources/assets/js/date-time/moment.min.js"></script>-->
+<!-- <link rel="stylesheet" href="resources/assets/css/bootstrap-datetimepicker.min.css" /> -->
+
+<!-- <script src="resources/assets/js/date-time/bootstrap-datetimepicker.min.js"></script> -->
+<!-- <script src="resources/assets/js/date-time/locales/bootstrap-datetimepicker.zh-CN.js"></script> -->
+
+<script src="resources/assets/js/jquery.validate.min.js"></script>
+<script src="resources/assets/js/additional-methods.min.js"></script>
+<script src="resources/assets/js/bootbox.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/js/custom/plupload.common.css">
+<script type="text/javascript" src="resources/js/plupload-2.1.2/js/plupload.full.min.js"></script>
+<!-- ace scripts -->
+<script type="text/javascript" src="resources/assets/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/template-native.js"></script>
+
+<!--[if lte IE 8]>
+  <script src="resources/assets/js/excanvas.min.js"></script>
+<![endif]-->
+<script src="resources/assets/js/jquery-ui.custom.min.js"></script>
+<script src="resources/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="resources/assets/js/jquery.easypiechart.min.js"></script>
+<script src="resources/assets/js/jquery.sparkline.min.js"></script>
+<script src="resources/assets/js/flot/jquery.flot.min.js"></script>
+<script src="resources/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="resources/assets/js/flot/jquery.flot.resize.min.js"></script>
+
+<!-- ace scripts -->
+<script src="resources/assets/js/ace-elements.min.js"></script>
+<script src="resources/assets/js/ace.min.js"></script>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript"></script>
+
+<link rel="stylesheet" href="resources/assets/css/ace.onpage-help.css" />
+<link rel="stylesheet" href="resources/docs/assets/js/themes/sunburst.css" />
+
+<script type="text/javascript"> ace.vars['base'] = '..'; </script>
+<script src="resources/assets/js/ace/ace.onpage-help.js"></script>
+<script src="resources/docs/assets/js/rainbow.js"></script>
+<script src="resources/docs/assets/js/language/generic.js"></script>
+<script src="resources/docs/assets/js/language/html.js"></script>
+<script src="resources/docs/assets/js/language/css.js"></script>
+<script src="resources/docs/assets/js/language/javascript.js"></script>
+
+<script>
+        document.write('<script type="text/javascript" src="resources/js/custom/jquery.common-1.0.js?'+(new Date()).getTime() + '"><\/script>');
+        document.write('<script type="text/javascript" src="resources/js/custom/biz.js?'+(new Date()).getTime() + '"><\/script>');
+</script>

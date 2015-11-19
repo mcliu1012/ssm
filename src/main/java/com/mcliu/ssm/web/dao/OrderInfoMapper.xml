@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mcliu.ssm.web.dao.OrderInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mcliu.ssm.web.model.OrderInfo" >
+    <id column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="order_name" property="orderName" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, order_name, price
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_info
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_info
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from order_info
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mcliu.ssm.web.model.OrderInfo" >
+    insert into order_info (order_id, order_name, price
+      )
+    values (#{orderId,jdbcType=BIGINT}, #{orderName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mcliu.ssm.web.model.OrderInfo" >
+    insert into order_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderName != null" >
+        order_name,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderName != null" >
+        #{orderName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mcliu.ssm.web.model.OrderInfo" >
+    update order_info
+    <set >
+      <if test="orderName != null" >
+        order_name = #{orderName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mcliu.ssm.web.model.OrderInfo" >
+    update order_info
+    set order_name = #{orderName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL}
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+</mapper>
