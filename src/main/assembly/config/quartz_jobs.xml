@@ -16,9 +16,9 @@
 				<job-name>TestJob</job-name>
 				<job-group>DEFAULT</job-group>
 				<!-- 每天早上1点整 -->
-<!-- 				<cron-expression>0 0 1 * * ?</cron-expression> -->
+				<cron-expression>0 0 1 * * ?</cron-expression>
 				<!-- 每隔1分钟 -->
-                <cron-expression>0 0/1 * * * ?</cron-expression>
+<!--                 <cron-expression>0 0/1 * * * ?</cron-expression> -->
 			</cron>
 		</trigger>
 	</job>
