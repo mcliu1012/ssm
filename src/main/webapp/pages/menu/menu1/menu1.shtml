@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<li class="">
+    <a href="#" class="dropdown-toggle menu-a">
+        <i class="menu-icon fa fa-desktop"></i>
+        <span class="menu-text"> 第一级菜单 </span>
+
+        <b class="arrow fa fa-angle-down"></b>
+    </a>
+
+    <b class="arrow"></b>
+
+    <ul class="submenu">
+
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child2.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child---2
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child3.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child---3
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child4.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child---4
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        
+
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child5.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child---5
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child6.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child---6
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a target="mainFrame" href="javascript:;" url="pages/menu/menu1/child7.shtml">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Child---7
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        
+    </ul>
+</li>

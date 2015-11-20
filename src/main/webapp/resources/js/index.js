@@ -7,6 +7,11 @@ $(function() {
 		url = url + (url.lastIndexOf('?') == -1 ? '?' : '&') + (new Date()).getTime();
 		initTab($(this).text(), url);
 	});
+	
+	// 点击一级菜单时，其他兄弟菜单折叠隐藏
+	$(".menu-a").click(function() {
+	    $(this).parent().siblings().removeClass("open").find("ul").slideUp("fast");
+	});
 });
 
 function initTab(title, url) {
