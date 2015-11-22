@@ -678,13 +678,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/servlet-api-2.5.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>com.mysql.dbc</groupId>
-            <artifactId>mysqljdbc</artifactId>
-            <version>5.1.26</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/mysql-connector-java-5.1.26-bin.jar</systemPath>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>com.mysql.jdbc</groupId> -->
+<!--             <artifactId>mysqljdbc</artifactId> -->
+<!--             <version>5.1.26</version> -->
+<!--             <scope>system</scope> -->
+<!--             <systemPath>${project.basedir}/lib/mysql-connector-java-5.1.26-bin.jar</systemPath> -->
+<!--         </dependency> -->
         
         <dependency>
             <groupId>quartz</groupId>
