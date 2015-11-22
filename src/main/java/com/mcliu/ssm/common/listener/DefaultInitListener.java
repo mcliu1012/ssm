@@ -1,4 +1,4 @@
-package com.mcliu.ssm.common.servlet;
+package com.mcliu.ssm.common.listener;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,11 +20,11 @@ import ch.qos.logback.core.joran.spi.JoranException;
 
 import com.aspire.webbas.configuration.config.ConfigurationHelper;
 
-public class DefaultInitServlet implements ServletContextListener {
+public class DefaultInitListener implements ServletContextListener {
 	/**
 	 * logger
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(DefaultInitServlet.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DefaultInitListener.class);
 	/**
 	 * application root key
 	 */
