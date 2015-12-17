@@ -1,17 +1,102 @@
 var max = 10;
 $(function() {
-	$('#menu a[url]').click(function() {
-	    initStatus($(this));
-	    
-		var url = $(this).attr("url");
-		url = url + (url.lastIndexOf('?') == -1 ? '?' : '&') + (new Date()).getTime();
-		initTab($(this).text(), url);
-	});
+//	$('#menu a[url]').click(function() {
+//	    initStatus($(this));
+//	    
+//		var url = $(this).attr("url");
+//		url = url + (url.lastIndexOf('?') == -1 ? '?' : '&') + (new Date()).getTime();
+//		initTab($(this).text(), url);
+//	});
 	
 	// 点击一级菜单时，其他兄弟菜单折叠隐藏
 	$(".menu-a").click(function() {
 	    $(this).parent().siblings().removeClass("open").find("ul").slideUp("fast");
 	});
+
+    // 生成菜单
+    var buildMenu = function(menus) {
+        var buildMenuHtml = function(menus) {
+            var html = [];
+            $.each(menus, function(i, menu) {
+                html.push('<li class="hsub">');
+                html.push('<a class="dropdown-toggle" href="#"><i class="' + menu['icon'] + '"></i><span class="menu-text">' + menu.text + ' </span>');
+                if (menu.leaf != true && menu.leaf != 'true') {
+                    html.push('<b class="arrow fa fa-angle-down"></b>');
+                }
+                html.push('</a>');
+                var initSubMenu = function(menu) {
+                    if (menu.leaf != true && menu.leaf != 'true') {
+                        var childrens = menu.children, len = childrens.length;
+                        html.push('<ul class="submenu nav-show">');
+                        for (var i = 0; i < len; i++) {
+                            html.push('<li class="hsub">');
+                            var url = childrens[i].url;
+                            if (childrens[i].url) {
+                                // url = url +
+                                // (url.lastIndexOf('?') == -1?
+                                // '?' : '&') + (new
+                                // Date()).getTime();
+                                html.push('<a target="mainFrame" href="javascript:;" url="' + url + '" ><i class="menu-icon fa"></i></i>' + childrens[i].text + '</a><b class="arrow"></b>');
+                            } else {
+                                html.push('<a class="dropdown-toggle" href="javascript:;"><i class="menu-icon fa fa-caret-right"></i>' + childrens[i].text + '<b class="arrow fa fa-angle-down"></b></a>');
+                            }
+                            initSubMenu(childrens[i]);
+                            html.push('</li>');
+
+                        }
+                        html.push('</ul>');
+                    }
+                };
+                initSubMenu(menu);
+                html.push('</li>');
+            });
+            return html.join('');
+        };
+        var htmlFrame = buildMenuHtml(menus);
+        // 追加到menu div 中
+        $('#menu').empty().append(htmlFrame);
+        $('#menu li:eq(0)').find('a').trigger('click');
+        // 设置事件
+        // 1)找到含有属性url的a标签，设置点击事件
+        $('#menu a[url]').bind('click', function() {
+            var url = $(this).attr("url");
+            $('#menu a[url]').parent('li').removeClass("active");
+            $(this).parent('li').addClass("active");
+            // 在iframe中打开
+            /*******************************************************************
+             * if (url && url.indexOf('http') > -1){
+             * $("#mainFrame").attr("src",url); }else{
+             * $("#mainFrame").attr("src",url); }
+             ******************************************************************/
+            url = url + (url.lastIndexOf('?') == -1 ? '?' : '&') + (new Date()).getTime();
+            initTab($(this).text(), url);
+        });
+        $('#menu a[url]:eq(0)').trigger('click');
+    };
+    // 添加选中效果
+    // $("#menu ul li").click(function(){
+    // 设置select样式，并找到同级和后代中设置为select的移除select
+    // $(this).addClass("selected").siblings("li.selected").removeClass("selected").find('li.selected').removeClass("selected");
+    // });
+
+    $.ajax({
+        // url: $.appendExtraParams(window.ctxPaths + '/menu.ajax'),
+        url: 'menu/menu.ajax',
+        type: 'POST',
+        timeout: 30000,
+        dataType: 'json',
+        success: function(data) {
+            if (data.success) {
+                var menus = data.data;
+                if (menus && menus.length > 0) {
+                    buildMenu(menus);
+                }
+            }
+        }
+
+    });
+	
+	
 });
 
 function initTab(title, url) {

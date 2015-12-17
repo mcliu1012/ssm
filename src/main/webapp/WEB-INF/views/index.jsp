@@ -429,8 +429,8 @@
 
                 <ul class="nav nav-list" id="menu">
                     <!-- Menu start -->
-                    <%@include file="/pages/menu/menu1/menu1.shtml" %>
-                    <%@include file="/pages/menu/menu2/menu2.shtml" %>
+<%--                     <%@include file="/pages/menu/menu1/menu1.shtml" %> --%>
+<%--                     <%@include file="/pages/menu/menu2/menu2.shtml" %> --%>
                     <!-- Menu end -->
                 </ul><!-- /.nav-list -->
 
