@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2015-12-18 17:04:24
+Date: 2015-12-18 17:31:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -642,20 +642,6 @@ INSERT INTO `sec_role` VALUES ('4', '系统配置角色', '能够进行角色管
 INSERT INTO `sec_role` VALUES ('5', '合作伙伴-直充', '', 'admin', '2015-08-04 22:07:05', '1', '2015-08-04 22:07:05', 'T1001', '0', '1');
 INSERT INTO `sec_role` VALUES ('6', '运营管理员', '', 'admin', '2015-08-04 22:06:52', '1', '2015-08-04 22:06:52', 'P1001', '0', '1');
 INSERT INTO `sec_role` VALUES ('7', '合作伙伴-流量', '', 'admin', '2015-08-04 22:07:21', '1', '2015-08-04 22:07:21', 'T1002', '0', '1');
-
--- ----------------------------
--- Table structure for `sec_role_resource`
--- ----------------------------
-DROP TABLE IF EXISTS `sec_role_resource`;
-CREATE TABLE `sec_role_resource` (
-  `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID',
-  `RESOURCE_ID` bigint(32) NOT NULL COMMENT '资源ID',
-  `OPERATION_KEY` varchar(32) NOT NULL COMMENT '资源操作关键字'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of sec_role_resource
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `sec_role_resource_operation`
