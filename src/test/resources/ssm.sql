@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2015-12-17 18:53:18
+Date: 2015-12-18 17:04:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,6 +116,63 @@ CREATE TABLE `order_info` (
 -- ----------------------------
 -- Records of order_info
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `sec_department`
+-- ----------------------------
+DROP TABLE IF EXISTS `sec_department`;
+CREATE TABLE `sec_department` (
+  `DEPARTMENT_ID` bigint(16) NOT NULL AUTO_INCREMENT COMMENT '组织ID',
+  `DEPARTMENT_NAME` varchar(100) NOT NULL COMMENT '组织名称',
+  `DEPARTMENT_DESC` varchar(100) DEFAULT NULL COMMENT '组织描述',
+  `PARENT_ID` bigint(16) DEFAULT NULL COMMENT '父级组织',
+  `EMAIL` varchar(50) DEFAULT NULL COMMENT '组织的邮件',
+  `ADDRESS` varchar(200) DEFAULT NULL COMMENT '组织地址',
+  `ADD_SUB` varchar(1) NOT NULL DEFAULT '1' COMMENT '是否可以创建下级组织',
+  `CREATE_USER` varchar(20) NOT NULL COMMENT '组织创建者',
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '组织创建时间',
+  `LAST_UPDATE_DATE` timestamp NULL DEFAULT NULL COMMENT '组织最后修改时间',
+  `DOMAIN` varchar(10) DEFAULT 'SYS_ADMIN' COMMENT '管理域：SP、SYS_ADMIN',
+  PRIMARY KEY (`DEPARTMENT_ID`),
+  KEY `FK_sec_department` (`PARENT_ID`),
+  CONSTRAINT `FK_sec_department` FOREIGN KEY (`PARENT_ID`) REFERENCES `sec_department` (`DEPARTMENT_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='组织';
+
+-- ----------------------------
+-- Records of sec_department
+-- ----------------------------
+INSERT INTO `sec_department` VALUES ('-999', '根组织', '所有组织的根', null, 'xx@xx.com', 'xx', '0', 'system', '2015-08-04 21:55:11', '2015-08-04 21:55:11', '');
+INSERT INTO `sec_department` VALUES ('-998', '威宇智通', '所有威宇智通的根组织', '-999', 'xx@xx.com', 'xx', '1', 'system', '2015-08-04 22:05:50', '2015-08-04 22:05:50', 'SYS_ADMIN');
+INSERT INTO `sec_department` VALUES ('1', '合作伙伴', '', '-998', '', '', '1', 'admin', '2015-08-04 22:09:02', '2015-08-04 22:09:02', 'SP');
+INSERT INTO `sec_department` VALUES ('2', '合作伙伴-直充', '', '1', '', '', '1', 'admin', '2015-08-04 22:09:24', '2015-08-04 22:09:24', 'SP');
+INSERT INTO `sec_department` VALUES ('3', '合作伙伴-流量', '', '1', '', '', '1', 'admin', '2015-08-04 22:09:40', '2015-08-04 22:09:40', 'SP');
+INSERT INTO `sec_department` VALUES ('4', '运营管理员', '', '-998', '', '', '1', 'admin', '2015-08-04 22:10:01', '2015-08-04 22:10:01', 'SYS_ADMIN');
+
+-- ----------------------------
+-- Table structure for `sec_department_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `sec_department_role`;
+CREATE TABLE `sec_department_role` (
+  `DEPARTMENT_ID` bigint(16) NOT NULL COMMENT '组织ID',
+  `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID',
+  PRIMARY KEY (`DEPARTMENT_ID`,`ROLE_ID`),
+  KEY `FK_sec_department_role2` (`ROLE_ID`),
+  CONSTRAINT `FK_sec_department_role` FOREIGN KEY (`DEPARTMENT_ID`) REFERENCES `sec_department` (`DEPARTMENT_ID`),
+  CONSTRAINT `FK_sec_department_role2` FOREIGN KEY (`ROLE_ID`) REFERENCES `sec_role` (`ROLE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='组织角色关联表';
+
+-- ----------------------------
+-- Records of sec_department_role
+-- ----------------------------
+INSERT INTO `sec_department_role` VALUES ('-998', '1');
+INSERT INTO `sec_department_role` VALUES ('4', '1');
+INSERT INTO `sec_department_role` VALUES ('4', '3');
+INSERT INTO `sec_department_role` VALUES ('4', '4');
+INSERT INTO `sec_department_role` VALUES ('1', '5');
+INSERT INTO `sec_department_role` VALUES ('2', '5');
+INSERT INTO `sec_department_role` VALUES ('4', '6');
+INSERT INTO `sec_department_role` VALUES ('1', '7');
+INSERT INTO `sec_department_role` VALUES ('3', '7');
 
 -- ----------------------------
 -- Table structure for `sec_operation`
@@ -587,6 +644,20 @@ INSERT INTO `sec_role` VALUES ('6', '运营管理员', '', 'admin', '2015-08-04 
 INSERT INTO `sec_role` VALUES ('7', '合作伙伴-流量', '', 'admin', '2015-08-04 22:07:21', '1', '2015-08-04 22:07:21', 'T1002', '0', '1');
 
 -- ----------------------------
+-- Table structure for `sec_role_resource`
+-- ----------------------------
+DROP TABLE IF EXISTS `sec_role_resource`;
+CREATE TABLE `sec_role_resource` (
+  `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID',
+  `RESOURCE_ID` bigint(32) NOT NULL COMMENT '资源ID',
+  `OPERATION_KEY` varchar(32) NOT NULL COMMENT '资源操作关键字'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sec_role_resource
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `sec_role_resource_operation`
 -- ----------------------------
 DROP TABLE IF EXISTS `sec_role_resource_operation`;
@@ -760,6 +831,37 @@ INSERT INTO `sec_staff` VALUES ('13', '1', '3', 'd', 'DvApxuZn19jsIv6NJxYCaQ==',
 INSERT INTO `sec_staff` VALUES ('14', 'nfds', '3', '南方', 'qM4SOMbmLPrPVANiQfM+6Q==', 'NORMAL', 'MALE', null, '13600157895', '13600157895@qq.com', 'fmp-test', '2015-08-14 14:51:21', null, '2015-08-14 14:51:21', null, null, null);
 INSERT INTO `sec_staff` VALUES ('15', 'sss', '3', 'sss', 'l36eaQbtXl5EyC/ZE8BxrQ==', 'NORMAL', 'MALE', null, '13245678951', 'sss@qq.qq', 'fmp-test', '2015-08-17 10:14:12', null, '2015-08-17 15:43:10', null, null, null);
 INSERT INTO `sec_staff` VALUES ('16', 'rhkj', '3', '瑞恒', '+H40Aw2E/9D3lMHILorvZw==', 'NORMAL', 'MALE', null, '15625299201', '15625299201@163.com', 'fmp-test', '2015-08-17 11:32:37', null, '2015-08-17 14:40:22', null, null, null);
+
+-- ----------------------------
+-- Table structure for `sec_staff_department_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `sec_staff_department_role`;
+CREATE TABLE `sec_staff_department_role` (
+  `STAFF_ID` bigint(20) NOT NULL COMMENT '成员ID',
+  `DEPARTMENT_ID` bigint(16) NOT NULL COMMENT '组织ID',
+  `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='成员组织角色关联表';
+
+-- ----------------------------
+-- Records of sec_staff_department_role
+-- ----------------------------
+INSERT INTO `sec_staff_department_role` VALUES ('-999', '-998', '1');
+INSERT INTO `sec_staff_department_role` VALUES ('1', '4', '6');
+INSERT INTO `sec_staff_department_role` VALUES ('2', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('3', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('4', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('5', '2', '5');
+INSERT INTO `sec_staff_department_role` VALUES ('6', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('8', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('7', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('9', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('10', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('11', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('12', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('13', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('14', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('15', '3', '7');
+INSERT INTO `sec_staff_department_role` VALUES ('16', '3', '7');
 
 -- ----------------------------
 -- Table structure for `sec_staff_role`
