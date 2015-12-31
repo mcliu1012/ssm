@@ -12,7 +12,7 @@
 #### 你可以使用 **ssm**：
 
 > * 快速搭建项目原型，基于Spring + Spring MVC + Mybatis，简单轻便、易于扩展的架构，适用于大多数项目
-> * 封装了常用的CURD，配合mybatis-generator 自动生成dao、model、mapper层，减少重复劳动，提高生产力，实现快速、平稳的开发
+> * 封装了常用的CURD，配合mybatis-generator 自动生成dao、entity、mapper层，减少重复劳动，提高生产力，实现快速、平稳的开发
 > * 实现Mybatis的分页查询模块，支持MySQL、PostgreSQL、SQLServer等数据库分页查询
 > * 通用的权限管理模块，基于Apache Shiro的 用户-角色-权限(RBAC)的细粒度权限控制
 > * 大量配置示例，根据需求，自由优化、调整，达到最佳性能

@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd">
+<domain id="admin" subsystem="fmp-admin">
+	<!-- 资源分类－第一级 -->
+	<resource-category key="manager" orderKey="2000"
+		name="流量营销管理平台" desc="流量营销管理平台">
+		<resource-category key="auth_partner_manager" name="合作伙伴管理"
+			desc="合作伙伴管理">
+			<resource key="auth_partner_manager_activityOverview" name="流量下发监控"
+				desc="合作伙伴列表">
+				<operation key="get" name="流量下发监控" desc="流量下发监控">
+					<address name="流量下发监控" url="/pages/activityOverview.shtml" />
+					<address name="看板内容" url="/businessBoard/initReportForm.ajax" />
+					<address name="top5数据" url="/businessBoard/initData.ajax" />
+				</operation>
+				</resource>
+			<resource key="auth_partner_manager_list" name="合作伙伴列表"
+				desc="合作伙伴列表">
+				<operation key="query" name="列表" desc="列表">
+					<address name="合作伙伴列表" url="/pages/partnerInfo_list.shtml" />
+					<address name="查询请求" url="/partnerInfo/query.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="详情">
+					<address name="合作伙伴列表" url="/pages/partnerInfo_view.shtml" />
+					<address name="查询请求" url="/partnerInfo/get.ajax" />
+					<address name="初始化账户信息" url="/partnerInfo/initBalance.ajax" />
+					<address name="初始化产品协议订单历史记录" url="/orderDealRecord/getOrderDealRecord.ajax" />
+					<address name="下载" url="/orderDealRecord/download.ajax" />
+				</operation>
+				<operation key="add" name="新增/修改" desc="新增/修改">
+					<address name="页面" url="/pages/partnerInfo_add.shtml" />
+					<address name="新增请求" url="/partnerInfo/add.ajax" />
+					<address name="获取详情请求" url="/partnerInfo/get.ajax" />
+					<address name="查询帐户请求" url="/partnerInfo/queryStaff.ajax" />
+					<address name="查询产品信息" url="/flowProductInfo/getByProductType.ajax" />
+					<address name="账号唯一判断" url="/partnerInfo/soloAccount.ajax" />
+					<address name="删除产品关联" url="/partnerInfo/deleteBySeqId.ajax" />
+				</operation>
+				<operation key="changestatus" name="修改状态" desc="修改状态">
+					<address name="修改状态请求" url="/partnerInfo/changeStatus.ajax" />
+				</operation>
+				<operation key="resetPassword" name="重置密码" desc="重置密码">
+					<address name="重置密码" url="/partnerInfo/resetPassword.ajax" />
+				</operation>
+
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/partnerInfo/delete.ajax" />
+				</operation>
+
+				<operation key="self" name="个人信息" desc="个人信息">
+					<address name="信息展示页面" url="/pages/partnerInfo_self_view.shtml" />
+					<address name="获取个人信息" url="/partnerInfo/getSelf.ajax" />
+					<address name="初始化账户信息" url="/partnerInfo/initBalance.ajax" />
+					<address name="初始化产品协议订单历史记录" url="/orderDealRecord/getOrderDealRecord.ajax" />
+					<address name="下载" url="/orderDealRecord/download.ajax" />
+				</operation>
+
+
+			</resource>
+		</resource-category>
+
+
+		<resource-category key="auth_order_manager" name="订单管理"
+			desc="订单管理">
+			<resource key="auth_order_manager_list" name="订单列表" desc="订单列表">
+				<!-- 资源操作-DO -->
+				<operation key="order_manager_query" name="查看" desc="查看">
+					<address name="订单列表" url="/pages/orderInfo_list.shtml" />
+					<address name="获取数据" url="/orderInfo/query.ajax" />
+					<address name="详情页面" url="/pages/orderInfo_view.shtml" />
+					<address name="详情获取" url="/orderInfo/get.ajax" />
+					<address name="取出订单总数" url="/orderInfo/getOrderNumber.ajax" />
+					<address name="取出产品信息" url="/flowProductInfo/flowProductInfo.ajax" />
+					<address name="产品详情" url="/flowProductInfo/get.ajax" />
+					<address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="客户详情获取" url="/customerInfo/get.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="详情">
+					<address name="详情页面" url="/pages/orderInfo_view.shtml" />
+					<address name="详情获取" url="/orderInfo/get.ajax" />
+					<address name="订单详情初始化" url="/orderInfo/orderInfoViewInit.ajax" />
+					<address name="初始化客户订单历史记录" url="/orderDealRecord/getOrderDealRecord.ajax" />
+                    <address name="下载" url="/orderDealRecord/download.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/orderInfo/delete.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/orderInfo_add.shtml" />
+					<address name="详情页面" url="/pages/orderInfo_view.shtml" />
+					<address name="详情获取" url="/orderInfo/get.ajax" />
+					<address name="添加或更新数据" url="/orderInfo/add.ajax" />
+					<address name="获取客户信息" url="/orderInfo/selectByPartnerId.ajax" />
+					<address name="取出产品信息" url="/flowProductInfo/flowProductInfo.ajax" />
+					<address name="产品详情" url="/flowProductInfo/get.ajax" />
+					<address name="订单详情初始化" url="/orderInfo/orderInfoViewInit.ajax" />
+					<address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="校验当前客户是否允许下发计费" url="/orderInfo/checkAllowBillIssued.ajax" />
+					<address name="客户详情获取" url="/customerInfo/get.ajax" />
+				</operation>
+				<operation key="modify" name="修改" desc="修改">
+					<address name="添加页面" url="/pages/orderInfo_add.shtml" />
+					<address name="详情页面" url="/pages/orderInfo_view.shtml" />
+					<address name="详情获取" url="/orderInfo/get.ajax" />
+					<address name="添加或更新数据" url="/orderInfo/add.ajax" />
+					<address name="获取客户信息" url="/orderInfo/selectByPartnerId.ajax" />
+					<address name="取出产品信息" url="/flowProductInfo/flowProductInfo.ajax" />
+					<address name="产品详情" url="/flowProductInfo/get.ajax" />
+					<address name="订单详情初始化" url="/orderInfo/orderInfoViewInit.ajax" />
+					<address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="校验当前客户是否允许下发计费" url="/orderInfo/checkAllowBillIssued.ajax" />
+					<address name="客户详情获取" url="/customerInfo/get.ajax" />
+				</operation>
+				<operation key="export" name="导出" desc="导出">
+					<address name="导出" url="/orderInfo/downLoadOrder.ajax" />
+				</operation>
+				<operation key="changestatus" name="改变订单状态" desc="改变订单状态">
+					<address name="改变订单状态" url="/orderInfo/changeStatus.ajax" />
+				</operation>
+				<operation key="pricesetting" name="价格设置" desc="价格设置">
+					<address name="价格设置" url="/pages/productPriceSetting.shtml" />
+					<address name="获取详情价格信息" url="/orderInfo/selectDirectChargeProdOrder.ajax" />
+					<address name="修改详情价格信息" url="/orderInfo/updateODByProdId.ajax" />
+					<address name="批量修改详情价格信息" url="/orderInfo/updateODPriceAll.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+
+
+		<resource-category key="auth_customer_manager" name="客户管理"
+			desc="客户管理">
+			<resource key="auth_customer_manager_zc" name="客户管理" desc="客户管理">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/customerInfo_list.shtml" />
+					<address name="获取数据" url="/customerInfo/query.ajax" />
+					<address name="添加页面" url="/pages/customerInfo_add.shtml" />
+					<address name="详情页面" url="/pages/customerInfo_view.shtml" />
+					<address name="详情获取" url="/customerInfo/get.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/customerInfo_add.shtml" />
+					<address name="添加或更新数据" url="/customerInfo/add.ajax" />
+					<address name="账号检测" url="/customerInfo/soloAccount.ajax" />
+					<address name="手机号检测" url="/customerInfo/soloMobile.ajax" />
+					<address name="详情获取" url="/customerInfo/get.ajax" />
+					<address name="获取合作伙伴" url="/customerInfo/queryPartnerInfoAll.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/customerInfo/delete.ajax" />
+				</operation>
+				<operation key="changestatus" name="改变客户状态" desc="改变客户状态">
+					<address name="改变客户状态" url="/customerInfo/changeStatus.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户详情">
+					<address name="详情页面" url="/pages/customerInfo_view.shtml" />
+					<address name="详情获取" url="/customerInfo/get.ajax" />
+					<address name="初始化账户信息" url="/customerInfo/initBalance.ajax" />
+					<address name="获取当前客户的订单" url="/orderInfo/queryByCustomerId.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_customer_wxAccessConf" name="客户微信配置管理" desc="客户微信配置管理">
+			<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/card/wxAccessConf_list.shtml" />
+					<address name="获取数据" url="/wxAccessConf/query.ajax" />
+					<address name="添加页面" url="/pages/card/wxAccessConf_add.shtml" />
+					<address name="详情页面" url="/pages/card/wxAccessConf_view.shtml" />
+					<address name="详情获取" url="/wxAccessConf/get.ajax" />
+					<address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/wxAccessConf_add.shtml" />
+					<address name="添加或更新数据" url="/wxAccessConf/add.ajax" />
+					<address name="详情获取" url="/wxAccessConf/get.ajax" />
+					<address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/wxAccessConf/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户微信配置详情">
+					<address name="详情页面" url="/pages/card/wxAccessConf_view.shtml" />
+					<address name="详情获取" url="/wxAccessConf/get.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+
+
+		<resource-category key="auth_record_manager" name="记录查询"
+			desc="记录查询">
+			<resource key="auth_record_manager_xf" name="兑换记录查询" desc="兑换记录查询">
+				<operation key="auth_record_manager_xf_query" name="查看"
+					desc="查看">
+					<address name="兑换记录列表" url="/pages/marketingIssued_list.shtml" />
+					<address name="查询" url="/flowExchangeLog/query.ajax" />
+					<address name="初始化" url="/flowExchangeLog/init.ajax" />
+					<address name="查询客户" url="/orderInfo/selectByPartnerId.ajax" />
+					<address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+			</resource>
+
+			<resource key="auth_record_manager_zc" name="直充记录查询" desc="直充记录查询">
+				<operation key="auth_record_manager_zc_query" name="查看"
+					desc="查看">
+					<address name="直充记录列表" url="/pages/directCharge_list.shtml" />
+					<address name="查询" url="/flowExchangeLog/query.ajax" />
+					<address name="初始化" url="/flowExchangeLog/init.ajax" />
+					<address name="初始化下发总数和总价"
+						url="/flowExchangeLog/initCountAndPriceTotal.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_flow_orderinfo_list" name="流量分发记录" desc="流量分发记录">
+				<operation key="query" name="查看" desc="查看">
+					<address name="列表" url="/pages/flowOrderInfo_list.shtml" />
+					<address name="列表查询" url="/flowOrderInfo/query.ajax" />
+					<address name="详情" url="/pages/flowOrderInfo_view.shtml" />
+					<address name="详情查询" url="/flowOrderInfo/get.ajax" />
+					<address name="查询客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="查询合作伙伴信息" url="/orderInfo/selectPartnerInfoByName.ajax" />
+					<address name="查询客户App接入信息" url="/flowAppInfo/selectInfoByIdOrName.ajax" />
+				</operation>
+				<operation key="export" name="导出" desc="导出">
+					<address name="导出" url="/flowOrderInfo/export.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_flow_orderinfofinance_list" name="流量分发记录(财务)" desc="流量分发记录(财务)">
+				<operation key="query" name="查看" desc="查看">
+					<address name="列表" url="/pages/flowOrderInfoFinance_list.shtml" />
+					<address name="列表查询" url="/flowOrderInfo/query.ajax" />
+					<address name="详情" url="/pages/flowOrderInfoFinance_view.shtml" />
+					<address name="详情查询" url="/flowOrderInfo/get.ajax" />
+					<address name="查询客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="查询合作伙伴信息" url="/orderInfo/selectPartnerInfoByName.ajax" />
+					<address name="查询客户App接入信息" url="/flowAppInfo/selectInfoByIdOrName.ajax" />
+				</operation>
+				<operation key="export" name="导出" desc="导出">
+					<address name="导出" url="/flowOrderInfo/export.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_mobile_flow_dispatch_rec" name="流量网关日志查询"
+				desc="流量网关日志查询">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直充记录列表" url="/pages/mobileFlowDispatchRec_list.shtml" />
+					<address name="查询" url="/mobileFlowDispatchRec/query.ajax" />
+					<address name="详情" url="/pages/mobileFlowDispatchRec_view.shtml" />
+					<address name="详情查询" url="/mobileFlowDispatchRec/get.ajax" />
+					<address name="查询客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+				
+				<operation key="excel" name="导出" desc="导出">
+					<address name="导出" url="/mobileFlowDispatchRec/excel.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_order_deal_record" name="订单处理记录查询" desc="订单处理记录查询">
+				<operation key="query" name="查看" desc="查看">
+					<address name="订单处理记录列表" url="/pages/orderDealRecord_list.shtml" />
+					<address name="查询" url="/orderDealRecord/query.ajax" />
+					<address name="详情" url="/pages/orderDealRecord_view.shtml" />
+					<address name="详情查询" url="/orderDealRecord/get.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+                    <address name="删除" url="/orderDealRecord/delete.ajax" />
+                </operation>
+				<operation key="download" name="下载" desc="下载">
+                    <address name="下载" url="/orderDealRecord/download.ajax" />
+                </operation>
+			</resource>
+		</resource-category>
+
+		<resource-category key="auth_prodcut_manager" name="产品管理"
+			desc="产品管理">
+			<resource key="auth_prodcut_manager_cp" name="产品设置" desc="产品设置">
+				<operation key="query" name="查看" desc="查看">
+					<address name="产品设置列表" url="/pages/flowProductInfo_list.shtml" />
+					<address name="获取数据" url="/flowProductInfo/query.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/flowProductInfo_add.shtml" />
+					<address name="详情获取" url="/flowProductInfo/get.ajax" />
+					<address name="流量包获取" url="/flowProductInfo/operatorCode.ajax" />
+					<address name="添加或更新数据" url="/flowProductInfo/add.ajax" />
+					<address name="判断产品名称唯一" url="/flowProductInfo/soloProductName.ajax" />
+					<address name="判断产品代码唯一" url="/flowProductInfo/soloProductCode.ajax" />
+					<address name="判断产品流量包加区域" url="/flowProductInfo/soloProductPackageIdZone.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/flowProductInfo/delete.ajax" />
+				</operation>
+
+				<operation key="detail" name="详情" desc="查看产品详情">
+					<address name="详情页面" url="/pages/flowProductInfo_view.shtml" />
+					<address name="详情获取" url="/flowProductInfo/get.ajax" />
+				</operation>
+			</resource>
+
+			<resource key="auth_prodcut_manager_llb" name="流量包设置" desc="流量包设置">
+				<operation key="query" name="列表" desc="列表">
+					<address name="流量包设置列表" url="/pages/flowPackageInfo_list.shtml" />
+					<address name="获取数据" url="/flowPackageInfo/query.ajax" />
+					<address name="获取地区信息" url="/customerInfo/selectAreaCodeAll.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="操作码查询" url="/flowPackageInfo/operatorCode.ajax" />
+					<address name="添加页面" url="/pages/flowPackageInfo_add.shtml" />
+					<address name="添加或更新数据" url="/flowPackageInfo/add.ajax" />
+					<address name="获取地区信息" url="/customerInfo/selectAreaCodeAll.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/flowPackageInfo/delete.ajax" />
+				</operation>
+
+				<operation key="detail" name="详情" desc="查看流量包详情">
+					<address name="详情页面" url="/pages/flowPackageInfo_view.shtml" />
+					<address name="详情获取" url="/flowPackageInfo/get.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+		<resource-category key="auth_card_manager" name="卡片管理"
+			desc="产品管理">
+			<resource key="auth_card_manager_gl" name="卡片管理" desc="卡片管理">
+				<operation key="query" name="批次列表" desc="批次列表">
+					<address name="批次列表" url="/pages/flowCardBatchInfo_list.shtml" />
+					<address name="获取卡片" url="/flowCardBatchInfo/query.ajax" />
+					<address name="获取所有客户" url="/customerInfo/finaCustomerAll.ajax" />
+					<address name="获取地区信息" url="/customerInfo/selectAreaCodeAll.ajax" />
+					<address name="获取所有客户" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
+					
+				</operation>
+
+				<operation key="add" name="创建卡片" desc="创建卡片">
+					<address name="创建卡页面" url="/pages/createCard.shtml" />
+					<address name="创建卡操作" url="/flowCardInfo/createFlowCards.ajax" />
+					<address name="获取订单" url="/flowCardInfo/getPlusOrder.ajax" />
+					<address name="获取订单详情" url="/flowCardInfo/getOrderDetail.ajax" />
+					<address name="获取客户详情" url="/flowCardInfo/getCustomerByType.ajax" />
+					<address name="获取激活卡信息"
+						url="/flowCardInfo/getCustomerCExchangeurlInfo.ajax" />
+						<address name="获取所有客户" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+
+				<operation key="detail" name="详情" desc="批次表列表">
+					<address name="批次详情页面" url="/pages/batchCardInfo.shtml" />
+					<address name="批次详情请求" url="/flowCardBatchInfo/get.ajax" />
+					<address name="订单详情获取" url="/flowCardBatchInfo/getBydetailId.ajax" />
+					<address name="客户兑换页面更新"
+						url="/flowCardBatchInfo/updatecExchangeurlInfo.ajax" />
+					<address name="c卡预览页" url="/pages/c_page/indexC.shtml" />
+					<address name="获取订单" url="/flowCardInfo/getPlusOrder.ajax" />
+					<address name="获取订单详情" url="/flowCardInfo/getOrderDetail.ajax" />
+					<address name="获取客户详情" url="/flowCardInfo/getCustomerByType.ajax" />
+					<address name="获取激活卡信息"
+						url="/flowCardInfo/getCustomerCExchangeurlInfo.ajax" />
+				</operation>
+				
+				<operation key="updateCustomerExChange" name="更改兑换信息" desc="更改兑换信息">
+					<address name="客户兑换页面更新"
+						url="/flowCardBatchInfo/updatecExchangeurlInfo.ajax" />
+				</operation>
+				
+				<operation key="invalid" name="作废" desc="批次作废">
+					<address name="作废全部" url="/flowCardInfo/updateCauseAll.ajax" />
+				</operation>
+				<operation key="active" name="激活" desc="激活">
+					<address name="激活卡页面" url="/pages/activeCard.shtml" />
+					<address name="激活卡操作" url="/flowCardInfo/createFlowCards.ajax" />
+					<address name="更新激活卡信息"
+						url="/flowCardInfo/updateCustomerInfoActiveCard.ajax" />
+					<address name="获取激活卡信息"
+						url="/flowCardInfo/getCustomerFlowFlowCardBatchInfo.ajax" />
+				</operation>
+				<operation key="export" name="批量导出" desc="批量导出">
+					<address name="导出批量" url="/flowCardInfo/excelByBatchId.ajax" />
+				</operation>
+			</resource>
+
+			<resource key="auth_card_manager_cx" name="卡片查询" desc="卡片查询">
+				<operation key="query" name="卡片列表" desc="卡片列表">
+					<address name="卡片列表" url="/pages/flowCardInfo_list.shtml" />
+					<address name="获取卡片" url="/flowCardInfo/query.ajax" />
+					<address name="详情页面" url="/pages/flowCardInfo_view.shtml" />
+					<address name="详情获取" url="/flowCardInfo/get.ajax" />
+					<address name="获取所有客户" url="/customerInfo/finaCustomerAll.ajax" />
+					<address name="获取所有客户" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+				<operation key="invalid" name="作废" desc="作废">
+					<address name="作废" url="/flowCardInfo/updateCause.ajax" />
+				</operation>
+				<operation key="export" name="导出" desc="导出">
+					<address name="导出" url="/flowCardInfo/excel.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+		<resource-category key="auth_access_manager" name="接入管理"
+			desc="接入管理">
+			<resource key="auth_sms_access" name="短信接入" desc="短信接入">
+				<operation key="query" name="列表" desc="列表">
+					<address name="列表页面" url="/pages/smsChannelInfo_list.shtml" />
+					<address name="列表请求" url="/smsChannelInfo/query.ajax" />
+					<address name="详情页面" url="/pages/smsChannelInfo_view.shtml" />
+					<address name="详情获取" url="/smsChannelInfo/get.ajax" />
+				</operation>
+
+				<operation key="add" name="新增/修改" desc="新增/修改">
+					<address name="新增页面" url="/pages/smsChannelInfo_add.shtml" />
+					<address name="新增请求" url="/smsChannelInfo/add.ajax" />
+					<address name="详情获取" url="/smsChannelInfo/get.ajax" />
+				</operation>
+				<operation key="del" name="删除" desc="删除">
+					<address name="删除" url="/smsChannelInfo/delete.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_app_access" name="APP接入" desc="APP接入">
+				<operation key="query" name="列表" desc="列表">
+					<address name="列表页面" url="/pages/flowAppInfo_list.shtml" />
+					<address name="列表请求" url="/flowAppInfo/query.ajax" />
+					<address name="详情页面" url="/pages/flowAppInfo_view.shtml" />
+					<address name="详情获取" url="/flowAppInfo/get.ajax" />
+				</operation>
+
+				<operation key="add" name="新增/修改" desc="新增/修改">
+					<address name="新增页面" url="/pages/flowAppInfo_add.shtml" />
+					<address name="新增请求" url="/flowAppInfo/add.ajax" />
+					<address name="详情获取" url="/flowAppInfo/get.ajax" />
+					<address name="订单信息获取" url="/orderInfo/queryOrderInfoByCustomer.ajax" />
+					<address name="短信通道获取" url="/smsChannelInfo/query.ajax" />
+					<address name="流量下发通道获取" url="/flowAppInfo/getDispatchChannel.ajax" />
+				</operation>
+				<operation key="del" name="删除" desc="删除">
+					<address name="删除" url="/flowAppInfo/delete.ajax" />
+				</operation>
+				<operation key="export" name="导出" desc="导出">
+					<address name="导出" url="/flowAppInfo/excel.ajax" />
+				</operation>
+				<operation key="changestatus" name="修改接入状态" desc="修改接入状态">
+                    <address name="修改接入状态" url="/flowAppInfo/changeStatus.ajax" />
+                </operation>
+			</resource>
+			<resource key="auth_app_upgrade" name="APP版本管理" desc="APP版本管理">
+				<operation key="query" name="列表" desc="列表">
+					<address name="列表页面" url="/pages/versionUpgradeInfo_list.shtml" />
+					<address name="列表请求" url="/versionUpgradeInfo/query.ajax" />
+					<address name="详情页面" url="/pages/versionUpgradeInfo_view.shtml" />
+					<address name="详情获取" url="/versionUpgradeInfo/get.ajax" />
+				</operation>
+
+				<operation key="add" name="新增/修改" desc="新增/修改">
+					<address name="新增页面" url="/pages/versionUpgradeInfo_add.shtml" />
+					<address name="新增请求" url="/versionUpgradeInfo/add.ajax" />
+					<address name="详情获取" url="/versionUpgradeInfo/get.ajax" />
+				</operation>
+				<operation key="del" name="删除" desc="删除">
+					<address name="删除" url="/versionUpgradeInfo/delete.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+		
+		
+		
+		<resource-category key="auth_campaign_manager" name="营销活动管理"
+			desc="营销活动管理">
+			<resource key="auth_campaign_info" name="营销活动" desc="营销活动">
+				<operation key="query" name="列表" desc="列表">
+					<address name="列表页面" url="/pages/act/campaignInfo_list.shtml" />
+					<address name="列表请求" url="/campaignInfo/query.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="详情">
+					<address name="详情页面" url="/pages/act/campaignInfo_view.shtml" />
+					<address name="详情获取" url="/campaignInfo/get.ajax" />
+				</operation>
+				<operation key="add" name="新增/修改" desc="新增/修改">
+					<address name="新增页面" url="/pages/act/campaignInfo_add.shtml" />
+					<address name="新增请求" url="/campaignInfo/add.ajax" />
+					<address name="详情获取" url="/campaignInfo/get.ajax" />
+					<address name="订单获取" url="/campaignInfo/getOrder.ajax" />
+					<address name="app获取" url="/campaignInfo/getFlowAppInfo.ajax" />
+					<address name="客户获取" url="/campaignInfo/getCustomerByType.ajax" />
+					<address name="详情获取" url="/campaignInfo/getOrderDetail.ajax" />
+					<address name="活动id唯一" url="/campaignInfo/soloActId.ajax" />
+					<address name="删除奖品" url="/campaignInfo/deleteBySeqId.ajax" />
+				</operation>
+				<operation key="del" name="删除" desc="删除">
+					<address name="删除" url="/campaignInfo/delete.ajax" />
+				</operation>
+				
+				<operation key="changeStatus" name="修改状态" desc="修改状态">
+					<address name="修改状态" url="/campaignInfo/changeStatus.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="campaign_info_reward" name="中奖记录查询" desc="中奖记录查询">
+				<operation key="query" name="列表" desc="列表">
+					<address name="列表页面" url="/pages/act/campaignRewardInfo_list.shtml" />
+					<address name="列表请求" url="/campaignRewardInfo/query.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="详情">
+					<address name="详情页面" url="/pages/act/campaignRewardInfo_view.shtml" />
+					<address name="详情获取" url="/campaignRewardInfo/get.ajax" />
+				</operation>
+				<operation key="export" name="导出" desc="导出">
+				<address name="导出" url="/campaignRewardInfo/downLoadCampaignRewardInfo.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="campaign_info_draw" name="抽奖记录查询" desc="抽奖记录查询">
+				<operation key="query" name="列表" desc="列表">
+					<address name="列表页面" url="/pages/act/campaignDrawDetail_list.shtml" />
+					<address name="列表请求" url="/campaignDrawDetail/query.ajax" />
+					<address name="查询抽奖人数" url="/campaignDrawDetail/initPrizeNumberCount.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="详情">
+					<address name="详情页面" url="/pages/act/campaignDrawDetail_view.shtml" />
+					<address name="详情获取" url="/campaignDrawDetail/get.ajax" />
+				</operation>
+				<operation key="excel" name="导出" desc="导出">
+					<address name="详情获取" url="/campaignDrawDetail/excel.ajax" />
+				</operation>
+				
+			</resource>
+		</resource-category>
+		
+		<resource-category key="auth_partner_bill_manager" name="合作伙伴账单管理"
+			desc="合作伙伴账单管理">
+			<resource key="auth_partner_bill" name="账单管理" desc="账单管理">
+				<operation key="query" name="列表" desc="列表">
+                    <address name="合作伙伴账单列表" url="/pages/partnerBill_list.shtml" />
+                    <address name="查询请求" url="/partnerInfo/query.ajax" />
+                </operation>
+                <operation key="detail" name="详情" desc="详情">
+                    <address name="合作伙伴列表" url="/pages/partnerInfo_view.shtml" />
+                    <address name="查询请求" url="/partnerInfo/get.ajax" />
+                    <address name="重置密码" url="/partnerInfo/resetPassword.ajax" />
+                </operation>
+                <operation key="accountDetail" name="账户明细" desc="账户明细">
+                    <address name="账户明细页面" url="/pages/partnerAccountDetail_view.shtml" />
+                    <address name="查询请求" url="/partnerInfo/get.ajax" />
+                    <address name="交易流水查询" url="/partnerTradeFlow/query.ajax"/>
+                </operation>
+                <operation key="accountChange" name="账户充值和信用额度调整" desc="账户充值和信用额度调整">
+                    <address name="账户充值和信用额度调整" url="/partnerTradeFlow/add.ajax"/>
+                </operation>
+			</resource>
+			
+			<resource key="auth_partner_bill_query" name="账单查询" desc="账单查询">
+				<operation key="query" name="列表" desc="列表">
+                    <address name="账单查询列表" url="/pages/partnerBillQuery_view.shtml" />
+                    <address name="账单查询" url="/customerBalanceDay/queryPartner.ajax"/>
+                    <address name="查询所有合作伙伴" url="/customerBalanceDay/selectPartnerInfoByName.ajax"/>
+                    <address name="查询下发数和下发金额" url="/customerBalanceDay/initPartnerCountAndPriceTotal.ajax"/>
+                </operation>
+				<operation key="export" name="导出" desc="导出">
+                    <address name="导出" url="/customerBalanceDay/downLoadPartnerBill.ajax" />
+                </operation>
+			</resource>
+			
+			<resource key="auth_partner_settlement_order_manager" name="结算单管理" desc="结算单管理">
+				<operation key="query" name="列表" desc="列表">
+                    <address name="结算单查询列表" url="/pages/partnerSettlementOrder_list.shtml" />
+                    <address name="结算单查询" url="/partnerBalanceMonth/query.ajax"/>
+                    <address name="查询所有合作伙伴" url="/customerBalanceDay/selectPartnerInfoByName.ajax"/>
+                </operation>
+				<operation key="changeStatus" name="调整结算单状态" desc="调整结算单状态">
+                    <address name="调整结算单状态" url="/partnerBalanceMonth/changeStatus.ajax"/>
+                </operation>
+				<operation key="changeAdjustBalance" name="调整金额" desc="调整金额">
+                    <address name="调整金额" url="/partnerBalanceMonth/changeAdjustBalance.ajax"/>
+                </operation>
+				<operation key="downLoadSettlementOrder" name="导出" desc="导出">
+                    <address name="导出" url="/partnerBalanceMonth/downLoadSettlementOrder.ajax"/>
+                </operation>
+			</resource>
+		</resource-category>
+
+		<resource-category key="auth_customer_bill_manager" name="客户账单管理"
+			desc="客户账单管理">
+			<resource key="auth_customer_bill" name="账单管理" desc="账单管理">
+				<operation key="query" name="列表" desc="列表">
+                    <address name="客户账单列表" url="/pages/customerBill_list.shtml" />
+                    <address name="获取数据" url="/customerInfo/query.ajax" />
+                </operation>
+                <operation key="accountDetail" name="账户明细" desc="账户明细">
+                    <address name="账户明细页面" url="/pages/customerAccountDetail_view.shtml" />
+                    <address name="查询请求" url="/customerInfo/get.ajax" />
+                    <address name="交易流水查询" url="/customerTradeFlow/query.ajax"/>
+                    <address name="初始化累计存款和累计消费" url="/customerTradeFlow/init.ajax"/>
+                </operation>
+                <operation key="accountChange" name="账户充值和信用额度调整" desc="账户充值和信用额度调整">
+                    <address name="账户充值和信用额度调整" url="/customerTradeFlow/add.ajax"/>
+                </operation>
+			</resource>
+			
+			<resource key="auth_customer_bill_query" name="账单查询" desc="账单查询">
+                <operation key="query" name="列表" desc="列表">
+                    <address name="账单查询列表" url="/pages/customerBillQuery_view.shtml" />
+                    <address name="账单查询" url="/customerBalanceDay/query.ajax"/>
+                    <address name="获取客户信息" url="/orderInfo/selectByPartnerId.ajax" />
+                    <address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+                    <address name="查询下发数和下发金额" url="/customerBalanceDay/initCustomerCountAndPriceTotal.ajax"/>
+                </operation>
+                <operation key="export" name="导出" desc="导出">
+                    <address name="导出" url="/customerBalanceDay/downLoadCustomerBill.ajax" />
+                </operation>
+            </resource>
+            
+            <resource key="auth_customer_settlement_order_manager" name="结算单管理" desc="结算单管理">
+                <operation key="query" name="列表" desc="列表">
+                    <address name="结算单查询列表" url="/pages/customerSettlementOrder_list.shtml" />
+                    <address name="结算单查询" url="/customerBalanceMonth/query.ajax"/>
+                    <address name="获取客户信息" url="/orderInfo/selectByPartnerId.ajax" />
+                    <address name="获取对应客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+                </operation>
+                <operation key="changeStatus" name="调整结算单状态" desc="调整结算单状态">
+                    <address name="调整结算单状态" url="/customerBalanceMonth/changeStatus.ajax"/>
+                </operation>
+                <operation key="changeAdjustBalance" name="调整金额" desc="调整金额">
+                    <address name="调整金额" url="/customerBalanceMonth/changeAdjustBalance.ajax"/>
+                </operation>
+                <operation key="downLoadSettlementOrder" name="导出" desc="导出">
+                    <address name="导出" url="/customerBalanceMonth/downLoadSettlementOrder.ajax"/>
+                </operation>
+            </resource>
+		</resource-category>
+		
+		<resource-category key="auth_greeting_manager" name="贺卡管理"
+						   desc="贺卡管理">
+			<resource key="auth_greeting_info" name="祝福语" desc="祝福语">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/card/greetingInfo_list.shtml" />
+					<address name="获取数据" url="/greetingInfo/query.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/greetingInfo_add.shtml" />
+					<address name="添加或更新数据" url="/greetingInfo/add.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/greetingInfo/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户详情">
+					<address name="详情页面" url="/pages/card/greetingInfo_view.shtml" />
+					<address name="详情获取" url="/greetingInfo/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="greeting_card_info_manage" name="贺卡" desc="贺卡">
+				<operation key="query" name="查看" desc="查看">
+					<address name="贺卡列表" url="/pages/card/greetingCardInfo_list.shtml" />
+					<address name="获取数据" url="/greetingCardInfo/query.ajax" />
+					<address name="获取所有活动" url="/greetingCardInfo/getCampaign.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/greetingCardInfo_add.shtml" />
+					<address name="添加或更新数据" url="/greetingCardInfo/add.ajax" />
+					<address name="获取所有活动" url="/greetingCardInfo/getCampaign.ajax" />
+					<address name="关联贺卡活动" url="/greetingCardAct/query.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/greetingCardInfo/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户详情">
+					<address name="详情页面" url="/pages/card/greetingCardInfo_view.shtml" />
+					<address name="详情获取" url="/greetingCardInfo/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="card_exchange_info" name="贺卡兑换记录" desc="贺卡兑换记录">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/card/cardExchangeInfo_list.shtml" />
+					<address name="获取数据" url="/cardExchangeInfo/query.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/cardExchangeInfo_add.shtml" />
+					<address name="添加或更新数据" url="/cardExchangeInfo/add.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/cardExchangeInfo/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户详情">
+					<address name="详情页面" url="/pages/card/cardExchangeInfo_view.shtml" />
+					<address name="详情获取" url="/cardExchangeInfo/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="wxPayRecord_manage" name="微信支付记录" desc="微信支付记录">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/card/wxPayRecord_list.shtml" />
+					<address name="获取数据" url="/wxPayRecord/query.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/wxPayRecord_add.shtml" />
+					<address name="添加或更新数据" url="/wxPayRecord/add.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/wxPayRecord/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户详情">
+					<address name="详情页面" url="/pages/card/wxPayRecord_view.shtml" />
+					<address name="详情获取" url="/wxPayRecord/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="my_greeting_card" name="我的贺卡" desc="我的贺卡">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/card/myGreetingCard_list.shtml" />
+					<address name="获取数据" url="/myGreetingCard/query.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/myGreetingCard_add.shtml" />
+					<address name="添加或更新数据" url="/myGreetingCard/add.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/myGreetingCard/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看客户详情">
+					<address name="详情页面" url="/pages/card/myGreetingCard_view.shtml" />
+					<address name="详情获取" url="/myGreetingCard/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="greeting_card_act" name="贺卡活动" desc="贺卡活动">
+				<operation key="query" name="查看" desc="查看">
+					<address name="直销终端客户列表" url="/pages/card/greetingCardAct_list.shtml" />
+					<address name="获取数据" url="/greetingCardAct/query.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/card/greetingCardAct_add.shtml" />
+					<address name="添加或更新数据" url="/greetingCardAct/add.ajax" />
+					<address name="查询客户信息" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="贺卡活动主页" url="/pages/card/greetingCardAct_list.shtml" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/greetingCardAct/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看活动详情">
+					<address name="详情页面" url="/pages/card/greetingCardAct_view.shtml" />
+					<address name="详情获取" url="/greetingCardAct/get.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+		
+		
+		<resource-category key="auth_data_dictionary" name="数据字典"
+			desc="客户账单管理">
+			<resource key="auth_data_dictionary_list" name="账单管理" desc="账单管理">
+				<operation key="query" name="列表" desc="列表">
+                    <address name="获取数据" url="/codeDict/query.ajax" />
+                </operation>
+			</resource>
+		</resource-category>
+
+        <resource-category key="auth_data_greeting_card" name="流量营销活动"
+                           desc="流量营销活动">
+            <resource key="auth_data_greeting_card_list" name="营销活动配置" desc="营销活动配置">
+                <operation key="query" name="查看" desc="查看">
+                    <address name="营销活动配置" url="/pages/greeting_list.shtml"/>
+                    <address name="获取数据" url="/greetingCardAct/queryGreetingCardList.ajax"/>
+                </operation>
+                <operation key="add" name="新增" desc="新增">
+                    <address name="添加页面" url="/pages/greeting_add.shtml"/>
+                    <address name="贺卡模板页面" url="/pages/greeting_temp/demo.shtml"/>
+                    <address name="分享页面" url="/pages/greeting_temp/share_info.shtml"/>
+                    <address name="查询客户" url="/greetingCardAct/selectCustomerInfoByName.ajax"/>
+                    <address name="查询订单" url="/greetingCardAct/getFlowAppInfo.ajax"/>
+                    <address name="添加或更新数据" url="/greetingCardAct/addGreeting.ajax"/>
+                    <address name="获取详情" url="/greetingCardAct/getGreetingCard.ajax"/>
+                </operation>
+            </resource>
+            <resource key="auth_data_campaign_reward_info_list" name="领取信息" desc="领取信息">
+                <operation key="query" name="查看" desc="查看">
+                    <address name="领取信息" url="/pages/campaignRewardInfo_list.shtml"/>
+					<address name="查询领取信息" url="/campaignRewardInfo/query.ajax" />
+					<address name="领取详情页面" url="/pages/act/campaignRewardInfo_view.shtml"/>
+					<address name="领取详情信息请求" url="/campaignRewardInfo/get.ajax" />
+                </operation>
+                <operation key="export" name="导出" desc="导出">
+                    <address name="导出" url="/campaignRewardInfo/downLoadGetCampaignRewardInfo.ajax"/>
+                </operation>
+            </resource>
+            <resource key="auth_data_flow_act_temp" name="水果机游戏模板" desc="水果机游戏模板">
+                <operation key="query" name="水果机游戏列表" desc="水果机游戏列表">
+                    <address name="水果机列表页面" url="/pages/actTemplate_list.shtml"/>
+                    <address name="水果机列表请求" url="/campaignInfo/actTemplate.ajax"/>
+					<address name="查询客户信息" url="/campaignInfo/selectCustomerInfoByName.ajax" />
+                </operation>
+                <operation key="add" name="水果机新增/修改" desc="水果机新增/修改">
+                    <address name="水果机新增页面" url="/pages/actTemplate_add.shtml"/>
+                    <address name="水果机新增请求" url="/campaignInfo/addActTemplate.ajax"/>
+                    <address name="水果机新增详情" url="/campaignInfo/getActTemplate.ajax"/>
+					<address name="查询客户信息" url="/campaignInfo/selectCustomerInfoByName.ajax" />
+                    <address name="查询订单" url="/campaignInfo/getCustomerFlowAppInfo.ajax"/>
+					<address name="水果机模板页面" url="/pages/act_temp/index.shtml"/>
+					<address name="水果机分享页面" url="/pages/act_temp/share_info.shtml"/>
+					<address name="删除奖品信息" url="/campaignInfo/deleteGiftList.ajax" />
+                </operation>
+            </resource>
+			<resource key="sig_in_conf" name="签到送流量" desc="签到送流量">
+				<operation key="query" name="签到送流量列表" desc="签到送流量列表">
+					<address name="签到送流量列表页面" url="/pages/signInConf_list.shtml"/>
+					<address name="签到送流量列表请求" url="/signInConf/signInConf.ajax"/>
+					<address name="查询客户信息" url="/signInConf/selectCustomerInfoByName.ajax" />
+					<address name="删除奖品信息" url="/signInConf/deleteGiftList.ajax" />
+
+					<address name="签到详情页面" url="/pages/signInDetail_list.shtml" />
+					<address name="查询流水" url="/signPointsRecord/query.ajax" />
+					<address name="流水导出权限" url="/signPointsRecord/downLoadSignIn.ajax" />
+					<address name="统计签到" url="/signPointsRecord/statisticsSignIn.ajax" />
+					<address name="统计签到导出权限" url="/signPointsRecord/statisticsSignInExport.ajax" />
+
+				</operation>
+				<operation key="add" name="签到新增/修改" desc="签到新增/修改">
+					<address name="签到新增页面" url="/pages/signInConf_add.shtml"/>
+					<address name="签到新增请求" url="/signInConf/addSignInConf.ajax"/>
+					<address name="签到新增详情" url="/signInConf/getSignInConf.ajax"/>
+					<address name="查询客户信息" url="/signInConf/selectCustomerInfoByName.ajax" />
+					<address name="查询订单" url="/signInConf/getCustomerFlowAppInfo.ajax"/>
+					<address name="签到模板页面" url="/pages/sign_in/index.shtml"/>
+					<address name="签到分享页面" url="/pages/sign_in/share_info.shtml"/>
+				</operation>
+			</resource>
+        </resource-category>
+		
+			<resource-category key="auth_data_adv" name="广告位"
+						   desc="流量贺卡">
+			<resource key="auth_data_adv_category" name="广告位类别" desc="广告位类别">
+				<operation key="query" name="查看" desc="查看">
+					<address name="查看页面" url="/pages/act/advCategory_list.shtml" />
+					<address name="查看请求" url="/advCategory/query.ajax" />
+					<address name="查询客户信息" url="/advCategory/selectCustomerInfoByName.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/act/advCategory_add.shtml" />
+					<address name="添加或更新数据" url="/advCategory/add.ajax" />
+					<address name="详情获取" url="/advCategory/get.ajax" />
+					<address name="查询客户信息" url="/advCategory/selectCustomerInfoByName.ajax" />
+					<address name="唯一ID判断" url="/advCategory/soloId.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/advCategory/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看活动详情">
+					<address name="详情页面" url="/pages/act/advCategory_view.shtml" />
+					<address name="详情获取" url="/advCategory/get.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_data_adv_info" name="广告位信息" desc="广告位信息">
+				<operation key="query" name="查看" desc="查看">
+					<address name="领取信息" url="/pages/act/advInfo_list.shtml" />
+					<address name="获取数据" url="/advInfo/query.ajax" />
+					<address name="查询类别id" url="/advInfo/selectAdvInfoByCategoryId.ajax" />
+				</operation>
+				<operation key="add" name="新增" desc="新增">
+					<address name="添加页面" url="/pages/act/advInfo_add.shtml" />
+					<address name="添加或更新数据" url="/advInfo/add.ajax" />
+					<address name="详情获取" url="/advInfo/get.ajax" />
+					<address name="查询类别id" url="/advInfo/selectAdvInfoByCategoryId.ajax" />
+				</operation>
+				<operation key="delete" name="删除" desc="删除">
+					<address name="删除" url="/advInfo/delete.ajax" />
+				</operation>
+				<operation key="detail" name="详情" desc="查看活动详情">
+					<address name="详情页面" url="/pages/act/advInfo_view.shtml" />
+					<address name="详情获取" url="/advInfo/get.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+	</resource-category>
+</domain>

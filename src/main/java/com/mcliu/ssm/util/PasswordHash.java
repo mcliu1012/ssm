@@ -1,4 +1,4 @@
-package com.mcliu.ssm.core.util;
+package com.mcliu.ssm.util;
 
 /* 
  * Password Hashing With PBKDF2 (http://crackstation.net/hashing-security.htm).

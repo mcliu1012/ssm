@@ -65,6 +65,10 @@
         <!-- 配置监控统计拦截的filters -->
         <property name="filters" value="stat"/>
     </bean>
+    
+    <!-- Spring管理SpringContextHolder -->
+    <!-- SpringContextHolder.getBean() -->
+    <bean class="com.aspire.webbas.core.util.SpringContextHolder" lazy-init="false"/>
 
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"

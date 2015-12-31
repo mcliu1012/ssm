@@ -2,7 +2,7 @@ package com.mcliu.ssm.web.dao;
 
 import java.util.List;
 
-import com.mcliu.ssm.web.model.OrderInfo;
+import com.mcliu.ssm.web.entity.OrderInfo;
 
 public interface OrderInfoMapper {
     int deleteByPrimaryKey(Long orderId);

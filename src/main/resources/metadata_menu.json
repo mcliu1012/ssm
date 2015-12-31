@@ -1,0 +1,470 @@
+{
+    "domain": "admin",
+    "subsystem": "fmp-admin",
+    "data": [
+      	{
+            "id": "10100",
+            "text": "合作伙伴管理",
+            "iconCls": "nav",
+            "menuOrder": "1",
+            "leaf": false,
+            "icon": "menu-icon fa fa-user-md",
+            "menuKey": "partner_manager",
+			"children": [
+				{
+                    "text": "流量下发监控",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/activityOverview.shtml",
+                    "id": "10101",
+		    		"icon":"icon-user",
+                    "menuKey": "partner_manager_activityOverview"
+                },
+                {
+                    "text": "合作伙伴列表",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/partnerInfo_list.shtml",
+                    "id": "10102",
+		    		"icon":"icon-user",
+                    "menuKey": "partner_manager_list"
+                },{
+                    "text": "我的信息",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/partnerInfo_self_view.shtml",
+                    "id": "10103",
+		    		"icon":"icon-user",
+                    "menuKey": "partner_manager_self"
+                }
+            ]
+        }, {
+            "id": "10200",
+            "text": "订单管理",
+            "iconCls": "nav",
+            "menuOrder": "2",
+            "leaf": false,
+            "icon": "menu-icon fa fa-credit-card",
+            "menuKey": "order_manager",
+			"children": [
+                {
+                    "text": "订单列表",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/orderInfo_list.shtml",
+                    "id": "10201",
+		    		"icon":"icon-user",
+                    "menuKey": "order_manager_lisst"
+                }
+            ]
+        }, {
+            "id": "10300",
+            "text": "客户管理",
+            "iconCls": "nav",
+            "menuOrder": "3",
+            "leaf": false,
+            "icon": "menu-icon fa fa-users",
+            "menuKey": "customer_manager",
+            "children": [
+                {
+                    "text": "客户管理",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/customerInfo_list.shtml",
+                    "id": "10301",
+		    		"icon":"icon-user",
+                    "menuKey": "customer_manager_zc"
+                },{
+                    "text": "客户微信配置管理",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/card/wxAccessConf_list.shtml",
+                    "id": "10302",
+		    		"icon":"icon-user",
+                    "menuKey": "customer_wxAccessConf"
+                }
+            ]
+        },{
+            "id": "10400",
+            "text": "记录查询",
+            "iconCls": "nav",
+            "menuOrder": "5",
+            "leaf": false,
+            "icon": "menu-icon fa fa-th-list",
+            "menuKey": "record_manager",
+            "children": [
+                {
+                    "text": "兑换记录查询",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/marketingIssued_list.shtml",
+                    "id": "10401",
+		    		"icon":"icon-user",
+                    "menuKey": "record_manager_xf"
+                },{
+                    "text": "直充记录查询",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/directCharge_list.shtml",
+                    "id": "10402",
+		    		"icon":"icon-user",
+                    "menuKey": "record_manager_zc"
+                } ,{
+                    "text": "流量分发记录",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/flowOrderInfo_list.shtml",
+                    "id": "10403",
+		    		"icon":"icon-user",
+                    "menuKey": "flow_orderinfo_list"
+                },{
+                    "text": "流量分发记录(财务)",
+                    "menuOrder": "4",
+                    "leaf": "true",
+                    "url": "/pages/flowOrderInfoFinance_list.shtml",
+                    "id": "10404",
+                    "icon":"icon-user",
+                    "menuKey": "flow_orderinfofinance_list"
+                } ,{
+                    "text": "流量网关日志查询",
+                    "menuOrder": "5",
+                    "leaf": "true",
+                    "url": "/pages/mobileFlowDispatchRec_list.shtml",
+                    "id": "10405",
+		    		"icon":"icon-user",
+                    "menuKey": "mobile_flow_dispatch_rec"
+                } ,{
+                    "text": "订单处理记录查询",
+                    "menuOrder": "6",
+                    "leaf": "true",
+                    "url": "/pages/orderDealRecord_list.shtml",
+                    "id": "10406",
+		    		"icon":"icon-user",
+                    "menuKey": "auth_order_deal_record"
+                }
+            ]
+        },{
+            "id": "10500",
+            "text": "产品管理",
+            "iconCls": "nav",
+            "menuOrder": "7",
+            "leaf": false,
+            "icon": "menu-icon fa fa-barcode",
+            "menuKey": "prodcut_manager",
+            "children": [
+                {
+                    "text": "产品设置",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/flowProductInfo_list.shtml",
+                    "id": "10501",
+		    		"icon":"icon-user",
+                    "menuKey": "prodcut_manager_cp"
+                },{
+                    "text": "流量包设置",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/flowPackageInfo_list.shtml",
+                    "id": "10502",
+		    		"icon":"icon-user",
+                    "menuKey": "prodcut_manager_llb"
+                }
+            ]
+        },{
+            "id": "10600",
+            "text": "卡片管理",
+            "iconCls": "nav",
+            "menuOrder": "8",
+            "leaf": false,
+            "icon": "menu-icon fa fa-list-ul",
+            "menuKey": "card_manager",
+            "children": [
+                {
+                    "text": "流量+卡/券管理",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/flowCardBatchInfo_list.shtml",
+                    "id": "10601",
+		    		"icon":"icon-user",
+                    "menuKey": "card_manager_pc"
+                },
+                 {
+                    "text": "卡片查询",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/flowCardInfo_list.shtml",
+                    "id": "10602",
+		    		"icon":"icon-user",
+                    "menuKey": "card_manager_kp"
+                }
+            ]
+        },{
+            "id": "10700",
+            "text": "接入管理",
+            "iconCls": "nav",
+            "menuOrder": "9",
+            "leaf": false,
+            "icon": "menu-icon fa fa-magnet",
+            "menuKey": "access_manager",
+            "children": [
+                {
+                    "text": "短信接入",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/smsChannelInfo_list.shtml",
+                    "id": "10701",
+		    		"icon":"icon-user",
+                    "menuKey": "sms_access"
+                },
+                 {
+                    "text": "APP接入",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/flowAppInfo_list.shtml",
+                    "id": "10702",
+		    		"icon":"icon-user",
+                    "menuKey": "app_access"
+                },
+                 {
+                    "text": "APP版本管理",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/versionUpgradeInfo_list.shtml",
+                    "id": "10703",
+		    		"icon":"icon-user",
+                    "menuKey": "app_version"
+                }
+            ]
+        },{
+            "id": "10800",
+            "text": "活动管理",
+            "iconCls": "nav",
+            "menuOrder": "10",
+            "leaf": false,
+            "icon": "menu-icon fa fa-bullhorn",
+            "menuKey": "campaign_info_manager",
+            "children": [
+                {
+                    "text": "营销活动",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/act/campaignInfo_list.shtml",
+                    "id": "10801",
+		    		"icon":"icon-user",
+                    "menuKey": "campaign_info"
+                },
+                {
+                    "text": "中奖记录",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/act/campaignRewardInfo_list.shtml",
+                    "id": "10802",
+		    		"icon":"icon-user",
+                    "menuKey": "campaign_info_reward"
+                }
+                ,
+                {
+                    "text": "抽奖记录",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/act/campaignDrawDetail_list.shtml",
+                    "id": "10803",
+		    		"icon":"icon-user",
+                    "menuKey": "campaign_info_draw"
+                }
+            ]
+        }, {
+            "id": "10900",
+            "text": "合作伙伴账单管理",
+            "iconCls": "nav",
+            "menuOrder": "11",
+            "leaf": false,
+            "icon": "menu-icon fa fa-jpy",
+            "menuKey": "partner_bill_manager",
+            "children": [
+                {
+                    "text": "账户管理",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/partnerBill_list.shtml",
+                    "id": "10901",
+                    "icon":"icon-user",
+                    "menuKey": "partner_bill_list"
+                }, {
+                    "text": "账单查询",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/partnerBillQuery_view.shtml",
+                    "id": "10902",
+                    "icon":"icon-user",
+                    "menuKey": "partner_bill_query_view"
+                }, {
+                    "text": "结算单管理",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/partnerSettlementOrder_list.shtml",
+                    "id": "10903",
+                    "icon":"icon-user",
+                    "menuKey": "partner_Settlement_order_list"
+                }
+            ]
+        }, {
+            "id": "11000",
+            "text": "客户账单管理",
+            "iconCls": "nav",
+            "menuOrder": "12",
+            "leaf": false,
+            "icon": "menu-icon fa fa-usd",
+            "menuKey": "customer_bill_manager",
+            "children": [
+                {
+                    "text": "账户管理",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/customerBill_list.shtml",
+                    "id": "11001",
+                    "icon":"icon-user",
+                    "menuKey": "customer_bill_list"
+                }, {
+                    "text": "账单查询",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/customerBillQuery_view.shtml",
+                    "id": "11002",
+                    "icon":"icon-user",
+                    "menuKey": "customer_bill_query_view"
+                }, {
+                    "text": "结算单管理",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/customerSettlementOrder_list.shtml",
+                    "id": "11003",
+                    "icon":"icon-user",
+                    "menuKey": "customer_Settlement_order_list"
+                }
+            ]
+        },{
+            "id": "11100",
+            "text": "贺卡管理",
+            "iconCls": "nav",
+            "menuOrder": "13",
+            "leaf": false,
+            "icon": "menu-icon fa fa-envelope",
+            "menuKey": "greeting_card_manage",
+            "children": [
+                {
+                    "text": "祝福语管理",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/card/greetingInfo_list.shtml",
+                    "id": "11101",
+                    "icon":"icon-user",
+                    "menuKey": "greeting_info_manage"
+                },{
+                    "text": "贺卡活动",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/card/greetingCardAct_list.shtml",
+                    "id": "11102",
+                    "icon":"icon-user",
+                    "menuKey": "greeting_card_act"
+                },{
+                    "text": "贺卡列表",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/card/greetingCardInfo_list.shtml",
+                    "id": "11103",
+                    "icon":"icon-user",
+                    "menuKey": "greeting_card_info_manage"
+                },{
+                    "text": "我的贺卡",
+                    "menuOrder": "4",
+                    "leaf": "true",
+                    "url": "/pages/card/myGreetingCard_list.shtml",
+                    "id": "11104",
+                    "icon":"icon-user",
+                    "menuKey": "my_greeting_card_manage"
+                },{
+                    "text": "微信支付记录",
+                    "menuOrder": "5",
+                    "leaf": "true",
+                    "url": "/pages/card/wxPayRecord_list.shtml",
+                    "id": "11105",
+                    "icon":"icon-user",
+                    "menuKey": "wxPayRecord_manage"
+                }
+
+            ]
+        },{
+            "id": "11200",
+            "text": "流量营销活动",
+            "iconCls": "nav",
+            "menuOrder": "14",
+            "leaf": false,
+            "icon": "menu-icon fa fa-envelope",
+            "menuKey": "flow_greeting_card_manage",
+            "children": [
+                {
+                    "text": "营销活动配置",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/greeting_list.shtml",
+                    "id": "11201",
+                    "icon":"icon-user",
+                    "menuKey": "greeting_card"
+                },{
+                    "text": "水果机游戏配置",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/actTemplate_list.shtml",
+                    "id": "11202",
+                    "icon":"icon-user",
+                    "menuKey": "actTemplate_list"
+                },{
+                    "text": "签到送流量配置",
+                    "menuOrder": "3",
+                    "leaf": "true",
+                    "url": "/pages/signInConf_list.shtml",
+                    "id": "11203",
+                    "icon":"icon-user",
+                    "menuKey": "sign_in_conf_list"
+                },{
+                    "text": "领取信息",
+                    "menuOrder": "4",
+                    "leaf": "true",
+                    "url": "/pages/campaignRewardInfo_list.shtml",
+                    "id": "11204",
+                    "icon":"icon-user",
+                    "menuKey": "campaign_reward_list"
+                }
+            ]
+        },{
+            "id": "11300",
+            "text": "广告位",
+            "iconCls": "nav",
+            "menuOrder": "15",
+            "leaf": false,
+            "icon": "menu-icon fa fa-envelope",
+            "menuKey": "adv",
+            "children": [
+                {
+                    "text": "广告位类别",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/act/advCategory_list.shtml",
+                    "id": "11301",
+                    "icon":"icon-user",
+                    "menuKey": "advCategory_list"
+                },{
+                    "text": "广告位信息",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/act/advInfo_list.shtml",
+                    "id": "11302",
+                    "icon":"icon-user",
+                    "menuKey": "adv_info_list"
+                }
+            ]
+        }
+    ]
+}

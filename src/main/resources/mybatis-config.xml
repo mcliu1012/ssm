@@ -57,7 +57,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.mcliu.ssm.web.model"/>
+        <package name="com.mcliu.ssm.web.entity"/>
 <!--         <package name="com.mcliu.ssm.web.enums"/> -->
     </typeAliases>
 

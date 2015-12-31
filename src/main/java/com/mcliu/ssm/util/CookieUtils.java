@@ -1,4 +1,4 @@
-package com.mcliu.ssm.core.util;
+package com.mcliu.ssm.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

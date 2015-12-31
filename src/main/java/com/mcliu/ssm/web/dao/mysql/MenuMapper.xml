@@ -33,4 +33,34 @@
 		</where>
 		order by menu_order
 	</select>
+	
+	<insert id="insert" parameterType="com.aspire.webbas.portal.common.entity.Menu" useGeneratedKeys="true" keyProperty="menuId">
+		insert into menu 
+		(menu_id, menu_name, menu_key,
+		 parent_id, image_url, url,
+		 menu_order, subsystem, domain
+		)
+		values 
+		(#{menuId, jdbcType=BIGINT}, #{menuName, jdbcType=VARCHAR}, #{menuKey, jdbcType=VARCHAR},
+		 #{parentId, jdbcType=BIGINT}, #{imageUrl, jdbcType=VARCHAR}, #{url, jdbcType=VARCHAR},
+		 #{menuOrder, jdbcType=VARCHAR}, #{subsystem, jdbcType=VARCHAR}, #{domain, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 批量插入 -->
+    <insert id ="insertBatch" parameterType="java.util.List">
+        insert into menu 
+        (menu_id, menu_name, menu_key,
+         parent_id, image_url, url,
+         menu_order, subsystem, domain
+        )
+        values 
+        <foreach collection ="list" item="item" index= "index" separator=",">
+           (
+           #{item.menuId, jdbcType=BIGINT}, #{item.menuName, jdbcType=VARCHAR}, #{item.menuKey, jdbcType=VARCHAR},
+           #{item.parentId, jdbcType=BIGINT}, #{item.imageUrl, jdbcType=VARCHAR}, #{item.url, jdbcType=VARCHAR},
+           #{item.menuOrder, jdbcType=VARCHAR}, #{item.subsystem, jdbcType=VARCHAR}, #{item.domain, jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
 </mapper> 

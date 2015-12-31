@@ -1,4 +1,4 @@
-package com.mcliu.ssm.web.model;
+package com.mcliu.ssm.web.entity;
 
 import java.math.BigDecimal;
 

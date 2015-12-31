@@ -11,7 +11,7 @@
 		</job-detail>
 		<trigger>
 			<cron>
-				<name>refreshDay</name>
+				<name>testJob</name>
 				<group>DEFAULT</group>
 				<job-name>TestJob</job-name>
 				<job-group>DEFAULT</job-group>
@@ -19,6 +19,28 @@
 				<cron-expression>0 0 1 * * ?</cron-expression>
 				<!-- 每隔1分钟 -->
 <!--                 <cron-expression>0 0/1 * * * ?</cron-expression> -->
+			</cron>
+		</trigger>
+	</job>
+	<job>
+		<job-detail>
+			<name>MenuAndAuthGeneratingJob</name>
+			<group>DEFAULT</group>
+			<job-class>com.mcliu.ssm.common.job.MenuAndAuthGeneratingJob</job-class>
+			<volatility>false</volatility>
+			<durability>false</durability>
+			<recover>false</recover>
+		</job-detail>
+		<trigger>
+			<cron>
+				<name>menuAndAuthGeneratingJob</name>
+				<group>DEFAULT</group>
+				<job-name>MenuAndAuthGeneratingJob</job-name>
+				<job-group>DEFAULT</job-group>
+				<!-- 每天早上1点整 -->
+<!-- 				<cron-expression>0 0 1 * * ?</cron-expression> -->
+				<!-- 每隔1分钟 -->
+                <cron-expression>0 0/1 * * * ?</cron-expression>
 			</cron>
 		</trigger>
 	</job>

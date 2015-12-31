@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mcliu.ssm.web.dao.OrderInfoMapper;
-import com.mcliu.ssm.web.model.OrderInfo;
+import com.mcliu.ssm.web.entity.OrderInfo;
 import com.mcliu.ssm.web.service.LoginService;
 
 @Service("loginService")

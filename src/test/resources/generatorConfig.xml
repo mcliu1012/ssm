@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <!-- 配置Run As Maven build : Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true -->
-<!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
+<!-- 配置 tableName,使用 Run As Maven build 生成 dao entity 层 -->
 <generatorConfiguration>
     <!-- 配置文件路径 -->
     <properties url="${mybatis.generator.generatorConfig.properties}"/>
@@ -24,7 +24,7 @@
         </jdbcConnection>
 
         <!--生成的model 包路径 -->
-        <javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
+        <javaModelGenerator targetPackage="${entity.package}" targetProject="${target.project}">
             <property name="enableSubPackages" value="ture"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -43,6 +43,6 @@
 <!--         <table tableName="user"> -->
 
 <!--         </table> -->
-        <table tableName="user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="sec_role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     </context>
 </generatorConfiguration>
