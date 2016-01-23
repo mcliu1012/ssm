@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="gb2312"?>
-<!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd"> -->
 <domain id="cspm-mgmt" subsystem="exclude_eump_admin">
-	<resource-category key="exclude_eump_admin" name="admin¶ËÀýÍâ×ÊÔ´" desc="admin¶ËÀýÍâ×ÊÔ´">
-		<!-- sessionÀýÍâ×ÊÔ´-->
-		<resource key="exclude_eump_admin_session" name="sessionÀýÍâ×ÊÔ´" desc="sessionÀýÍâ×ÊÔ´" authType="UNAUTH">
-				<operation key="EXCLUDE" name="ÀýÍâ" desc="ÀýÍâ">
-				<address name="ÉÏ´«×é¼þaction" url="/attachment/add.ajax"/>
-				<address name="ÉÏ´«×é¼þaction" url="/attachment/list.ajax"/>
-				<address name="ÉÏ´«×é¼þaction" url="/attachment/withdraw.ajax"/>
-				<address name="ÉÏ´«×é¼þÁÐ±íaction" url="/attachment/download.ajax"/>
-				<address name="ÉÏ´«×é¼þ»ØÍËaction" url="/attachment/downloadMulti.ajax"/>
-				<address name="ÉÏ´«×é¼þÀàÐÍä¯ÀÀaction" url="/attachment/view.ajax"/>		
+	<resource-category key="exclude_eump_admin" name="adminç«¯ä¾‹å¤–èµ„æº" desc="adminç«¯ä¾‹å¤–èµ„æº">
+		<!-- sessionä¾‹å¤–èµ„æº-->
+		<resource key="exclude_eump_admin_session" name="sessionä¾‹å¤–èµ„æº" desc="sessionä¾‹å¤–èµ„æº" authType="UNAUTH">
+				<operation key="EXCLUDE" name="ä¾‹å¤–" desc="ä¾‹å¤–">
+				<address name="ä¸Šä¼ ç»„ä»¶action" url="/attachment/add.ajax"/>
+				<address name="ä¸Šä¼ ç»„ä»¶action" url="/attachment/list.ajax"/>
+				<address name="ä¸Šä¼ ç»„ä»¶action" url="/attachment/withdraw.ajax"/>
+				<address name="ä¸Šä¼ ç»„ä»¶åˆ—è¡¨action" url="/attachment/download.ajax"/>
+				<address name="ä¸Šä¼ ç»„ä»¶å›žé€€action" url="/attachment/downloadMulti.ajax"/>
+				<address name="ä¸Šä¼ ç»„ä»¶ç±»åž‹æµè§ˆaction" url="/attachment/view.ajax"/>		
 			</operation>
            
 		</resource>
-		<!-- ¼øÈ¨ÀýÍâ×ÊÔ´-->
-		<resource key="exclude_admin_perm" name="¼øÈ¨ÀýÍâ×ÊÔ´" desc="¼øÈ¨ÀýÍâ×ÊÔ´" authType="LOGIN_AUTH">
+		<!-- é‰´æƒä¾‹å¤–èµ„æº-->
+		<resource key="exclude_admin_perm" name="é‰´æƒä¾‹å¤–èµ„æº" desc="é‰´æƒä¾‹å¤–èµ„æº" authType="LOGIN_AUTH">
 			
-			<!--ºóÌ¨¹«ÓÃACTIONÀýÍâ-->
-			<operation key="EXCLUDE" name="ºóÌ¨¹«ÓÃACTIONÀýÍâ" desc="ºóÌ¨¹«ÓÃACTIONµÇÂ¼ºó¾Í¿É·ÃÎÊ">
-				<address name="ÉÏ´«×é¼þÁÐ±íaction" url="/codeDict/query.ajax"/>
+			<!--åŽå°å…¬ç”¨ACTIONä¾‹å¤–-->
+			<operation key="EXCLUDE" name="åŽå°å…¬ç”¨ACTIONä¾‹å¤–" desc="åŽå°å…¬ç”¨ACTIONç™»å½•åŽå°±å¯è®¿é—®">
+				<address name="ä¸Šä¼ ç»„ä»¶åˆ—è¡¨action" url="/codeDict/query.ajax"/>
 			</operation>
            
 		</resource>

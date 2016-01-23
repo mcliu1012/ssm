@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
@@ -50,11 +49,38 @@ public class Test {
             Document document = saxReader.read(inputStream);
             // 取得根节点
             Element rootElement = document.getRootElement();
+            if (null == rootElement) {
+                return;
+            }
             String domain = rootElement.attributeValue("id");
             String metadata_id = rootElement.attributeValue("subsystem");
-            if (null != rootElement.elements("resource-category")) {
-                // 资源分类－第一级
-                List<Element> elementList = rootElement.elements("resource-category");
+            System.out.println("domain:" + domain);
+            System.out.println("metadata_id:" + metadata_id);
+            // 资源分类－第一级
+            Element parentResourceCategory = rootElement.element("resource-category");
+            if (null == parentResourceCategory) {
+                return;
+            }
+            System.out.println("key:" + parentResourceCategory.attributeValue("key"));
+            System.out.println("name:" + parentResourceCategory.attributeValue("name"));
+            System.out.println("desc:" + parentResourceCategory.attributeValue("desc"));
+            System.out.println("orderKey:" + parentResourceCategory.attributeValue("orderKey"));
+            // 构造父ResourceCategory
+            ResourceCategory parentCategory = new ResourceCategory();
+            parentCategory.setCategoryKey(parentResourceCategory.attributeValue("key"));
+            parentCategory.setCategoryName(parentResourceCategory.attributeValue("name"));
+            parentCategory.setCategoryDesc(parentResourceCategory.attributeValue("desc"));
+            parentCategory.setOrderKey(Integer.valueOf(parentResourceCategory.attributeValue("orderKey")));
+            parentCategory.setMetadataId(metadata_id);
+            parentCategory.setDomain(domain);
+            
+            // 第二级 <resource-category> 集合
+            List<Element> childResourceCategoryList = parentResourceCategory.elements("resource-category");
+            for (Element e : childResourceCategoryList) {
+                System.out.println("key:" + e.attributeValue("key"));
+                System.out.println("name:" + e.attributeValue("name"));
+                System.out.println("desc:" + e.attributeValue("desc"));
+                break;
             }
             
         } catch (Exception e) {

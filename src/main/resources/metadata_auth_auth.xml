@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="gb2312"?>
-<!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd"> -->
 <domain id="admin" subsystem="fmp-admin">
-	<!-- ×ÊÔ´·ÖÀà£­µÚÒ»¼¶ -->
+	<!-- èµ„æºåˆ†ç±»ï¼ç¬¬ä¸€çº§ -->
 	<resource-category key="manager" orderKey="2000"
-		name="Á÷Á¿ÓªÏú¹ÜÀíÆ½Ì¨" desc="Á÷Á¿ÓªÏú¹ÜÀíÆ½Ì¨">
-		<resource-category key="auth_partner_manager" name="ºÏ×÷»ï°é¹ÜÀí"
-			desc="ºÏ×÷»ï°é¹ÜÀí">
-			<resource key="auth_partner_manager_activityOverview" name="Á÷Á¿ÏÂ·¢¼à¿Ø"
-				desc="ºÏ×÷»ï°éÁÐ±í">
-				<operation key="get" name="Á÷Á¿ÏÂ·¢¼à¿Ø" desc="Á÷Á¿ÏÂ·¢¼à¿Ø">
-					<address name="Á÷Á¿ÏÂ·¢¼à¿Ø" url="/pages/activityOverview.shtml" />
-					<address name="¿´°åÄÚÈÝ" url="/businessBoard/initReportForm.ajax" />
-					<address name="top5Êý¾Ý" url="/businessBoard/initData.ajax" />
+		name="æµé‡è¥é”€ç®¡ç†å¹³å°" desc="æµé‡è¥é”€ç®¡ç†å¹³å°">
+		<resource-category key="auth_partner_manager" name="åˆä½œä¼™ä¼´ç®¡ç†"
+			desc="åˆä½œä¼™ä¼´ç®¡ç†">
+			<resource key="auth_partner_manager_activityOverview" name="æµé‡ä¸‹å‘ç›‘æŽ§"
+				desc="åˆä½œä¼™ä¼´åˆ—è¡¨">
+				<operation key="get" name="æµé‡ä¸‹å‘ç›‘æŽ§" desc="æµé‡ä¸‹å‘ç›‘æŽ§">
+					<address name="æµé‡ä¸‹å‘ç›‘æŽ§" url="/pages/activityOverview.shtml" />
+					<address name="çœ‹æ¿å†…å®¹" url="/businessBoard/initReportForm.ajax" />
+					<address name="top5æ•°æ®" url="/businessBoard/initData.ajax" />
 				</operation>
 				</resource>
-			<resource key="auth_partner_manager_list" name="ºÏ×÷»ï°éÁÐ±í"
-				desc="ºÏ×÷»ï°éÁÐ±í">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ºÏ×÷»ï°éÁÐ±í" url="/pages/partnerInfo_list.shtml" />
-					<address name="²éÑ¯ÇëÇó" url="/partnerInfo/query.ajax" />
+			<resource key="auth_partner_manager_list" name="åˆä½œä¼™ä¼´åˆ—è¡¨"
+				desc="åˆä½œä¼™ä¼´åˆ—è¡¨">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆä½œä¼™ä¼´åˆ—è¡¨" url="/pages/partnerInfo_list.shtml" />
+					<address name="æŸ¥è¯¢è¯·æ±‚" url="/partnerInfo/query.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="ÏêÇé">
-					<address name="ºÏ×÷»ï°éÁÐ±í" url="/pages/partnerInfo_view.shtml" />
-					<address name="²éÑ¯ÇëÇó" url="/partnerInfo/get.ajax" />
-					<address name="³õÊ¼»¯ÕË»§ÐÅÏ¢" url="/partnerInfo/initBalance.ajax" />
-					<address name="³õÊ¼»¯²úÆ·Ð­Òé¶©µ¥ÀúÊ·¼ÇÂ¼" url="/orderDealRecord/getOrderDealRecord.ajax" />
-					<address name="ÏÂÔØ" url="/orderDealRecord/download.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="è¯¦æƒ…">
+					<address name="åˆä½œä¼™ä¼´åˆ—è¡¨" url="/pages/partnerInfo_view.shtml" />
+					<address name="æŸ¥è¯¢è¯·æ±‚" url="/partnerInfo/get.ajax" />
+					<address name="åˆå§‹åŒ–è´¦æˆ·ä¿¡æ¯" url="/partnerInfo/initBalance.ajax" />
+					<address name="åˆå§‹åŒ–äº§å“åè®®è®¢å•åŽ†å²è®°å½•" url="/orderDealRecord/getOrderDealRecord.ajax" />
+					<address name="ä¸‹è½½" url="/orderDealRecord/download.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö/ÐÞ¸Ä" desc="ÐÂÔö/ÐÞ¸Ä">
-					<address name="Ò³Ãæ" url="/pages/partnerInfo_add.shtml" />
-					<address name="ÐÂÔöÇëÇó" url="/partnerInfo/add.ajax" />
-					<address name="»ñÈ¡ÏêÇéÇëÇó" url="/partnerInfo/get.ajax" />
-					<address name="²éÑ¯ÕÊ»§ÇëÇó" url="/partnerInfo/queryStaff.ajax" />
-					<address name="²éÑ¯²úÆ·ÐÅÏ¢" url="/flowProductInfo/getByProductType.ajax" />
-					<address name="ÕËºÅÎ¨Ò»ÅÐ¶Ï" url="/partnerInfo/soloAccount.ajax" />
-					<address name="É¾³ý²úÆ·¹ØÁª" url="/partnerInfo/deleteBySeqId.ajax" />
+				<operation key="add" name="æ–°å¢ž/ä¿®æ”¹" desc="æ–°å¢ž/ä¿®æ”¹">
+					<address name="é¡µé¢" url="/pages/partnerInfo_add.shtml" />
+					<address name="æ–°å¢žè¯·æ±‚" url="/partnerInfo/add.ajax" />
+					<address name="èŽ·å–è¯¦æƒ…è¯·æ±‚" url="/partnerInfo/get.ajax" />
+					<address name="æŸ¥è¯¢å¸æˆ·è¯·æ±‚" url="/partnerInfo/queryStaff.ajax" />
+					<address name="æŸ¥è¯¢äº§å“ä¿¡æ¯" url="/flowProductInfo/getByProductType.ajax" />
+					<address name="è´¦å·å”¯ä¸€åˆ¤æ–­" url="/partnerInfo/soloAccount.ajax" />
+					<address name="åˆ é™¤äº§å“å…³è”" url="/partnerInfo/deleteBySeqId.ajax" />
 				</operation>
-				<operation key="changestatus" name="ÐÞ¸Ä×´Ì¬" desc="ÐÞ¸Ä×´Ì¬">
-					<address name="ÐÞ¸Ä×´Ì¬ÇëÇó" url="/partnerInfo/changeStatus.ajax" />
+				<operation key="changestatus" name="ä¿®æ”¹çŠ¶æ€" desc="ä¿®æ”¹çŠ¶æ€">
+					<address name="ä¿®æ”¹çŠ¶æ€è¯·æ±‚" url="/partnerInfo/changeStatus.ajax" />
 				</operation>
-				<operation key="resetPassword" name="ÖØÖÃÃÜÂë" desc="ÖØÖÃÃÜÂë">
-					<address name="ÖØÖÃÃÜÂë" url="/partnerInfo/resetPassword.ajax" />
-				</operation>
-
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/partnerInfo/delete.ajax" />
+				<operation key="resetPassword" name="é‡ç½®å¯†ç " desc="é‡ç½®å¯†ç ">
+					<address name="é‡ç½®å¯†ç " url="/partnerInfo/resetPassword.ajax" />
 				</operation>
 
-				<operation key="self" name="¸öÈËÐÅÏ¢" desc="¸öÈËÐÅÏ¢">
-					<address name="ÐÅÏ¢Õ¹Ê¾Ò³Ãæ" url="/pages/partnerInfo_self_view.shtml" />
-					<address name="»ñÈ¡¸öÈËÐÅÏ¢" url="/partnerInfo/getSelf.ajax" />
-					<address name="³õÊ¼»¯ÕË»§ÐÅÏ¢" url="/partnerInfo/initBalance.ajax" />
-					<address name="³õÊ¼»¯²úÆ·Ð­Òé¶©µ¥ÀúÊ·¼ÇÂ¼" url="/orderDealRecord/getOrderDealRecord.ajax" />
-					<address name="ÏÂÔØ" url="/orderDealRecord/download.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/partnerInfo/delete.ajax" />
+				</operation>
+
+				<operation key="self" name="ä¸ªäººä¿¡æ¯" desc="ä¸ªäººä¿¡æ¯">
+					<address name="ä¿¡æ¯å±•ç¤ºé¡µé¢" url="/pages/partnerInfo_self_view.shtml" />
+					<address name="èŽ·å–ä¸ªäººä¿¡æ¯" url="/partnerInfo/getSelf.ajax" />
+					<address name="åˆå§‹åŒ–è´¦æˆ·ä¿¡æ¯" url="/partnerInfo/initBalance.ajax" />
+					<address name="åˆå§‹åŒ–äº§å“åè®®è®¢å•åŽ†å²è®°å½•" url="/orderDealRecord/getOrderDealRecord.ajax" />
+					<address name="ä¸‹è½½" url="/orderDealRecord/download.ajax" />
 				</operation>
 
 
@@ -60,802 +60,802 @@
 		</resource-category>
 
 
-		<resource-category key="auth_order_manager" name="¶©µ¥¹ÜÀí"
-			desc="¶©µ¥¹ÜÀí">
-			<resource key="auth_order_manager_list" name="¶©µ¥ÁÐ±í" desc="¶©µ¥ÁÐ±í">
-				<!-- ×ÊÔ´²Ù×÷-DO -->
-				<operation key="order_manager_query" name="²é¿´" desc="²é¿´">
-					<address name="¶©µ¥ÁÐ±í" url="/pages/orderInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/orderInfo/query.ajax" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/orderInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/orderInfo/get.ajax" />
-					<address name="È¡³ö¶©µ¥×ÜÊý" url="/orderInfo/getOrderNumber.ajax" />
-					<address name="È¡³ö²úÆ·ÐÅÏ¢" url="/flowProductInfo/flowProductInfo.ajax" />
-					<address name="²úÆ·ÏêÇé" url="/flowProductInfo/get.ajax" />
-					<address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-					<address name="¿Í»§ÏêÇé»ñÈ¡" url="/customerInfo/get.ajax" />
+		<resource-category key="auth_order_manager" name="è®¢å•ç®¡ç†"
+			desc="è®¢å•ç®¡ç†">
+			<resource key="auth_order_manager_list" name="è®¢å•åˆ—è¡¨" desc="è®¢å•åˆ—è¡¨">
+				<!-- èµ„æºæ“ä½œ-DO -->
+				<operation key="order_manager_query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="è®¢å•åˆ—è¡¨" url="/pages/orderInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/orderInfo/query.ajax" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/orderInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/orderInfo/get.ajax" />
+					<address name="å–å‡ºè®¢å•æ€»æ•°" url="/orderInfo/getOrderNumber.ajax" />
+					<address name="å–å‡ºäº§å“ä¿¡æ¯" url="/flowProductInfo/flowProductInfo.ajax" />
+					<address name="äº§å“è¯¦æƒ…" url="/flowProductInfo/get.ajax" />
+					<address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="å®¢æˆ·è¯¦æƒ…èŽ·å–" url="/customerInfo/get.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/orderInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/orderInfo/get.ajax" />
-					<address name="¶©µ¥ÏêÇé³õÊ¼»¯" url="/orderInfo/orderInfoViewInit.ajax" />
-					<address name="³õÊ¼»¯¿Í»§¶©µ¥ÀúÊ·¼ÇÂ¼" url="/orderDealRecord/getOrderDealRecord.ajax" />
-                    <address name="ÏÂÔØ" url="/orderDealRecord/download.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/orderInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/orderInfo/get.ajax" />
+					<address name="è®¢å•è¯¦æƒ…åˆå§‹åŒ–" url="/orderInfo/orderInfoViewInit.ajax" />
+					<address name="åˆå§‹åŒ–å®¢æˆ·è®¢å•åŽ†å²è®°å½•" url="/orderDealRecord/getOrderDealRecord.ajax" />
+                    <address name="ä¸‹è½½" url="/orderDealRecord/download.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/orderInfo/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/orderInfo/delete.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/orderInfo_add.shtml" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/orderInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/orderInfo/get.ajax" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/orderInfo/add.ajax" />
-					<address name="»ñÈ¡¿Í»§ÐÅÏ¢" url="/orderInfo/selectByPartnerId.ajax" />
-					<address name="È¡³ö²úÆ·ÐÅÏ¢" url="/flowProductInfo/flowProductInfo.ajax" />
-					<address name="²úÆ·ÏêÇé" url="/flowProductInfo/get.ajax" />
-					<address name="¶©µ¥ÏêÇé³õÊ¼»¯" url="/orderInfo/orderInfoViewInit.ajax" />
-					<address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-					<address name="Ð£Ñéµ±Ç°¿Í»§ÊÇ·ñÔÊÐíÏÂ·¢¼Æ·Ñ" url="/orderInfo/checkAllowBillIssued.ajax" />
-					<address name="¿Í»§ÏêÇé»ñÈ¡" url="/customerInfo/get.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/orderInfo_add.shtml" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/orderInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/orderInfo/get.ajax" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/orderInfo/add.ajax" />
+					<address name="èŽ·å–å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectByPartnerId.ajax" />
+					<address name="å–å‡ºäº§å“ä¿¡æ¯" url="/flowProductInfo/flowProductInfo.ajax" />
+					<address name="äº§å“è¯¦æƒ…" url="/flowProductInfo/get.ajax" />
+					<address name="è®¢å•è¯¦æƒ…åˆå§‹åŒ–" url="/orderInfo/orderInfoViewInit.ajax" />
+					<address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="æ ¡éªŒå½“å‰å®¢æˆ·æ˜¯å¦å…è®¸ä¸‹å‘è®¡è´¹" url="/orderInfo/checkAllowBillIssued.ajax" />
+					<address name="å®¢æˆ·è¯¦æƒ…èŽ·å–" url="/customerInfo/get.ajax" />
 				</operation>
-				<operation key="modify" name="ÐÞ¸Ä" desc="ÐÞ¸Ä">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/orderInfo_add.shtml" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/orderInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/orderInfo/get.ajax" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/orderInfo/add.ajax" />
-					<address name="»ñÈ¡¿Í»§ÐÅÏ¢" url="/orderInfo/selectByPartnerId.ajax" />
-					<address name="È¡³ö²úÆ·ÐÅÏ¢" url="/flowProductInfo/flowProductInfo.ajax" />
-					<address name="²úÆ·ÏêÇé" url="/flowProductInfo/get.ajax" />
-					<address name="¶©µ¥ÏêÇé³õÊ¼»¯" url="/orderInfo/orderInfoViewInit.ajax" />
-					<address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-					<address name="Ð£Ñéµ±Ç°¿Í»§ÊÇ·ñÔÊÐíÏÂ·¢¼Æ·Ñ" url="/orderInfo/checkAllowBillIssued.ajax" />
-					<address name="¿Í»§ÏêÇé»ñÈ¡" url="/customerInfo/get.ajax" />
+				<operation key="modify" name="ä¿®æ”¹" desc="ä¿®æ”¹">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/orderInfo_add.shtml" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/orderInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/orderInfo/get.ajax" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/orderInfo/add.ajax" />
+					<address name="èŽ·å–å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectByPartnerId.ajax" />
+					<address name="å–å‡ºäº§å“ä¿¡æ¯" url="/flowProductInfo/flowProductInfo.ajax" />
+					<address name="äº§å“è¯¦æƒ…" url="/flowProductInfo/get.ajax" />
+					<address name="è®¢å•è¯¦æƒ…åˆå§‹åŒ–" url="/orderInfo/orderInfoViewInit.ajax" />
+					<address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="æ ¡éªŒå½“å‰å®¢æˆ·æ˜¯å¦å…è®¸ä¸‹å‘è®¡è´¹" url="/orderInfo/checkAllowBillIssued.ajax" />
+					<address name="å®¢æˆ·è¯¦æƒ…èŽ·å–" url="/customerInfo/get.ajax" />
 				</operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-					<address name="µ¼³ö" url="/orderInfo/downLoadOrder.ajax" />
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="å¯¼å‡º" url="/orderInfo/downLoadOrder.ajax" />
 				</operation>
-				<operation key="changestatus" name="¸Ä±ä¶©µ¥×´Ì¬" desc="¸Ä±ä¶©µ¥×´Ì¬">
-					<address name="¸Ä±ä¶©µ¥×´Ì¬" url="/orderInfo/changeStatus.ajax" />
+				<operation key="changestatus" name="æ”¹å˜è®¢å•çŠ¶æ€" desc="æ”¹å˜è®¢å•çŠ¶æ€">
+					<address name="æ”¹å˜è®¢å•çŠ¶æ€" url="/orderInfo/changeStatus.ajax" />
 				</operation>
-				<operation key="pricesetting" name="¼Û¸ñÉèÖÃ" desc="¼Û¸ñÉèÖÃ">
-					<address name="¼Û¸ñÉèÖÃ" url="/pages/productPriceSetting.shtml" />
-					<address name="»ñÈ¡ÏêÇé¼Û¸ñÐÅÏ¢" url="/orderInfo/selectDirectChargeProdOrder.ajax" />
-					<address name="ÐÞ¸ÄÏêÇé¼Û¸ñÐÅÏ¢" url="/orderInfo/updateODByProdId.ajax" />
-					<address name="ÅúÁ¿ÐÞ¸ÄÏêÇé¼Û¸ñÐÅÏ¢" url="/orderInfo/updateODPriceAll.ajax" />
-				</operation>
-			</resource>
-		</resource-category>
-
-
-		<resource-category key="auth_customer_manager" name="¿Í»§¹ÜÀí"
-			desc="¿Í»§¹ÜÀí">
-			<resource key="auth_customer_manager_zc" name="¿Í»§¹ÜÀí" desc="¿Í»§¹ÜÀí">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/customerInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/customerInfo/query.ajax" />
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/customerInfo_add.shtml" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/customerInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/customerInfo/get.ajax" />
-				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/customerInfo_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/customerInfo/add.ajax" />
-					<address name="ÕËºÅ¼ì²â" url="/customerInfo/soloAccount.ajax" />
-					<address name="ÊÖ»úºÅ¼ì²â" url="/customerInfo/soloMobile.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/customerInfo/get.ajax" />
-					<address name="»ñÈ¡ºÏ×÷»ï°é" url="/customerInfo/queryPartnerInfoAll.ajax" />
-				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/customerInfo/delete.ajax" />
-				</operation>
-				<operation key="changestatus" name="¸Ä±ä¿Í»§×´Ì¬" desc="¸Ä±ä¿Í»§×´Ì¬">
-					<address name="¸Ä±ä¿Í»§×´Ì¬" url="/customerInfo/changeStatus.ajax" />
-				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/customerInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/customerInfo/get.ajax" />
-					<address name="³õÊ¼»¯ÕË»§ÐÅÏ¢" url="/customerInfo/initBalance.ajax" />
-					<address name="»ñÈ¡µ±Ç°¿Í»§µÄ¶©µ¥" url="/orderInfo/queryByCustomerId.ajax" />
-				</operation>
-			</resource>
-			<resource key="auth_customer_wxAccessConf" name="¿Í»§Î¢ÐÅÅäÖÃ¹ÜÀí" desc="¿Í»§Î¢ÐÅÅäÖÃ¹ÜÀí">
-			<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/card/wxAccessConf_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/wxAccessConf/query.ajax" />
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/wxAccessConf_add.shtml" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/wxAccessConf_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/wxAccessConf/get.ajax" />
-					<address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/wxAccessConf_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/wxAccessConf/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/wxAccessConf/get.ajax" />
-					<address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/wxAccessConf/delete.ajax" />
-				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§Î¢ÐÅÅäÖÃÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/wxAccessConf_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/wxAccessConf/get.ajax" />
+				<operation key="pricesetting" name="ä»·æ ¼è®¾ç½®" desc="ä»·æ ¼è®¾ç½®">
+					<address name="ä»·æ ¼è®¾ç½®" url="/pages/productPriceSetting.shtml" />
+					<address name="èŽ·å–è¯¦æƒ…ä»·æ ¼ä¿¡æ¯" url="/orderInfo/selectDirectChargeProdOrder.ajax" />
+					<address name="ä¿®æ”¹è¯¦æƒ…ä»·æ ¼ä¿¡æ¯" url="/orderInfo/updateODByProdId.ajax" />
+					<address name="æ‰¹é‡ä¿®æ”¹è¯¦æƒ…ä»·æ ¼ä¿¡æ¯" url="/orderInfo/updateODPriceAll.ajax" />
 				</operation>
 			</resource>
 		</resource-category>
 
 
-		<resource-category key="auth_record_manager" name="¼ÇÂ¼²éÑ¯"
-			desc="¼ÇÂ¼²éÑ¯">
-			<resource key="auth_record_manager_xf" name="¶Ò»»¼ÇÂ¼²éÑ¯" desc="¶Ò»»¼ÇÂ¼²éÑ¯">
-				<operation key="auth_record_manager_xf_query" name="²é¿´"
-					desc="²é¿´">
-					<address name="¶Ò»»¼ÇÂ¼ÁÐ±í" url="/pages/marketingIssued_list.shtml" />
-					<address name="²éÑ¯" url="/flowExchangeLog/query.ajax" />
-					<address name="³õÊ¼»¯" url="/flowExchangeLog/init.ajax" />
-					<address name="²éÑ¯¿Í»§" url="/orderInfo/selectByPartnerId.ajax" />
-					<address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
+		<resource-category key="auth_customer_manager" name="å®¢æˆ·ç®¡ç†"
+			desc="å®¢æˆ·ç®¡ç†">
+			<resource key="auth_customer_manager_zc" name="å®¢æˆ·ç®¡ç†" desc="å®¢æˆ·ç®¡ç†">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/customerInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/customerInfo/query.ajax" />
+					<address name="æ·»åŠ é¡µé¢" url="/pages/customerInfo_add.shtml" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/customerInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/customerInfo/get.ajax" />
+				</operation>
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/customerInfo_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/customerInfo/add.ajax" />
+					<address name="è´¦å·æ£€æµ‹" url="/customerInfo/soloAccount.ajax" />
+					<address name="æ‰‹æœºå·æ£€æµ‹" url="/customerInfo/soloMobile.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/customerInfo/get.ajax" />
+					<address name="èŽ·å–åˆä½œä¼™ä¼´" url="/customerInfo/queryPartnerInfoAll.ajax" />
+				</operation>
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/customerInfo/delete.ajax" />
+				</operation>
+				<operation key="changestatus" name="æ”¹å˜å®¢æˆ·çŠ¶æ€" desc="æ”¹å˜å®¢æˆ·çŠ¶æ€">
+					<address name="æ”¹å˜å®¢æˆ·çŠ¶æ€" url="/customerInfo/changeStatus.ajax" />
+				</operation>
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/customerInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/customerInfo/get.ajax" />
+					<address name="åˆå§‹åŒ–è´¦æˆ·ä¿¡æ¯" url="/customerInfo/initBalance.ajax" />
+					<address name="èŽ·å–å½“å‰å®¢æˆ·çš„è®¢å•" url="/orderInfo/queryByCustomerId.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_customer_wxAccessConf" name="å®¢æˆ·å¾®ä¿¡é…ç½®ç®¡ç†" desc="å®¢æˆ·å¾®ä¿¡é…ç½®ç®¡ç†">
+			<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/card/wxAccessConf_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/wxAccessConf/query.ajax" />
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/wxAccessConf_add.shtml" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/wxAccessConf_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/wxAccessConf/get.ajax" />
+					<address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/wxAccessConf_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/wxAccessConf/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/wxAccessConf/get.ajax" />
+					<address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+				</operation>
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/wxAccessConf/delete.ajax" />
+				</operation>
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·å¾®ä¿¡é…ç½®è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/wxAccessConf_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/wxAccessConf/get.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+
+
+		<resource-category key="auth_record_manager" name="è®°å½•æŸ¥è¯¢"
+			desc="è®°å½•æŸ¥è¯¢">
+			<resource key="auth_record_manager_xf" name="å…‘æ¢è®°å½•æŸ¥è¯¢" desc="å…‘æ¢è®°å½•æŸ¥è¯¢">
+				<operation key="auth_record_manager_xf_query" name="æŸ¥çœ‹"
+					desc="æŸ¥çœ‹">
+					<address name="å…‘æ¢è®°å½•åˆ—è¡¨" url="/pages/marketingIssued_list.shtml" />
+					<address name="æŸ¥è¯¢" url="/flowExchangeLog/query.ajax" />
+					<address name="åˆå§‹åŒ–" url="/flowExchangeLog/init.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·" url="/orderInfo/selectByPartnerId.ajax" />
+					<address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
 				</operation>
 			</resource>
 
-			<resource key="auth_record_manager_zc" name="Ö±³ä¼ÇÂ¼²éÑ¯" desc="Ö±³ä¼ÇÂ¼²éÑ¯">
-				<operation key="auth_record_manager_zc_query" name="²é¿´"
-					desc="²é¿´">
-					<address name="Ö±³ä¼ÇÂ¼ÁÐ±í" url="/pages/directCharge_list.shtml" />
-					<address name="²éÑ¯" url="/flowExchangeLog/query.ajax" />
-					<address name="³õÊ¼»¯" url="/flowExchangeLog/init.ajax" />
-					<address name="³õÊ¼»¯ÏÂ·¢×ÜÊýºÍ×Ü¼Û"
+			<resource key="auth_record_manager_zc" name="ç›´å……è®°å½•æŸ¥è¯¢" desc="ç›´å……è®°å½•æŸ¥è¯¢">
+				<operation key="auth_record_manager_zc_query" name="æŸ¥çœ‹"
+					desc="æŸ¥çœ‹">
+					<address name="ç›´å……è®°å½•åˆ—è¡¨" url="/pages/directCharge_list.shtml" />
+					<address name="æŸ¥è¯¢" url="/flowExchangeLog/query.ajax" />
+					<address name="åˆå§‹åŒ–" url="/flowExchangeLog/init.ajax" />
+					<address name="åˆå§‹åŒ–ä¸‹å‘æ€»æ•°å’Œæ€»ä»·"
 						url="/flowExchangeLog/initCountAndPriceTotal.ajax" />
 				</operation>
 			</resource>
-			<resource key="auth_flow_orderinfo_list" name="Á÷Á¿·Ö·¢¼ÇÂ¼" desc="Á÷Á¿·Ö·¢¼ÇÂ¼">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="ÁÐ±í" url="/pages/flowOrderInfo_list.shtml" />
-					<address name="ÁÐ±í²éÑ¯" url="/flowOrderInfo/query.ajax" />
-					<address name="ÏêÇé" url="/pages/flowOrderInfo_view.shtml" />
-					<address name="ÏêÇé²éÑ¯" url="/flowOrderInfo/get.ajax" />
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-					<address name="²éÑ¯ºÏ×÷»ï°éÐÅÏ¢" url="/orderInfo/selectPartnerInfoByName.ajax" />
-					<address name="²éÑ¯¿Í»§App½ÓÈëÐÅÏ¢" url="/flowAppInfo/selectInfoByIdOrName.ajax" />
+			<resource key="auth_flow_orderinfo_list" name="æµé‡åˆ†å‘è®°å½•" desc="æµé‡åˆ†å‘è®°å½•">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="åˆ—è¡¨" url="/pages/flowOrderInfo_list.shtml" />
+					<address name="åˆ—è¡¨æŸ¥è¯¢" url="/flowOrderInfo/query.ajax" />
+					<address name="è¯¦æƒ…" url="/pages/flowOrderInfo_view.shtml" />
+					<address name="è¯¦æƒ…æŸ¥è¯¢" url="/flowOrderInfo/get.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="æŸ¥è¯¢åˆä½œä¼™ä¼´ä¿¡æ¯" url="/orderInfo/selectPartnerInfoByName.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·AppæŽ¥å…¥ä¿¡æ¯" url="/flowAppInfo/selectInfoByIdOrName.ajax" />
 				</operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-					<address name="µ¼³ö" url="/flowOrderInfo/export.ajax" />
-				</operation>
-			</resource>
-			<resource key="auth_flow_orderinfofinance_list" name="Á÷Á¿·Ö·¢¼ÇÂ¼(²ÆÎñ)" desc="Á÷Á¿·Ö·¢¼ÇÂ¼(²ÆÎñ)">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="ÁÐ±í" url="/pages/flowOrderInfoFinance_list.shtml" />
-					<address name="ÁÐ±í²éÑ¯" url="/flowOrderInfo/query.ajax" />
-					<address name="ÏêÇé" url="/pages/flowOrderInfoFinance_view.shtml" />
-					<address name="ÏêÇé²éÑ¯" url="/flowOrderInfo/get.ajax" />
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-					<address name="²éÑ¯ºÏ×÷»ï°éÐÅÏ¢" url="/orderInfo/selectPartnerInfoByName.ajax" />
-					<address name="²éÑ¯¿Í»§App½ÓÈëÐÅÏ¢" url="/flowAppInfo/selectInfoByIdOrName.ajax" />
-				</operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-					<address name="µ¼³ö" url="/flowOrderInfo/export.ajax" />
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="å¯¼å‡º" url="/flowOrderInfo/export.ajax" />
 				</operation>
 			</resource>
-			<resource key="auth_mobile_flow_dispatch_rec" name="Á÷Á¿Íø¹ØÈÕÖ¾²éÑ¯"
-				desc="Á÷Á¿Íø¹ØÈÕÖ¾²éÑ¯">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±³ä¼ÇÂ¼ÁÐ±í" url="/pages/mobileFlowDispatchRec_list.shtml" />
-					<address name="²éÑ¯" url="/mobileFlowDispatchRec/query.ajax" />
-					<address name="ÏêÇé" url="/pages/mobileFlowDispatchRec_view.shtml" />
-					<address name="ÏêÇé²éÑ¯" url="/mobileFlowDispatchRec/get.ajax" />
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
+			<resource key="auth_flow_orderinfofinance_list" name="æµé‡åˆ†å‘è®°å½•(è´¢åŠ¡)" desc="æµé‡åˆ†å‘è®°å½•(è´¢åŠ¡)">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="åˆ—è¡¨" url="/pages/flowOrderInfoFinance_list.shtml" />
+					<address name="åˆ—è¡¨æŸ¥è¯¢" url="/flowOrderInfo/query.ajax" />
+					<address name="è¯¦æƒ…" url="/pages/flowOrderInfoFinance_view.shtml" />
+					<address name="è¯¦æƒ…æŸ¥è¯¢" url="/flowOrderInfo/get.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="æŸ¥è¯¢åˆä½œä¼™ä¼´ä¿¡æ¯" url="/orderInfo/selectPartnerInfoByName.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·AppæŽ¥å…¥ä¿¡æ¯" url="/flowAppInfo/selectInfoByIdOrName.ajax" />
+				</operation>
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="å¯¼å‡º" url="/flowOrderInfo/export.ajax" />
+				</operation>
+			</resource>
+			<resource key="auth_mobile_flow_dispatch_rec" name="æµé‡ç½‘å…³æ—¥å¿—æŸ¥è¯¢"
+				desc="æµé‡ç½‘å…³æ—¥å¿—æŸ¥è¯¢">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´å……è®°å½•åˆ—è¡¨" url="/pages/mobileFlowDispatchRec_list.shtml" />
+					<address name="æŸ¥è¯¢" url="/mobileFlowDispatchRec/query.ajax" />
+					<address name="è¯¦æƒ…" url="/pages/mobileFlowDispatchRec_view.shtml" />
+					<address name="è¯¦æƒ…æŸ¥è¯¢" url="/mobileFlowDispatchRec/get.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
 				</operation>
 				
-				<operation key="excel" name="µ¼³ö" desc="µ¼³ö">
-					<address name="µ¼³ö" url="/mobileFlowDispatchRec/excel.ajax" />
+				<operation key="excel" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="å¯¼å‡º" url="/mobileFlowDispatchRec/excel.ajax" />
 				</operation>
 			</resource>
-			<resource key="auth_order_deal_record" name="¶©µ¥´¦Àí¼ÇÂ¼²éÑ¯" desc="¶©µ¥´¦Àí¼ÇÂ¼²éÑ¯">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="¶©µ¥´¦Àí¼ÇÂ¼ÁÐ±í" url="/pages/orderDealRecord_list.shtml" />
-					<address name="²éÑ¯" url="/orderDealRecord/query.ajax" />
-					<address name="ÏêÇé" url="/pages/orderDealRecord_view.shtml" />
-					<address name="ÏêÇé²éÑ¯" url="/orderDealRecord/get.ajax" />
+			<resource key="auth_order_deal_record" name="è®¢å•å¤„ç†è®°å½•æŸ¥è¯¢" desc="è®¢å•å¤„ç†è®°å½•æŸ¥è¯¢">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="è®¢å•å¤„ç†è®°å½•åˆ—è¡¨" url="/pages/orderDealRecord_list.shtml" />
+					<address name="æŸ¥è¯¢" url="/orderDealRecord/query.ajax" />
+					<address name="è¯¦æƒ…" url="/pages/orderDealRecord_view.shtml" />
+					<address name="è¯¦æƒ…æŸ¥è¯¢" url="/orderDealRecord/get.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-                    <address name="É¾³ý" url="/orderDealRecord/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+                    <address name="åˆ é™¤" url="/orderDealRecord/delete.ajax" />
                 </operation>
-				<operation key="download" name="ÏÂÔØ" desc="ÏÂÔØ">
-                    <address name="ÏÂÔØ" url="/orderDealRecord/download.ajax" />
+				<operation key="download" name="ä¸‹è½½" desc="ä¸‹è½½">
+                    <address name="ä¸‹è½½" url="/orderDealRecord/download.ajax" />
                 </operation>
 			</resource>
 		</resource-category>
 
-		<resource-category key="auth_prodcut_manager" name="²úÆ·¹ÜÀí"
-			desc="²úÆ·¹ÜÀí">
-			<resource key="auth_prodcut_manager_cp" name="²úÆ·ÉèÖÃ" desc="²úÆ·ÉèÖÃ">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="²úÆ·ÉèÖÃÁÐ±í" url="/pages/flowProductInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/flowProductInfo/query.ajax" />
+		<resource-category key="auth_prodcut_manager" name="äº§å“ç®¡ç†"
+			desc="äº§å“ç®¡ç†">
+			<resource key="auth_prodcut_manager_cp" name="äº§å“è®¾ç½®" desc="äº§å“è®¾ç½®">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="äº§å“è®¾ç½®åˆ—è¡¨" url="/pages/flowProductInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/flowProductInfo/query.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/flowProductInfo_add.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/flowProductInfo/get.ajax" />
-					<address name="Á÷Á¿°ü»ñÈ¡" url="/flowProductInfo/operatorCode.ajax" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/flowProductInfo/add.ajax" />
-					<address name="ÅÐ¶Ï²úÆ·Ãû³ÆÎ¨Ò»" url="/flowProductInfo/soloProductName.ajax" />
-					<address name="ÅÐ¶Ï²úÆ·´úÂëÎ¨Ò»" url="/flowProductInfo/soloProductCode.ajax" />
-					<address name="ÅÐ¶Ï²úÆ·Á÷Á¿°ü¼ÓÇøÓò" url="/flowProductInfo/soloProductPackageIdZone.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/flowProductInfo_add.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/flowProductInfo/get.ajax" />
+					<address name="æµé‡åŒ…èŽ·å–" url="/flowProductInfo/operatorCode.ajax" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/flowProductInfo/add.ajax" />
+					<address name="åˆ¤æ–­äº§å“åç§°å”¯ä¸€" url="/flowProductInfo/soloProductName.ajax" />
+					<address name="åˆ¤æ–­äº§å“ä»£ç å”¯ä¸€" url="/flowProductInfo/soloProductCode.ajax" />
+					<address name="åˆ¤æ–­äº§å“æµé‡åŒ…åŠ åŒºåŸŸ" url="/flowProductInfo/soloProductPackageIdZone.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/flowProductInfo/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/flowProductInfo/delete.ajax" />
 				</operation>
 
-				<operation key="detail" name="ÏêÇé" desc="²é¿´²úÆ·ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/flowProductInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/flowProductInfo/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹äº§å“è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/flowProductInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/flowProductInfo/get.ajax" />
 				</operation>
 			</resource>
 
-			<resource key="auth_prodcut_manager_llb" name="Á÷Á¿°üÉèÖÃ" desc="Á÷Á¿°üÉèÖÃ">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="Á÷Á¿°üÉèÖÃÁÐ±í" url="/pages/flowPackageInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/flowPackageInfo/query.ajax" />
-					<address name="»ñÈ¡µØÇøÐÅÏ¢" url="/customerInfo/selectAreaCodeAll.ajax" />
+			<resource key="auth_prodcut_manager_llb" name="æµé‡åŒ…è®¾ç½®" desc="æµé‡åŒ…è®¾ç½®">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="æµé‡åŒ…è®¾ç½®åˆ—è¡¨" url="/pages/flowPackageInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/flowPackageInfo/query.ajax" />
+					<address name="èŽ·å–åœ°åŒºä¿¡æ¯" url="/customerInfo/selectAreaCodeAll.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="²Ù×÷Âë²éÑ¯" url="/flowPackageInfo/operatorCode.ajax" />
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/flowPackageInfo_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/flowPackageInfo/add.ajax" />
-					<address name="»ñÈ¡µØÇøÐÅÏ¢" url="/customerInfo/selectAreaCodeAll.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ“ä½œç æŸ¥è¯¢" url="/flowPackageInfo/operatorCode.ajax" />
+					<address name="æ·»åŠ é¡µé¢" url="/pages/flowPackageInfo_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/flowPackageInfo/add.ajax" />
+					<address name="èŽ·å–åœ°åŒºä¿¡æ¯" url="/customerInfo/selectAreaCodeAll.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/flowPackageInfo/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/flowPackageInfo/delete.ajax" />
 				</operation>
 
-				<operation key="detail" name="ÏêÇé" desc="²é¿´Á÷Á¿°üÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/flowPackageInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/flowPackageInfo/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹æµé‡åŒ…è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/flowPackageInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/flowPackageInfo/get.ajax" />
 				</operation>
 			</resource>
 		</resource-category>
-		<resource-category key="auth_card_manager" name="¿¨Æ¬¹ÜÀí"
-			desc="²úÆ·¹ÜÀí">
-			<resource key="auth_card_manager_gl" name="¿¨Æ¬¹ÜÀí" desc="¿¨Æ¬¹ÜÀí">
-				<operation key="query" name="Åú´ÎÁÐ±í" desc="Åú´ÎÁÐ±í">
-					<address name="Åú´ÎÁÐ±í" url="/pages/flowCardBatchInfo_list.shtml" />
-					<address name="»ñÈ¡¿¨Æ¬" url="/flowCardBatchInfo/query.ajax" />
-					<address name="»ñÈ¡ËùÓÐ¿Í»§" url="/customerInfo/finaCustomerAll.ajax" />
-					<address name="»ñÈ¡µØÇøÐÅÏ¢" url="/customerInfo/selectAreaCodeAll.ajax" />
-					<address name="»ñÈ¡ËùÓÐ¿Í»§" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
+		<resource-category key="auth_card_manager" name="å¡ç‰‡ç®¡ç†"
+			desc="äº§å“ç®¡ç†">
+			<resource key="auth_card_manager_gl" name="å¡ç‰‡ç®¡ç†" desc="å¡ç‰‡ç®¡ç†">
+				<operation key="query" name="æ‰¹æ¬¡åˆ—è¡¨" desc="æ‰¹æ¬¡åˆ—è¡¨">
+					<address name="æ‰¹æ¬¡åˆ—è¡¨" url="/pages/flowCardBatchInfo_list.shtml" />
+					<address name="èŽ·å–å¡ç‰‡" url="/flowCardBatchInfo/query.ajax" />
+					<address name="èŽ·å–æ‰€æœ‰å®¢æˆ·" url="/customerInfo/finaCustomerAll.ajax" />
+					<address name="èŽ·å–åœ°åŒºä¿¡æ¯" url="/customerInfo/selectAreaCodeAll.ajax" />
+					<address name="èŽ·å–æ‰€æœ‰å®¢æˆ·" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
 					
 				</operation>
 
-				<operation key="add" name="´´½¨¿¨Æ¬" desc="´´½¨¿¨Æ¬">
-					<address name="´´½¨¿¨Ò³Ãæ" url="/pages/createCard.shtml" />
-					<address name="´´½¨¿¨²Ù×÷" url="/flowCardInfo/createFlowCards.ajax" />
-					<address name="»ñÈ¡¶©µ¥" url="/flowCardInfo/getPlusOrder.ajax" />
-					<address name="»ñÈ¡¶©µ¥ÏêÇé" url="/flowCardInfo/getOrderDetail.ajax" />
-					<address name="»ñÈ¡¿Í»§ÏêÇé" url="/flowCardInfo/getCustomerByType.ajax" />
-					<address name="»ñÈ¡¼¤»î¿¨ÐÅÏ¢"
+				<operation key="add" name="åˆ›å»ºå¡ç‰‡" desc="åˆ›å»ºå¡ç‰‡">
+					<address name="åˆ›å»ºå¡é¡µé¢" url="/pages/createCard.shtml" />
+					<address name="åˆ›å»ºå¡æ“ä½œ" url="/flowCardInfo/createFlowCards.ajax" />
+					<address name="èŽ·å–è®¢å•" url="/flowCardInfo/getPlusOrder.ajax" />
+					<address name="èŽ·å–è®¢å•è¯¦æƒ…" url="/flowCardInfo/getOrderDetail.ajax" />
+					<address name="èŽ·å–å®¢æˆ·è¯¦æƒ…" url="/flowCardInfo/getCustomerByType.ajax" />
+					<address name="èŽ·å–æ¿€æ´»å¡ä¿¡æ¯"
 						url="/flowCardInfo/getCustomerCExchangeurlInfo.ajax" />
-						<address name="»ñÈ¡ËùÓÐ¿Í»§" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
+						<address name="èŽ·å–æ‰€æœ‰å®¢æˆ·" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
 				</operation>
 
-				<operation key="detail" name="ÏêÇé" desc="Åú´Î±íÁÐ±í">
-					<address name="Åú´ÎÏêÇéÒ³Ãæ" url="/pages/batchCardInfo.shtml" />
-					<address name="Åú´ÎÏêÇéÇëÇó" url="/flowCardBatchInfo/get.ajax" />
-					<address name="¶©µ¥ÏêÇé»ñÈ¡" url="/flowCardBatchInfo/getBydetailId.ajax" />
-					<address name="¿Í»§¶Ò»»Ò³Ãæ¸üÐÂ"
+				<operation key="detail" name="è¯¦æƒ…" desc="æ‰¹æ¬¡è¡¨åˆ—è¡¨">
+					<address name="æ‰¹æ¬¡è¯¦æƒ…é¡µé¢" url="/pages/batchCardInfo.shtml" />
+					<address name="æ‰¹æ¬¡è¯¦æƒ…è¯·æ±‚" url="/flowCardBatchInfo/get.ajax" />
+					<address name="è®¢å•è¯¦æƒ…èŽ·å–" url="/flowCardBatchInfo/getBydetailId.ajax" />
+					<address name="å®¢æˆ·å…‘æ¢é¡µé¢æ›´æ–°"
 						url="/flowCardBatchInfo/updatecExchangeurlInfo.ajax" />
-					<address name="c¿¨Ô¤ÀÀÒ³" url="/pages/c_page/indexC.shtml" />
-					<address name="»ñÈ¡¶©µ¥" url="/flowCardInfo/getPlusOrder.ajax" />
-					<address name="»ñÈ¡¶©µ¥ÏêÇé" url="/flowCardInfo/getOrderDetail.ajax" />
-					<address name="»ñÈ¡¿Í»§ÏêÇé" url="/flowCardInfo/getCustomerByType.ajax" />
-					<address name="»ñÈ¡¼¤»î¿¨ÐÅÏ¢"
+					<address name="cå¡é¢„è§ˆé¡µ" url="/pages/c_page/indexC.shtml" />
+					<address name="èŽ·å–è®¢å•" url="/flowCardInfo/getPlusOrder.ajax" />
+					<address name="èŽ·å–è®¢å•è¯¦æƒ…" url="/flowCardInfo/getOrderDetail.ajax" />
+					<address name="èŽ·å–å®¢æˆ·è¯¦æƒ…" url="/flowCardInfo/getCustomerByType.ajax" />
+					<address name="èŽ·å–æ¿€æ´»å¡ä¿¡æ¯"
 						url="/flowCardInfo/getCustomerCExchangeurlInfo.ajax" />
 				</operation>
 				
-				<operation key="updateCustomerExChange" name="¸ü¸Ä¶Ò»»ÐÅÏ¢" desc="¸ü¸Ä¶Ò»»ÐÅÏ¢">
-					<address name="¿Í»§¶Ò»»Ò³Ãæ¸üÐÂ"
+				<operation key="updateCustomerExChange" name="æ›´æ”¹å…‘æ¢ä¿¡æ¯" desc="æ›´æ”¹å…‘æ¢ä¿¡æ¯">
+					<address name="å®¢æˆ·å…‘æ¢é¡µé¢æ›´æ–°"
 						url="/flowCardBatchInfo/updatecExchangeurlInfo.ajax" />
 				</operation>
 				
-				<operation key="invalid" name="×÷·Ï" desc="Åú´Î×÷·Ï">
-					<address name="×÷·ÏÈ«²¿" url="/flowCardInfo/updateCauseAll.ajax" />
+				<operation key="invalid" name="ä½œåºŸ" desc="æ‰¹æ¬¡ä½œåºŸ">
+					<address name="ä½œåºŸå…¨éƒ¨" url="/flowCardInfo/updateCauseAll.ajax" />
 				</operation>
-				<operation key="active" name="¼¤»î" desc="¼¤»î">
-					<address name="¼¤»î¿¨Ò³Ãæ" url="/pages/activeCard.shtml" />
-					<address name="¼¤»î¿¨²Ù×÷" url="/flowCardInfo/createFlowCards.ajax" />
-					<address name="¸üÐÂ¼¤»î¿¨ÐÅÏ¢"
+				<operation key="active" name="æ¿€æ´»" desc="æ¿€æ´»">
+					<address name="æ¿€æ´»å¡é¡µé¢" url="/pages/activeCard.shtml" />
+					<address name="æ¿€æ´»å¡æ“ä½œ" url="/flowCardInfo/createFlowCards.ajax" />
+					<address name="æ›´æ–°æ¿€æ´»å¡ä¿¡æ¯"
 						url="/flowCardInfo/updateCustomerInfoActiveCard.ajax" />
-					<address name="»ñÈ¡¼¤»î¿¨ÐÅÏ¢"
+					<address name="èŽ·å–æ¿€æ´»å¡ä¿¡æ¯"
 						url="/flowCardInfo/getCustomerFlowFlowCardBatchInfo.ajax" />
 				</operation>
-				<operation key="export" name="ÅúÁ¿µ¼³ö" desc="ÅúÁ¿µ¼³ö">
-					<address name="µ¼³öÅúÁ¿" url="/flowCardInfo/excelByBatchId.ajax" />
+				<operation key="export" name="æ‰¹é‡å¯¼å‡º" desc="æ‰¹é‡å¯¼å‡º">
+					<address name="å¯¼å‡ºæ‰¹é‡" url="/flowCardInfo/excelByBatchId.ajax" />
 				</operation>
 			</resource>
 
-			<resource key="auth_card_manager_cx" name="¿¨Æ¬²éÑ¯" desc="¿¨Æ¬²éÑ¯">
-				<operation key="query" name="¿¨Æ¬ÁÐ±í" desc="¿¨Æ¬ÁÐ±í">
-					<address name="¿¨Æ¬ÁÐ±í" url="/pages/flowCardInfo_list.shtml" />
-					<address name="»ñÈ¡¿¨Æ¬" url="/flowCardInfo/query.ajax" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/flowCardInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/flowCardInfo/get.ajax" />
-					<address name="»ñÈ¡ËùÓÐ¿Í»§" url="/customerInfo/finaCustomerAll.ajax" />
-					<address name="»ñÈ¡ËùÓÐ¿Í»§" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
+			<resource key="auth_card_manager_cx" name="å¡ç‰‡æŸ¥è¯¢" desc="å¡ç‰‡æŸ¥è¯¢">
+				<operation key="query" name="å¡ç‰‡åˆ—è¡¨" desc="å¡ç‰‡åˆ—è¡¨">
+					<address name="å¡ç‰‡åˆ—è¡¨" url="/pages/flowCardInfo_list.shtml" />
+					<address name="èŽ·å–å¡ç‰‡" url="/flowCardInfo/query.ajax" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/flowCardInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/flowCardInfo/get.ajax" />
+					<address name="èŽ·å–æ‰€æœ‰å®¢æˆ·" url="/customerInfo/finaCustomerAll.ajax" />
+					<address name="èŽ·å–æ‰€æœ‰å®¢æˆ·" url="/flowCardInfo/selectCustomerInfoByName.ajax" />
 				</operation>
-				<operation key="invalid" name="×÷·Ï" desc="×÷·Ï">
-					<address name="×÷·Ï" url="/flowCardInfo/updateCause.ajax" />
+				<operation key="invalid" name="ä½œåºŸ" desc="ä½œåºŸ">
+					<address name="ä½œåºŸ" url="/flowCardInfo/updateCause.ajax" />
 				</operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-					<address name="µ¼³ö" url="/flowCardInfo/excel.ajax" />
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="å¯¼å‡º" url="/flowCardInfo/excel.ajax" />
 				</operation>
 			</resource>
 		</resource-category>
-		<resource-category key="auth_access_manager" name="½ÓÈë¹ÜÀí"
-			desc="½ÓÈë¹ÜÀí">
-			<resource key="auth_sms_access" name="¶ÌÐÅ½ÓÈë" desc="¶ÌÐÅ½ÓÈë">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ÁÐ±íÒ³Ãæ" url="/pages/smsChannelInfo_list.shtml" />
-					<address name="ÁÐ±íÇëÇó" url="/smsChannelInfo/query.ajax" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/smsChannelInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/smsChannelInfo/get.ajax" />
+		<resource-category key="auth_access_manager" name="æŽ¥å…¥ç®¡ç†"
+			desc="æŽ¥å…¥ç®¡ç†">
+			<resource key="auth_sms_access" name="çŸ­ä¿¡æŽ¥å…¥" desc="çŸ­ä¿¡æŽ¥å…¥">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆ—è¡¨é¡µé¢" url="/pages/smsChannelInfo_list.shtml" />
+					<address name="åˆ—è¡¨è¯·æ±‚" url="/smsChannelInfo/query.ajax" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/smsChannelInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/smsChannelInfo/get.ajax" />
 				</operation>
 
-				<operation key="add" name="ÐÂÔö/ÐÞ¸Ä" desc="ÐÂÔö/ÐÞ¸Ä">
-					<address name="ÐÂÔöÒ³Ãæ" url="/pages/smsChannelInfo_add.shtml" />
-					<address name="ÐÂÔöÇëÇó" url="/smsChannelInfo/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/smsChannelInfo/get.ajax" />
+				<operation key="add" name="æ–°å¢ž/ä¿®æ”¹" desc="æ–°å¢ž/ä¿®æ”¹">
+					<address name="æ–°å¢žé¡µé¢" url="/pages/smsChannelInfo_add.shtml" />
+					<address name="æ–°å¢žè¯·æ±‚" url="/smsChannelInfo/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/smsChannelInfo/get.ajax" />
 				</operation>
-				<operation key="del" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/smsChannelInfo/delete.ajax" />
+				<operation key="del" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/smsChannelInfo/delete.ajax" />
 				</operation>
 			</resource>
-			<resource key="auth_app_access" name="APP½ÓÈë" desc="APP½ÓÈë">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ÁÐ±íÒ³Ãæ" url="/pages/flowAppInfo_list.shtml" />
-					<address name="ÁÐ±íÇëÇó" url="/flowAppInfo/query.ajax" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/flowAppInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/flowAppInfo/get.ajax" />
+			<resource key="auth_app_access" name="APPæŽ¥å…¥" desc="APPæŽ¥å…¥">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆ—è¡¨é¡µé¢" url="/pages/flowAppInfo_list.shtml" />
+					<address name="åˆ—è¡¨è¯·æ±‚" url="/flowAppInfo/query.ajax" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/flowAppInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/flowAppInfo/get.ajax" />
 				</operation>
 
-				<operation key="add" name="ÐÂÔö/ÐÞ¸Ä" desc="ÐÂÔö/ÐÞ¸Ä">
-					<address name="ÐÂÔöÒ³Ãæ" url="/pages/flowAppInfo_add.shtml" />
-					<address name="ÐÂÔöÇëÇó" url="/flowAppInfo/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/flowAppInfo/get.ajax" />
-					<address name="¶©µ¥ÐÅÏ¢»ñÈ¡" url="/orderInfo/queryOrderInfoByCustomer.ajax" />
-					<address name="¶ÌÐÅÍ¨µÀ»ñÈ¡" url="/smsChannelInfo/query.ajax" />
-					<address name="Á÷Á¿ÏÂ·¢Í¨µÀ»ñÈ¡" url="/flowAppInfo/getDispatchChannel.ajax" />
+				<operation key="add" name="æ–°å¢ž/ä¿®æ”¹" desc="æ–°å¢ž/ä¿®æ”¹">
+					<address name="æ–°å¢žé¡µé¢" url="/pages/flowAppInfo_add.shtml" />
+					<address name="æ–°å¢žè¯·æ±‚" url="/flowAppInfo/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/flowAppInfo/get.ajax" />
+					<address name="è®¢å•ä¿¡æ¯èŽ·å–" url="/orderInfo/queryOrderInfoByCustomer.ajax" />
+					<address name="çŸ­ä¿¡é€šé“èŽ·å–" url="/smsChannelInfo/query.ajax" />
+					<address name="æµé‡ä¸‹å‘é€šé“èŽ·å–" url="/flowAppInfo/getDispatchChannel.ajax" />
 				</operation>
-				<operation key="del" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/flowAppInfo/delete.ajax" />
+				<operation key="del" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/flowAppInfo/delete.ajax" />
 				</operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-					<address name="µ¼³ö" url="/flowAppInfo/excel.ajax" />
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="å¯¼å‡º" url="/flowAppInfo/excel.ajax" />
 				</operation>
-				<operation key="changestatus" name="ÐÞ¸Ä½ÓÈë×´Ì¬" desc="ÐÞ¸Ä½ÓÈë×´Ì¬">
-                    <address name="ÐÞ¸Ä½ÓÈë×´Ì¬" url="/flowAppInfo/changeStatus.ajax" />
+				<operation key="changestatus" name="ä¿®æ”¹æŽ¥å…¥çŠ¶æ€" desc="ä¿®æ”¹æŽ¥å…¥çŠ¶æ€">
+                    <address name="ä¿®æ”¹æŽ¥å…¥çŠ¶æ€" url="/flowAppInfo/changeStatus.ajax" />
                 </operation>
 			</resource>
-			<resource key="auth_app_upgrade" name="APP°æ±¾¹ÜÀí" desc="APP°æ±¾¹ÜÀí">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ÁÐ±íÒ³Ãæ" url="/pages/versionUpgradeInfo_list.shtml" />
-					<address name="ÁÐ±íÇëÇó" url="/versionUpgradeInfo/query.ajax" />
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/versionUpgradeInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/versionUpgradeInfo/get.ajax" />
+			<resource key="auth_app_upgrade" name="APPç‰ˆæœ¬ç®¡ç†" desc="APPç‰ˆæœ¬ç®¡ç†">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆ—è¡¨é¡µé¢" url="/pages/versionUpgradeInfo_list.shtml" />
+					<address name="åˆ—è¡¨è¯·æ±‚" url="/versionUpgradeInfo/query.ajax" />
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/versionUpgradeInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/versionUpgradeInfo/get.ajax" />
 				</operation>
 
-				<operation key="add" name="ÐÂÔö/ÐÞ¸Ä" desc="ÐÂÔö/ÐÞ¸Ä">
-					<address name="ÐÂÔöÒ³Ãæ" url="/pages/versionUpgradeInfo_add.shtml" />
-					<address name="ÐÂÔöÇëÇó" url="/versionUpgradeInfo/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/versionUpgradeInfo/get.ajax" />
+				<operation key="add" name="æ–°å¢ž/ä¿®æ”¹" desc="æ–°å¢ž/ä¿®æ”¹">
+					<address name="æ–°å¢žé¡µé¢" url="/pages/versionUpgradeInfo_add.shtml" />
+					<address name="æ–°å¢žè¯·æ±‚" url="/versionUpgradeInfo/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/versionUpgradeInfo/get.ajax" />
 				</operation>
-				<operation key="del" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/versionUpgradeInfo/delete.ajax" />
+				<operation key="del" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/versionUpgradeInfo/delete.ajax" />
 				</operation>
 			</resource>
 		</resource-category>
 		
 		
 		
-		<resource-category key="auth_campaign_manager" name="ÓªÏú»î¶¯¹ÜÀí"
-			desc="ÓªÏú»î¶¯¹ÜÀí">
-			<resource key="auth_campaign_info" name="ÓªÏú»î¶¯" desc="ÓªÏú»î¶¯">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ÁÐ±íÒ³Ãæ" url="/pages/act/campaignInfo_list.shtml" />
-					<address name="ÁÐ±íÇëÇó" url="/campaignInfo/query.ajax" />
+		<resource-category key="auth_campaign_manager" name="è¥é”€æ´»åŠ¨ç®¡ç†"
+			desc="è¥é”€æ´»åŠ¨ç®¡ç†">
+			<resource key="auth_campaign_info" name="è¥é”€æ´»åŠ¨" desc="è¥é”€æ´»åŠ¨">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆ—è¡¨é¡µé¢" url="/pages/act/campaignInfo_list.shtml" />
+					<address name="åˆ—è¡¨è¯·æ±‚" url="/campaignInfo/query.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/act/campaignInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/campaignInfo/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/act/campaignInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/campaignInfo/get.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö/ÐÞ¸Ä" desc="ÐÂÔö/ÐÞ¸Ä">
-					<address name="ÐÂÔöÒ³Ãæ" url="/pages/act/campaignInfo_add.shtml" />
-					<address name="ÐÂÔöÇëÇó" url="/campaignInfo/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/campaignInfo/get.ajax" />
-					<address name="¶©µ¥»ñÈ¡" url="/campaignInfo/getOrder.ajax" />
-					<address name="app»ñÈ¡" url="/campaignInfo/getFlowAppInfo.ajax" />
-					<address name="¿Í»§»ñÈ¡" url="/campaignInfo/getCustomerByType.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/campaignInfo/getOrderDetail.ajax" />
-					<address name="»î¶¯idÎ¨Ò»" url="/campaignInfo/soloActId.ajax" />
-					<address name="É¾³ý½±Æ·" url="/campaignInfo/deleteBySeqId.ajax" />
+				<operation key="add" name="æ–°å¢ž/ä¿®æ”¹" desc="æ–°å¢ž/ä¿®æ”¹">
+					<address name="æ–°å¢žé¡µé¢" url="/pages/act/campaignInfo_add.shtml" />
+					<address name="æ–°å¢žè¯·æ±‚" url="/campaignInfo/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/campaignInfo/get.ajax" />
+					<address name="è®¢å•èŽ·å–" url="/campaignInfo/getOrder.ajax" />
+					<address name="appèŽ·å–" url="/campaignInfo/getFlowAppInfo.ajax" />
+					<address name="å®¢æˆ·èŽ·å–" url="/campaignInfo/getCustomerByType.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/campaignInfo/getOrderDetail.ajax" />
+					<address name="æ´»åŠ¨idå”¯ä¸€" url="/campaignInfo/soloActId.ajax" />
+					<address name="åˆ é™¤å¥–å“" url="/campaignInfo/deleteBySeqId.ajax" />
 				</operation>
-				<operation key="del" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/campaignInfo/delete.ajax" />
+				<operation key="del" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/campaignInfo/delete.ajax" />
 				</operation>
 				
-				<operation key="changeStatus" name="ÐÞ¸Ä×´Ì¬" desc="ÐÞ¸Ä×´Ì¬">
-					<address name="ÐÞ¸Ä×´Ì¬" url="/campaignInfo/changeStatus.ajax" />
+				<operation key="changeStatus" name="ä¿®æ”¹çŠ¶æ€" desc="ä¿®æ”¹çŠ¶æ€">
+					<address name="ä¿®æ”¹çŠ¶æ€" url="/campaignInfo/changeStatus.ajax" />
 				</operation>
 			</resource>
 			
-			<resource key="campaign_info_reward" name="ÖÐ½±¼ÇÂ¼²éÑ¯" desc="ÖÐ½±¼ÇÂ¼²éÑ¯">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ÁÐ±íÒ³Ãæ" url="/pages/act/campaignRewardInfo_list.shtml" />
-					<address name="ÁÐ±íÇëÇó" url="/campaignRewardInfo/query.ajax" />
+			<resource key="campaign_info_reward" name="ä¸­å¥–è®°å½•æŸ¥è¯¢" desc="ä¸­å¥–è®°å½•æŸ¥è¯¢">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆ—è¡¨é¡µé¢" url="/pages/act/campaignRewardInfo_list.shtml" />
+					<address name="åˆ—è¡¨è¯·æ±‚" url="/campaignRewardInfo/query.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/act/campaignRewardInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/campaignRewardInfo/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/act/campaignRewardInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/campaignRewardInfo/get.ajax" />
 				</operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-				<address name="µ¼³ö" url="/campaignRewardInfo/downLoadCampaignRewardInfo.ajax" />
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+				<address name="å¯¼å‡º" url="/campaignRewardInfo/downLoadCampaignRewardInfo.ajax" />
 				</operation>
 			</resource>
 			
-			<resource key="campaign_info_draw" name="³é½±¼ÇÂ¼²éÑ¯" desc="³é½±¼ÇÂ¼²éÑ¯">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-					<address name="ÁÐ±íÒ³Ãæ" url="/pages/act/campaignDrawDetail_list.shtml" />
-					<address name="ÁÐ±íÇëÇó" url="/campaignDrawDetail/query.ajax" />
-					<address name="²éÑ¯³é½±ÈËÊý" url="/campaignDrawDetail/initPrizeNumberCount.ajax" />
+			<resource key="campaign_info_draw" name="æŠ½å¥–è®°å½•æŸ¥è¯¢" desc="æŠ½å¥–è®°å½•æŸ¥è¯¢">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+					<address name="åˆ—è¡¨é¡µé¢" url="/pages/act/campaignDrawDetail_list.shtml" />
+					<address name="åˆ—è¡¨è¯·æ±‚" url="/campaignDrawDetail/query.ajax" />
+					<address name="æŸ¥è¯¢æŠ½å¥–äººæ•°" url="/campaignDrawDetail/initPrizeNumberCount.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/act/campaignDrawDetail_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/campaignDrawDetail/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/act/campaignDrawDetail_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/campaignDrawDetail/get.ajax" />
 				</operation>
-				<operation key="excel" name="µ¼³ö" desc="µ¼³ö">
-					<address name="ÏêÇé»ñÈ¡" url="/campaignDrawDetail/excel.ajax" />
+				<operation key="excel" name="å¯¼å‡º" desc="å¯¼å‡º">
+					<address name="è¯¦æƒ…èŽ·å–" url="/campaignDrawDetail/excel.ajax" />
 				</operation>
 				
 			</resource>
 		</resource-category>
 		
-		<resource-category key="auth_partner_bill_manager" name="ºÏ×÷»ï°éÕËµ¥¹ÜÀí"
-			desc="ºÏ×÷»ï°éÕËµ¥¹ÜÀí">
-			<resource key="auth_partner_bill" name="ÕËµ¥¹ÜÀí" desc="ÕËµ¥¹ÜÀí">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="ºÏ×÷»ï°éÕËµ¥ÁÐ±í" url="/pages/partnerBill_list.shtml" />
-                    <address name="²éÑ¯ÇëÇó" url="/partnerInfo/query.ajax" />
+		<resource-category key="auth_partner_bill_manager" name="åˆä½œä¼™ä¼´è´¦å•ç®¡ç†"
+			desc="åˆä½œä¼™ä¼´è´¦å•ç®¡ç†">
+			<resource key="auth_partner_bill" name="è´¦å•ç®¡ç†" desc="è´¦å•ç®¡ç†">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="åˆä½œä¼™ä¼´è´¦å•åˆ—è¡¨" url="/pages/partnerBill_list.shtml" />
+                    <address name="æŸ¥è¯¢è¯·æ±‚" url="/partnerInfo/query.ajax" />
                 </operation>
-                <operation key="detail" name="ÏêÇé" desc="ÏêÇé">
-                    <address name="ºÏ×÷»ï°éÁÐ±í" url="/pages/partnerInfo_view.shtml" />
-                    <address name="²éÑ¯ÇëÇó" url="/partnerInfo/get.ajax" />
-                    <address name="ÖØÖÃÃÜÂë" url="/partnerInfo/resetPassword.ajax" />
+                <operation key="detail" name="è¯¦æƒ…" desc="è¯¦æƒ…">
+                    <address name="åˆä½œä¼™ä¼´åˆ—è¡¨" url="/pages/partnerInfo_view.shtml" />
+                    <address name="æŸ¥è¯¢è¯·æ±‚" url="/partnerInfo/get.ajax" />
+                    <address name="é‡ç½®å¯†ç " url="/partnerInfo/resetPassword.ajax" />
                 </operation>
-                <operation key="accountDetail" name="ÕË»§Ã÷Ï¸" desc="ÕË»§Ã÷Ï¸">
-                    <address name="ÕË»§Ã÷Ï¸Ò³Ãæ" url="/pages/partnerAccountDetail_view.shtml" />
-                    <address name="²éÑ¯ÇëÇó" url="/partnerInfo/get.ajax" />
-                    <address name="½»Ò×Á÷Ë®²éÑ¯" url="/partnerTradeFlow/query.ajax"/>
+                <operation key="accountDetail" name="è´¦æˆ·æ˜Žç»†" desc="è´¦æˆ·æ˜Žç»†">
+                    <address name="è´¦æˆ·æ˜Žç»†é¡µé¢" url="/pages/partnerAccountDetail_view.shtml" />
+                    <address name="æŸ¥è¯¢è¯·æ±‚" url="/partnerInfo/get.ajax" />
+                    <address name="äº¤æ˜“æµæ°´æŸ¥è¯¢" url="/partnerTradeFlow/query.ajax"/>
                 </operation>
-                <operation key="accountChange" name="ÕË»§³äÖµºÍÐÅÓÃ¶î¶Èµ÷Õû" desc="ÕË»§³äÖµºÍÐÅÓÃ¶î¶Èµ÷Õû">
-                    <address name="ÕË»§³äÖµºÍÐÅÓÃ¶î¶Èµ÷Õû" url="/partnerTradeFlow/add.ajax"/>
-                </operation>
-			</resource>
-			
-			<resource key="auth_partner_bill_query" name="ÕËµ¥²éÑ¯" desc="ÕËµ¥²éÑ¯">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="ÕËµ¥²éÑ¯ÁÐ±í" url="/pages/partnerBillQuery_view.shtml" />
-                    <address name="ÕËµ¥²éÑ¯" url="/customerBalanceDay/queryPartner.ajax"/>
-                    <address name="²éÑ¯ËùÓÐºÏ×÷»ï°é" url="/customerBalanceDay/selectPartnerInfoByName.ajax"/>
-                    <address name="²éÑ¯ÏÂ·¢ÊýºÍÏÂ·¢½ð¶î" url="/customerBalanceDay/initPartnerCountAndPriceTotal.ajax"/>
-                </operation>
-				<operation key="export" name="µ¼³ö" desc="µ¼³ö">
-                    <address name="µ¼³ö" url="/customerBalanceDay/downLoadPartnerBill.ajax" />
+                <operation key="accountChange" name="è´¦æˆ·å……å€¼å’Œä¿¡ç”¨é¢åº¦è°ƒæ•´" desc="è´¦æˆ·å……å€¼å’Œä¿¡ç”¨é¢åº¦è°ƒæ•´">
+                    <address name="è´¦æˆ·å……å€¼å’Œä¿¡ç”¨é¢åº¦è°ƒæ•´" url="/partnerTradeFlow/add.ajax"/>
                 </operation>
 			</resource>
 			
-			<resource key="auth_partner_settlement_order_manager" name="½áËãµ¥¹ÜÀí" desc="½áËãµ¥¹ÜÀí">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="½áËãµ¥²éÑ¯ÁÐ±í" url="/pages/partnerSettlementOrder_list.shtml" />
-                    <address name="½áËãµ¥²éÑ¯" url="/partnerBalanceMonth/query.ajax"/>
-                    <address name="²éÑ¯ËùÓÐºÏ×÷»ï°é" url="/customerBalanceDay/selectPartnerInfoByName.ajax"/>
+			<resource key="auth_partner_bill_query" name="è´¦å•æŸ¥è¯¢" desc="è´¦å•æŸ¥è¯¢">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="è´¦å•æŸ¥è¯¢åˆ—è¡¨" url="/pages/partnerBillQuery_view.shtml" />
+                    <address name="è´¦å•æŸ¥è¯¢" url="/customerBalanceDay/queryPartner.ajax"/>
+                    <address name="æŸ¥è¯¢æ‰€æœ‰åˆä½œä¼™ä¼´" url="/customerBalanceDay/selectPartnerInfoByName.ajax"/>
+                    <address name="æŸ¥è¯¢ä¸‹å‘æ•°å’Œä¸‹å‘é‡‘é¢" url="/customerBalanceDay/initPartnerCountAndPriceTotal.ajax"/>
                 </operation>
-				<operation key="changeStatus" name="µ÷Õû½áËãµ¥×´Ì¬" desc="µ÷Õû½áËãµ¥×´Ì¬">
-                    <address name="µ÷Õû½áËãµ¥×´Ì¬" url="/partnerBalanceMonth/changeStatus.ajax"/>
+				<operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+                    <address name="å¯¼å‡º" url="/customerBalanceDay/downLoadPartnerBill.ajax" />
                 </operation>
-				<operation key="changeAdjustBalance" name="µ÷Õû½ð¶î" desc="µ÷Õû½ð¶î">
-                    <address name="µ÷Õû½ð¶î" url="/partnerBalanceMonth/changeAdjustBalance.ajax"/>
+			</resource>
+			
+			<resource key="auth_partner_settlement_order_manager" name="ç»“ç®—å•ç®¡ç†" desc="ç»“ç®—å•ç®¡ç†">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="ç»“ç®—å•æŸ¥è¯¢åˆ—è¡¨" url="/pages/partnerSettlementOrder_list.shtml" />
+                    <address name="ç»“ç®—å•æŸ¥è¯¢" url="/partnerBalanceMonth/query.ajax"/>
+                    <address name="æŸ¥è¯¢æ‰€æœ‰åˆä½œä¼™ä¼´" url="/customerBalanceDay/selectPartnerInfoByName.ajax"/>
                 </operation>
-				<operation key="downLoadSettlementOrder" name="µ¼³ö" desc="µ¼³ö">
-                    <address name="µ¼³ö" url="/partnerBalanceMonth/downLoadSettlementOrder.ajax"/>
+				<operation key="changeStatus" name="è°ƒæ•´ç»“ç®—å•çŠ¶æ€" desc="è°ƒæ•´ç»“ç®—å•çŠ¶æ€">
+                    <address name="è°ƒæ•´ç»“ç®—å•çŠ¶æ€" url="/partnerBalanceMonth/changeStatus.ajax"/>
+                </operation>
+				<operation key="changeAdjustBalance" name="è°ƒæ•´é‡‘é¢" desc="è°ƒæ•´é‡‘é¢">
+                    <address name="è°ƒæ•´é‡‘é¢" url="/partnerBalanceMonth/changeAdjustBalance.ajax"/>
+                </operation>
+				<operation key="downLoadSettlementOrder" name="å¯¼å‡º" desc="å¯¼å‡º">
+                    <address name="å¯¼å‡º" url="/partnerBalanceMonth/downLoadSettlementOrder.ajax"/>
                 </operation>
 			</resource>
 		</resource-category>
 
-		<resource-category key="auth_customer_bill_manager" name="¿Í»§ÕËµ¥¹ÜÀí"
-			desc="¿Í»§ÕËµ¥¹ÜÀí">
-			<resource key="auth_customer_bill" name="ÕËµ¥¹ÜÀí" desc="ÕËµ¥¹ÜÀí">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="¿Í»§ÕËµ¥ÁÐ±í" url="/pages/customerBill_list.shtml" />
-                    <address name="»ñÈ¡Êý¾Ý" url="/customerInfo/query.ajax" />
+		<resource-category key="auth_customer_bill_manager" name="å®¢æˆ·è´¦å•ç®¡ç†"
+			desc="å®¢æˆ·è´¦å•ç®¡ç†">
+			<resource key="auth_customer_bill" name="è´¦å•ç®¡ç†" desc="è´¦å•ç®¡ç†">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="å®¢æˆ·è´¦å•åˆ—è¡¨" url="/pages/customerBill_list.shtml" />
+                    <address name="èŽ·å–æ•°æ®" url="/customerInfo/query.ajax" />
                 </operation>
-                <operation key="accountDetail" name="ÕË»§Ã÷Ï¸" desc="ÕË»§Ã÷Ï¸">
-                    <address name="ÕË»§Ã÷Ï¸Ò³Ãæ" url="/pages/customerAccountDetail_view.shtml" />
-                    <address name="²éÑ¯ÇëÇó" url="/customerInfo/get.ajax" />
-                    <address name="½»Ò×Á÷Ë®²éÑ¯" url="/customerTradeFlow/query.ajax"/>
-                    <address name="³õÊ¼»¯ÀÛ¼Æ´æ¿îºÍÀÛ¼ÆÏû·Ñ" url="/customerTradeFlow/init.ajax"/>
+                <operation key="accountDetail" name="è´¦æˆ·æ˜Žç»†" desc="è´¦æˆ·æ˜Žç»†">
+                    <address name="è´¦æˆ·æ˜Žç»†é¡µé¢" url="/pages/customerAccountDetail_view.shtml" />
+                    <address name="æŸ¥è¯¢è¯·æ±‚" url="/customerInfo/get.ajax" />
+                    <address name="äº¤æ˜“æµæ°´æŸ¥è¯¢" url="/customerTradeFlow/query.ajax"/>
+                    <address name="åˆå§‹åŒ–ç´¯è®¡å­˜æ¬¾å’Œç´¯è®¡æ¶ˆè´¹" url="/customerTradeFlow/init.ajax"/>
                 </operation>
-                <operation key="accountChange" name="ÕË»§³äÖµºÍÐÅÓÃ¶î¶Èµ÷Õû" desc="ÕË»§³äÖµºÍÐÅÓÃ¶î¶Èµ÷Õû">
-                    <address name="ÕË»§³äÖµºÍÐÅÓÃ¶î¶Èµ÷Õû" url="/customerTradeFlow/add.ajax"/>
+                <operation key="accountChange" name="è´¦æˆ·å……å€¼å’Œä¿¡ç”¨é¢åº¦è°ƒæ•´" desc="è´¦æˆ·å……å€¼å’Œä¿¡ç”¨é¢åº¦è°ƒæ•´">
+                    <address name="è´¦æˆ·å……å€¼å’Œä¿¡ç”¨é¢åº¦è°ƒæ•´" url="/customerTradeFlow/add.ajax"/>
                 </operation>
 			</resource>
 			
-			<resource key="auth_customer_bill_query" name="ÕËµ¥²éÑ¯" desc="ÕËµ¥²éÑ¯">
-                <operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="ÕËµ¥²éÑ¯ÁÐ±í" url="/pages/customerBillQuery_view.shtml" />
-                    <address name="ÕËµ¥²éÑ¯" url="/customerBalanceDay/query.ajax"/>
-                    <address name="»ñÈ¡¿Í»§ÐÅÏ¢" url="/orderInfo/selectByPartnerId.ajax" />
-                    <address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-                    <address name="²éÑ¯ÏÂ·¢ÊýºÍÏÂ·¢½ð¶î" url="/customerBalanceDay/initCustomerCountAndPriceTotal.ajax"/>
+			<resource key="auth_customer_bill_query" name="è´¦å•æŸ¥è¯¢" desc="è´¦å•æŸ¥è¯¢">
+                <operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="è´¦å•æŸ¥è¯¢åˆ—è¡¨" url="/pages/customerBillQuery_view.shtml" />
+                    <address name="è´¦å•æŸ¥è¯¢" url="/customerBalanceDay/query.ajax"/>
+                    <address name="èŽ·å–å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectByPartnerId.ajax" />
+                    <address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+                    <address name="æŸ¥è¯¢ä¸‹å‘æ•°å’Œä¸‹å‘é‡‘é¢" url="/customerBalanceDay/initCustomerCountAndPriceTotal.ajax"/>
                 </operation>
-                <operation key="export" name="µ¼³ö" desc="µ¼³ö">
-                    <address name="µ¼³ö" url="/customerBalanceDay/downLoadCustomerBill.ajax" />
+                <operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+                    <address name="å¯¼å‡º" url="/customerBalanceDay/downLoadCustomerBill.ajax" />
                 </operation>
             </resource>
             
-            <resource key="auth_customer_settlement_order_manager" name="½áËãµ¥¹ÜÀí" desc="½áËãµ¥¹ÜÀí">
-                <operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="½áËãµ¥²éÑ¯ÁÐ±í" url="/pages/customerSettlementOrder_list.shtml" />
-                    <address name="½áËãµ¥²éÑ¯" url="/customerBalanceMonth/query.ajax"/>
-                    <address name="»ñÈ¡¿Í»§ÐÅÏ¢" url="/orderInfo/selectByPartnerId.ajax" />
-                    <address name="»ñÈ¡¶ÔÓ¦¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
+            <resource key="auth_customer_settlement_order_manager" name="ç»“ç®—å•ç®¡ç†" desc="ç»“ç®—å•ç®¡ç†">
+                <operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="ç»“ç®—å•æŸ¥è¯¢åˆ—è¡¨" url="/pages/customerSettlementOrder_list.shtml" />
+                    <address name="ç»“ç®—å•æŸ¥è¯¢" url="/customerBalanceMonth/query.ajax"/>
+                    <address name="èŽ·å–å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectByPartnerId.ajax" />
+                    <address name="èŽ·å–å¯¹åº”å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
                 </operation>
-                <operation key="changeStatus" name="µ÷Õû½áËãµ¥×´Ì¬" desc="µ÷Õû½áËãµ¥×´Ì¬">
-                    <address name="µ÷Õû½áËãµ¥×´Ì¬" url="/customerBalanceMonth/changeStatus.ajax"/>
+                <operation key="changeStatus" name="è°ƒæ•´ç»“ç®—å•çŠ¶æ€" desc="è°ƒæ•´ç»“ç®—å•çŠ¶æ€">
+                    <address name="è°ƒæ•´ç»“ç®—å•çŠ¶æ€" url="/customerBalanceMonth/changeStatus.ajax"/>
                 </operation>
-                <operation key="changeAdjustBalance" name="µ÷Õû½ð¶î" desc="µ÷Õû½ð¶î">
-                    <address name="µ÷Õû½ð¶î" url="/customerBalanceMonth/changeAdjustBalance.ajax"/>
+                <operation key="changeAdjustBalance" name="è°ƒæ•´é‡‘é¢" desc="è°ƒæ•´é‡‘é¢">
+                    <address name="è°ƒæ•´é‡‘é¢" url="/customerBalanceMonth/changeAdjustBalance.ajax"/>
                 </operation>
-                <operation key="downLoadSettlementOrder" name="µ¼³ö" desc="µ¼³ö">
-                    <address name="µ¼³ö" url="/customerBalanceMonth/downLoadSettlementOrder.ajax"/>
+                <operation key="downLoadSettlementOrder" name="å¯¼å‡º" desc="å¯¼å‡º">
+                    <address name="å¯¼å‡º" url="/customerBalanceMonth/downLoadSettlementOrder.ajax"/>
                 </operation>
             </resource>
 		</resource-category>
 		
-		<resource-category key="auth_greeting_manager" name="ºØ¿¨¹ÜÀí"
-						   desc="ºØ¿¨¹ÜÀí">
-			<resource key="auth_greeting_info" name="×£¸£Óï" desc="×£¸£Óï">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/card/greetingInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/greetingInfo/query.ajax" />
+		<resource-category key="auth_greeting_manager" name="è´ºå¡ç®¡ç†"
+						   desc="è´ºå¡ç®¡ç†">
+			<resource key="auth_greeting_info" name="ç¥ç¦è¯­" desc="ç¥ç¦è¯­">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/card/greetingInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/greetingInfo/query.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/greetingInfo_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/greetingInfo/add.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/greetingInfo_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/greetingInfo/add.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/greetingInfo/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/greetingInfo/delete.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/greetingInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/greetingInfo/get.ajax" />
-				</operation>
-			</resource>
-			
-			<resource key="greeting_card_info_manage" name="ºØ¿¨" desc="ºØ¿¨">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="ºØ¿¨ÁÐ±í" url="/pages/card/greetingCardInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/greetingCardInfo/query.ajax" />
-					<address name="»ñÈ¡ËùÓÐ»î¶¯" url="/greetingCardInfo/getCampaign.ajax" />
-				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/greetingCardInfo_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/greetingCardInfo/add.ajax" />
-					<address name="»ñÈ¡ËùÓÐ»î¶¯" url="/greetingCardInfo/getCampaign.ajax" />
-					<address name="¹ØÁªºØ¿¨»î¶¯" url="/greetingCardAct/query.ajax" />
-				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/greetingCardInfo/delete.ajax" />
-				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/greetingCardInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/greetingCardInfo/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/greetingInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/greetingInfo/get.ajax" />
 				</operation>
 			</resource>
 			
-			<resource key="card_exchange_info" name="ºØ¿¨¶Ò»»¼ÇÂ¼" desc="ºØ¿¨¶Ò»»¼ÇÂ¼">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/card/cardExchangeInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/cardExchangeInfo/query.ajax" />
+			<resource key="greeting_card_info_manage" name="è´ºå¡" desc="è´ºå¡">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="è´ºå¡åˆ—è¡¨" url="/pages/card/greetingCardInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/greetingCardInfo/query.ajax" />
+					<address name="èŽ·å–æ‰€æœ‰æ´»åŠ¨" url="/greetingCardInfo/getCampaign.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/cardExchangeInfo_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/cardExchangeInfo/add.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/greetingCardInfo_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/greetingCardInfo/add.ajax" />
+					<address name="èŽ·å–æ‰€æœ‰æ´»åŠ¨" url="/greetingCardInfo/getCampaign.ajax" />
+					<address name="å…³è”è´ºå¡æ´»åŠ¨" url="/greetingCardAct/query.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/cardExchangeInfo/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/greetingCardInfo/delete.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/cardExchangeInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/cardExchangeInfo/get.ajax" />
-				</operation>
-			</resource>
-			
-			<resource key="wxPayRecord_manage" name="Î¢ÐÅÖ§¸¶¼ÇÂ¼" desc="Î¢ÐÅÖ§¸¶¼ÇÂ¼">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/card/wxPayRecord_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/wxPayRecord/query.ajax" />
-				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/wxPayRecord_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/wxPayRecord/add.ajax" />
-				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/wxPayRecord/delete.ajax" />
-				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/wxPayRecord_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/wxPayRecord/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/greetingCardInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/greetingCardInfo/get.ajax" />
 				</operation>
 			</resource>
 			
-			<resource key="my_greeting_card" name="ÎÒµÄºØ¿¨" desc="ÎÒµÄºØ¿¨">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/card/myGreetingCard_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/myGreetingCard/query.ajax" />
+			<resource key="card_exchange_info" name="è´ºå¡å…‘æ¢è®°å½•" desc="è´ºå¡å…‘æ¢è®°å½•">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/card/cardExchangeInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/cardExchangeInfo/query.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/myGreetingCard_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/myGreetingCard/add.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/cardExchangeInfo_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/cardExchangeInfo/add.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/myGreetingCard/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/cardExchangeInfo/delete.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´¿Í»§ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/myGreetingCard_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/myGreetingCard/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/cardExchangeInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/cardExchangeInfo/get.ajax" />
 				</operation>
 			</resource>
 			
-			<resource key="greeting_card_act" name="ºØ¿¨»î¶¯" desc="ºØ¿¨»î¶¯">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="Ö±ÏúÖÕ¶Ë¿Í»§ÁÐ±í" url="/pages/card/greetingCardAct_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/greetingCardAct/query.ajax" />
+			<resource key="wxPayRecord_manage" name="å¾®ä¿¡æ”¯ä»˜è®°å½•" desc="å¾®ä¿¡æ”¯ä»˜è®°å½•">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/card/wxPayRecord_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/wxPayRecord/query.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/card/greetingCardAct_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/greetingCardAct/add.ajax" />
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/orderInfo/selectCustomerInfoByName.ajax" />
-					<address name="ºØ¿¨»î¶¯Ö÷Ò³" url="/pages/card/greetingCardAct_list.shtml" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/wxPayRecord_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/wxPayRecord/add.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/greetingCardAct/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/wxPayRecord/delete.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´»î¶¯ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/card/greetingCardAct_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/greetingCardAct/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/wxPayRecord_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/wxPayRecord/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="my_greeting_card" name="æˆ‘çš„è´ºå¡" desc="æˆ‘çš„è´ºå¡">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/card/myGreetingCard_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/myGreetingCard/query.ajax" />
+				</operation>
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/myGreetingCard_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/myGreetingCard/add.ajax" />
+				</operation>
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/myGreetingCard/delete.ajax" />
+				</operation>
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹å®¢æˆ·è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/myGreetingCard_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/myGreetingCard/get.ajax" />
+				</operation>
+			</resource>
+			
+			<resource key="greeting_card_act" name="è´ºå¡æ´»åŠ¨" desc="è´ºå¡æ´»åŠ¨">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="ç›´é”€ç»ˆç«¯å®¢æˆ·åˆ—è¡¨" url="/pages/card/greetingCardAct_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/greetingCardAct/query.ajax" />
+				</operation>
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/card/greetingCardAct_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/greetingCardAct/add.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/orderInfo/selectCustomerInfoByName.ajax" />
+					<address name="è´ºå¡æ´»åŠ¨ä¸»é¡µ" url="/pages/card/greetingCardAct_list.shtml" />
+				</operation>
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/greetingCardAct/delete.ajax" />
+				</operation>
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹æ´»åŠ¨è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/card/greetingCardAct_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/greetingCardAct/get.ajax" />
 				</operation>
 			</resource>
 		</resource-category>
 		
 		
-		<resource-category key="auth_data_dictionary" name="Êý¾Ý×Öµä"
-			desc="¿Í»§ÕËµ¥¹ÜÀí">
-			<resource key="auth_data_dictionary_list" name="ÕËµ¥¹ÜÀí" desc="ÕËµ¥¹ÜÀí">
-				<operation key="query" name="ÁÐ±í" desc="ÁÐ±í">
-                    <address name="»ñÈ¡Êý¾Ý" url="/codeDict/query.ajax" />
+		<resource-category key="auth_data_dictionary" name="æ•°æ®å­—å…¸"
+			desc="å®¢æˆ·è´¦å•ç®¡ç†">
+			<resource key="auth_data_dictionary_list" name="è´¦å•ç®¡ç†" desc="è´¦å•ç®¡ç†">
+				<operation key="query" name="åˆ—è¡¨" desc="åˆ—è¡¨">
+                    <address name="èŽ·å–æ•°æ®" url="/codeDict/query.ajax" />
                 </operation>
 			</resource>
 		</resource-category>
 
-        <resource-category key="auth_data_greeting_card" name="Á÷Á¿ÓªÏú»î¶¯"
-                           desc="Á÷Á¿ÓªÏú»î¶¯">
-            <resource key="auth_data_greeting_card_list" name="ÓªÏú»î¶¯ÅäÖÃ" desc="ÓªÏú»î¶¯ÅäÖÃ">
-                <operation key="query" name="²é¿´" desc="²é¿´">
-                    <address name="ÓªÏú»î¶¯ÅäÖÃ" url="/pages/greeting_list.shtml"/>
-                    <address name="»ñÈ¡Êý¾Ý" url="/greetingCardAct/queryGreetingCardList.ajax"/>
+        <resource-category key="auth_data_greeting_card" name="æµé‡è¥é”€æ´»åŠ¨"
+                           desc="æµé‡è¥é”€æ´»åŠ¨">
+            <resource key="auth_data_greeting_card_list" name="è¥é”€æ´»åŠ¨é…ç½®" desc="è¥é”€æ´»åŠ¨é…ç½®">
+                <operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+                    <address name="è¥é”€æ´»åŠ¨é…ç½®" url="/pages/greeting_list.shtml"/>
+                    <address name="èŽ·å–æ•°æ®" url="/greetingCardAct/queryGreetingCardList.ajax"/>
                 </operation>
-                <operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-                    <address name="Ìí¼ÓÒ³Ãæ" url="/pages/greeting_add.shtml"/>
-                    <address name="ºØ¿¨Ä£°åÒ³Ãæ" url="/pages/greeting_temp/demo.shtml"/>
-                    <address name="·ÖÏíÒ³Ãæ" url="/pages/greeting_temp/share_info.shtml"/>
-                    <address name="²éÑ¯¿Í»§" url="/greetingCardAct/selectCustomerInfoByName.ajax"/>
-                    <address name="²éÑ¯¶©µ¥" url="/greetingCardAct/getFlowAppInfo.ajax"/>
-                    <address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/greetingCardAct/addGreeting.ajax"/>
-                    <address name="»ñÈ¡ÏêÇé" url="/greetingCardAct/getGreetingCard.ajax"/>
-                </operation>
-            </resource>
-            <resource key="auth_data_campaign_reward_info_list" name="ÁìÈ¡ÐÅÏ¢" desc="ÁìÈ¡ÐÅÏ¢">
-                <operation key="query" name="²é¿´" desc="²é¿´">
-                    <address name="ÁìÈ¡ÐÅÏ¢" url="/pages/campaignRewardInfo_list.shtml"/>
-					<address name="²éÑ¯ÁìÈ¡ÐÅÏ¢" url="/campaignRewardInfo/query.ajax" />
-					<address name="ÁìÈ¡ÏêÇéÒ³Ãæ" url="/pages/act/campaignRewardInfo_view.shtml"/>
-					<address name="ÁìÈ¡ÏêÇéÐÅÏ¢ÇëÇó" url="/campaignRewardInfo/get.ajax" />
-                </operation>
-                <operation key="export" name="µ¼³ö" desc="µ¼³ö">
-                    <address name="µ¼³ö" url="/campaignRewardInfo/downLoadGetCampaignRewardInfo.ajax"/>
+                <operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+                    <address name="æ·»åŠ é¡µé¢" url="/pages/greeting_add.shtml"/>
+                    <address name="è´ºå¡æ¨¡æ¿é¡µé¢" url="/pages/greeting_temp/demo.shtml"/>
+                    <address name="åˆ†äº«é¡µé¢" url="/pages/greeting_temp/share_info.shtml"/>
+                    <address name="æŸ¥è¯¢å®¢æˆ·" url="/greetingCardAct/selectCustomerInfoByName.ajax"/>
+                    <address name="æŸ¥è¯¢è®¢å•" url="/greetingCardAct/getFlowAppInfo.ajax"/>
+                    <address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/greetingCardAct/addGreeting.ajax"/>
+                    <address name="èŽ·å–è¯¦æƒ…" url="/greetingCardAct/getGreetingCard.ajax"/>
                 </operation>
             </resource>
-            <resource key="auth_data_flow_act_temp" name="Ë®¹û»úÓÎÏ·Ä£°å" desc="Ë®¹û»úÓÎÏ·Ä£°å">
-                <operation key="query" name="Ë®¹û»úÓÎÏ·ÁÐ±í" desc="Ë®¹û»úÓÎÏ·ÁÐ±í">
-                    <address name="Ë®¹û»úÁÐ±íÒ³Ãæ" url="/pages/actTemplate_list.shtml"/>
-                    <address name="Ë®¹û»úÁÐ±íÇëÇó" url="/campaignInfo/actTemplate.ajax"/>
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/campaignInfo/selectCustomerInfoByName.ajax" />
+            <resource key="auth_data_campaign_reward_info_list" name="é¢†å–ä¿¡æ¯" desc="é¢†å–ä¿¡æ¯">
+                <operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+                    <address name="é¢†å–ä¿¡æ¯" url="/pages/campaignRewardInfo_list.shtml"/>
+					<address name="æŸ¥è¯¢é¢†å–ä¿¡æ¯" url="/campaignRewardInfo/query.ajax" />
+					<address name="é¢†å–è¯¦æƒ…é¡µé¢" url="/pages/act/campaignRewardInfo_view.shtml"/>
+					<address name="é¢†å–è¯¦æƒ…ä¿¡æ¯è¯·æ±‚" url="/campaignRewardInfo/get.ajax" />
                 </operation>
-                <operation key="add" name="Ë®¹û»úÐÂÔö/ÐÞ¸Ä" desc="Ë®¹û»úÐÂÔö/ÐÞ¸Ä">
-                    <address name="Ë®¹û»úÐÂÔöÒ³Ãæ" url="/pages/actTemplate_add.shtml"/>
-                    <address name="Ë®¹û»úÐÂÔöÇëÇó" url="/campaignInfo/addActTemplate.ajax"/>
-                    <address name="Ë®¹û»úÐÂÔöÏêÇé" url="/campaignInfo/getActTemplate.ajax"/>
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/campaignInfo/selectCustomerInfoByName.ajax" />
-                    <address name="²éÑ¯¶©µ¥" url="/campaignInfo/getCustomerFlowAppInfo.ajax"/>
-					<address name="Ë®¹û»úÄ£°åÒ³Ãæ" url="/pages/act_temp/index.shtml"/>
-					<address name="Ë®¹û»ú·ÖÏíÒ³Ãæ" url="/pages/act_temp/share_info.shtml"/>
-					<address name="É¾³ý½±Æ·ÐÅÏ¢" url="/campaignInfo/deleteGiftList.ajax" />
+                <operation key="export" name="å¯¼å‡º" desc="å¯¼å‡º">
+                    <address name="å¯¼å‡º" url="/campaignRewardInfo/downLoadGetCampaignRewardInfo.ajax"/>
                 </operation>
             </resource>
-			<resource key="sig_in_conf" name="Ç©µ½ËÍÁ÷Á¿" desc="Ç©µ½ËÍÁ÷Á¿">
-				<operation key="query" name="Ç©µ½ËÍÁ÷Á¿ÁÐ±í" desc="Ç©µ½ËÍÁ÷Á¿ÁÐ±í">
-					<address name="Ç©µ½ËÍÁ÷Á¿ÁÐ±íÒ³Ãæ" url="/pages/signInConf_list.shtml"/>
-					<address name="Ç©µ½ËÍÁ÷Á¿ÁÐ±íÇëÇó" url="/signInConf/signInConf.ajax"/>
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/signInConf/selectCustomerInfoByName.ajax" />
-					<address name="É¾³ý½±Æ·ÐÅÏ¢" url="/signInConf/deleteGiftList.ajax" />
+            <resource key="auth_data_flow_act_temp" name="æ°´æžœæœºæ¸¸æˆæ¨¡æ¿" desc="æ°´æžœæœºæ¸¸æˆæ¨¡æ¿">
+                <operation key="query" name="æ°´æžœæœºæ¸¸æˆåˆ—è¡¨" desc="æ°´æžœæœºæ¸¸æˆåˆ—è¡¨">
+                    <address name="æ°´æžœæœºåˆ—è¡¨é¡µé¢" url="/pages/actTemplate_list.shtml"/>
+                    <address name="æ°´æžœæœºåˆ—è¡¨è¯·æ±‚" url="/campaignInfo/actTemplate.ajax"/>
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/campaignInfo/selectCustomerInfoByName.ajax" />
+                </operation>
+                <operation key="add" name="æ°´æžœæœºæ–°å¢ž/ä¿®æ”¹" desc="æ°´æžœæœºæ–°å¢ž/ä¿®æ”¹">
+                    <address name="æ°´æžœæœºæ–°å¢žé¡µé¢" url="/pages/actTemplate_add.shtml"/>
+                    <address name="æ°´æžœæœºæ–°å¢žè¯·æ±‚" url="/campaignInfo/addActTemplate.ajax"/>
+                    <address name="æ°´æžœæœºæ–°å¢žè¯¦æƒ…" url="/campaignInfo/getActTemplate.ajax"/>
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/campaignInfo/selectCustomerInfoByName.ajax" />
+                    <address name="æŸ¥è¯¢è®¢å•" url="/campaignInfo/getCustomerFlowAppInfo.ajax"/>
+					<address name="æ°´æžœæœºæ¨¡æ¿é¡µé¢" url="/pages/act_temp/index.shtml"/>
+					<address name="æ°´æžœæœºåˆ†äº«é¡µé¢" url="/pages/act_temp/share_info.shtml"/>
+					<address name="åˆ é™¤å¥–å“ä¿¡æ¯" url="/campaignInfo/deleteGiftList.ajax" />
+                </operation>
+            </resource>
+			<resource key="sig_in_conf" name="ç­¾åˆ°é€æµé‡" desc="ç­¾åˆ°é€æµé‡">
+				<operation key="query" name="ç­¾åˆ°é€æµé‡åˆ—è¡¨" desc="ç­¾åˆ°é€æµé‡åˆ—è¡¨">
+					<address name="ç­¾åˆ°é€æµé‡åˆ—è¡¨é¡µé¢" url="/pages/signInConf_list.shtml"/>
+					<address name="ç­¾åˆ°é€æµé‡åˆ—è¡¨è¯·æ±‚" url="/signInConf/signInConf.ajax"/>
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/signInConf/selectCustomerInfoByName.ajax" />
+					<address name="åˆ é™¤å¥–å“ä¿¡æ¯" url="/signInConf/deleteGiftList.ajax" />
 
-					<address name="Ç©µ½ÏêÇéÒ³Ãæ" url="/pages/signInDetail_list.shtml" />
-					<address name="²éÑ¯Á÷Ë®" url="/signPointsRecord/query.ajax" />
-					<address name="Á÷Ë®µ¼³öÈ¨ÏÞ" url="/signPointsRecord/downLoadSignIn.ajax" />
-					<address name="Í³¼ÆÇ©µ½" url="/signPointsRecord/statisticsSignIn.ajax" />
-					<address name="Í³¼ÆÇ©µ½µ¼³öÈ¨ÏÞ" url="/signPointsRecord/statisticsSignInExport.ajax" />
+					<address name="ç­¾åˆ°è¯¦æƒ…é¡µé¢" url="/pages/signInDetail_list.shtml" />
+					<address name="æŸ¥è¯¢æµæ°´" url="/signPointsRecord/query.ajax" />
+					<address name="æµæ°´å¯¼å‡ºæƒé™" url="/signPointsRecord/downLoadSignIn.ajax" />
+					<address name="ç»Ÿè®¡ç­¾åˆ°" url="/signPointsRecord/statisticsSignIn.ajax" />
+					<address name="ç»Ÿè®¡ç­¾åˆ°å¯¼å‡ºæƒé™" url="/signPointsRecord/statisticsSignInExport.ajax" />
 
 				</operation>
-				<operation key="add" name="Ç©µ½ÐÂÔö/ÐÞ¸Ä" desc="Ç©µ½ÐÂÔö/ÐÞ¸Ä">
-					<address name="Ç©µ½ÐÂÔöÒ³Ãæ" url="/pages/signInConf_add.shtml"/>
-					<address name="Ç©µ½ÐÂÔöÇëÇó" url="/signInConf/addSignInConf.ajax"/>
-					<address name="Ç©µ½ÐÂÔöÏêÇé" url="/signInConf/getSignInConf.ajax"/>
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/signInConf/selectCustomerInfoByName.ajax" />
-					<address name="²éÑ¯¶©µ¥" url="/signInConf/getCustomerFlowAppInfo.ajax"/>
-					<address name="Ç©µ½Ä£°åÒ³Ãæ" url="/pages/sign_in/index.shtml"/>
-					<address name="Ç©µ½·ÖÏíÒ³Ãæ" url="/pages/sign_in/share_info.shtml"/>
+				<operation key="add" name="ç­¾åˆ°æ–°å¢ž/ä¿®æ”¹" desc="ç­¾åˆ°æ–°å¢ž/ä¿®æ”¹">
+					<address name="ç­¾åˆ°æ–°å¢žé¡µé¢" url="/pages/signInConf_add.shtml"/>
+					<address name="ç­¾åˆ°æ–°å¢žè¯·æ±‚" url="/signInConf/addSignInConf.ajax"/>
+					<address name="ç­¾åˆ°æ–°å¢žè¯¦æƒ…" url="/signInConf/getSignInConf.ajax"/>
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/signInConf/selectCustomerInfoByName.ajax" />
+					<address name="æŸ¥è¯¢è®¢å•" url="/signInConf/getCustomerFlowAppInfo.ajax"/>
+					<address name="ç­¾åˆ°æ¨¡æ¿é¡µé¢" url="/pages/sign_in/index.shtml"/>
+					<address name="ç­¾åˆ°åˆ†äº«é¡µé¢" url="/pages/sign_in/share_info.shtml"/>
 				</operation>
 			</resource>
         </resource-category>
 		
-			<resource-category key="auth_data_adv" name="¹ã¸æÎ»"
-						   desc="Á÷Á¿ºØ¿¨">
-			<resource key="auth_data_adv_category" name="¹ã¸æÎ»Àà±ð" desc="¹ã¸æÎ»Àà±ð">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="²é¿´Ò³Ãæ" url="/pages/act/advCategory_list.shtml" />
-					<address name="²é¿´ÇëÇó" url="/advCategory/query.ajax" />
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/advCategory/selectCustomerInfoByName.ajax" />
+			<resource-category key="auth_data_adv" name="å¹¿å‘Šä½"
+						   desc="æµé‡è´ºå¡">
+			<resource key="auth_data_adv_category" name="å¹¿å‘Šä½ç±»åˆ«" desc="å¹¿å‘Šä½ç±»åˆ«">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="æŸ¥çœ‹é¡µé¢" url="/pages/act/advCategory_list.shtml" />
+					<address name="æŸ¥çœ‹è¯·æ±‚" url="/advCategory/query.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/advCategory/selectCustomerInfoByName.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/act/advCategory_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/advCategory/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/advCategory/get.ajax" />
-					<address name="²éÑ¯¿Í»§ÐÅÏ¢" url="/advCategory/selectCustomerInfoByName.ajax" />
-					<address name="Î¨Ò»IDÅÐ¶Ï" url="/advCategory/soloId.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/act/advCategory_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/advCategory/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/advCategory/get.ajax" />
+					<address name="æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯" url="/advCategory/selectCustomerInfoByName.ajax" />
+					<address name="å”¯ä¸€IDåˆ¤æ–­" url="/advCategory/soloId.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/advCategory/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/advCategory/delete.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´»î¶¯ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/act/advCategory_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/advCategory/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹æ´»åŠ¨è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/act/advCategory_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/advCategory/get.ajax" />
 				</operation>
 			</resource>
-			<resource key="auth_data_adv_info" name="¹ã¸æÎ»ÐÅÏ¢" desc="¹ã¸æÎ»ÐÅÏ¢">
-				<operation key="query" name="²é¿´" desc="²é¿´">
-					<address name="ÁìÈ¡ÐÅÏ¢" url="/pages/act/advInfo_list.shtml" />
-					<address name="»ñÈ¡Êý¾Ý" url="/advInfo/query.ajax" />
-					<address name="²éÑ¯Àà±ðid" url="/advInfo/selectAdvInfoByCategoryId.ajax" />
+			<resource key="auth_data_adv_info" name="å¹¿å‘Šä½ä¿¡æ¯" desc="å¹¿å‘Šä½ä¿¡æ¯">
+				<operation key="query" name="æŸ¥çœ‹" desc="æŸ¥çœ‹">
+					<address name="é¢†å–ä¿¡æ¯" url="/pages/act/advInfo_list.shtml" />
+					<address name="èŽ·å–æ•°æ®" url="/advInfo/query.ajax" />
+					<address name="æŸ¥è¯¢ç±»åˆ«id" url="/advInfo/selectAdvInfoByCategoryId.ajax" />
 				</operation>
-				<operation key="add" name="ÐÂÔö" desc="ÐÂÔö">
-					<address name="Ìí¼ÓÒ³Ãæ" url="/pages/act/advInfo_add.shtml" />
-					<address name="Ìí¼Ó»ò¸üÐÂÊý¾Ý" url="/advInfo/add.ajax" />
-					<address name="ÏêÇé»ñÈ¡" url="/advInfo/get.ajax" />
-					<address name="²éÑ¯Àà±ðid" url="/advInfo/selectAdvInfoByCategoryId.ajax" />
+				<operation key="add" name="æ–°å¢ž" desc="æ–°å¢ž">
+					<address name="æ·»åŠ é¡µé¢" url="/pages/act/advInfo_add.shtml" />
+					<address name="æ·»åŠ æˆ–æ›´æ–°æ•°æ®" url="/advInfo/add.ajax" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/advInfo/get.ajax" />
+					<address name="æŸ¥è¯¢ç±»åˆ«id" url="/advInfo/selectAdvInfoByCategoryId.ajax" />
 				</operation>
-				<operation key="delete" name="É¾³ý" desc="É¾³ý">
-					<address name="É¾³ý" url="/advInfo/delete.ajax" />
+				<operation key="delete" name="åˆ é™¤" desc="åˆ é™¤">
+					<address name="åˆ é™¤" url="/advInfo/delete.ajax" />
 				</operation>
-				<operation key="detail" name="ÏêÇé" desc="²é¿´»î¶¯ÏêÇé">
-					<address name="ÏêÇéÒ³Ãæ" url="/pages/act/advInfo_view.shtml" />
-					<address name="ÏêÇé»ñÈ¡" url="/advInfo/get.ajax" />
+				<operation key="detail" name="è¯¦æƒ…" desc="æŸ¥çœ‹æ´»åŠ¨è¯¦æƒ…">
+					<address name="è¯¦æƒ…é¡µé¢" url="/pages/act/advInfo_view.shtml" />
+					<address name="è¯¦æƒ…èŽ·å–" url="/advInfo/get.ajax" />
 				</operation>
 			</resource>
 		</resource-category>

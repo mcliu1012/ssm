@@ -1,127 +1,127 @@
-<?xml version="1.0" encoding="gb2312"?>
-<!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd"> -->
 <domain id="admin" subsystem="auth">
-	<!-- ×ÊÔ´·ÖÀà£­µÚÒ»¼¶ -->
-	<resource-category key="auth_admin" orderKey="3000"  name="ÏµÍ³¹ÜÀí" desc="ÏµÍ³¹ÜÀí">
-		<!-- ×ÊÔ´-->
-		<resource-category key="auth_admin_sys_individual" name="¸öÈË¹ÜÀí" desc="¸öÈË¹ÜÀí">
-			<resource key="auth_admin_sys_individual_modifyInfo" name="ÐÞ¸ÄÕÊºÅÐÅÏ¢" desc="ÐÞ¸ÄÕÊºÅÐÅÏ¢">
-				<!-- ×ÊÔ´²Ù×÷-DO -->
-				<operation key="QUERY" name="ÐÞ¸Ä" desc="ÐÞ¸Ä">
-					<address name="¸öÈË¹ÜÀíÒ³Ãæ" url="/pages/auth/individual/modifyInfo.shtml"/>
-					<address name="²éÑ¯¸öÈË×ÊÁÏ" url="/staff/findLoginStaff.ajax"/>
-					<address name="ÐÞ¸Ä¸öÈË×ÊÁÏ" url="/staff/updateStaff.ajax"/>
-					<address name="²éÑ¯¸öÈËÀ©Õ¹ÊôÐÔ" url="/staff/findStaffExtendProperties.ajax"/>
+	<!-- èµ„æºåˆ†ç±»ï¼ç¬¬ä¸€çº§ -->
+	<resource-category key="auth_admin" orderKey="3000"  name="ç³»ç»Ÿç®¡ç†" desc="ç³»ç»Ÿç®¡ç†">
+		<!-- èµ„æº-->
+		<resource-category key="auth_admin_sys_individual" name="ä¸ªäººç®¡ç†" desc="ä¸ªäººç®¡ç†">
+			<resource key="auth_admin_sys_individual_modifyInfo" name="ä¿®æ”¹å¸å·ä¿¡æ¯" desc="ä¿®æ”¹å¸å·ä¿¡æ¯">
+				<!-- èµ„æºæ“ä½œ-DO -->
+				<operation key="QUERY" name="ä¿®æ”¹" desc="ä¿®æ”¹">
+					<address name="ä¸ªäººç®¡ç†é¡µé¢" url="/pages/auth/individual/modifyInfo.shtml"/>
+					<address name="æŸ¥è¯¢ä¸ªäººèµ„æ–™" url="/staff/findLoginStaff.ajax"/>
+					<address name="ä¿®æ”¹ä¸ªäººèµ„æ–™" url="/staff/updateStaff.ajax"/>
+					<address name="æŸ¥è¯¢ä¸ªäººæ‰©å±•å±žæ€§" url="/staff/findStaffExtendProperties.ajax"/>
 				</operation>
 			</resource>
-			<resource key="auth_admin_sys_individual_modifyPwd" name="ÐÞ¸Ä¸öÈËÃÜÂë" desc="ÐÞ¸Ä¸öÈËÃÜÂë">
-				<!-- ×ÊÔ´²Ù×÷-DO -->
-				<operation key="QUERY" name="ÐÞ¸Ä" desc="ÐÞ¸Ä">
-					<address name="ÐÞ¸Ä¸öÈËÃÜÂëÒ³Ãæ" url="/pages/auth/individual/modifyPwd.shtml"/>
-					<address name="ÐÞ¸Ä¸öÈËÃÜÂë" url="/staff/changePwd.ajax"/>
+			<resource key="auth_admin_sys_individual_modifyPwd" name="ä¿®æ”¹ä¸ªäººå¯†ç " desc="ä¿®æ”¹ä¸ªäººå¯†ç ">
+				<!-- èµ„æºæ“ä½œ-DO -->
+				<operation key="QUERY" name="ä¿®æ”¹" desc="ä¿®æ”¹">
+					<address name="ä¿®æ”¹ä¸ªäººå¯†ç é¡µé¢" url="/pages/auth/individual/modifyPwd.shtml"/>
+					<address name="ä¿®æ”¹ä¸ªäººå¯†ç " url="/staff/changePwd.ajax"/>
 				</operation>
 			</resource>
-			<resource key="auth_admin_sys_individual_selfconfig" name="¸öÐÔ»¯²ÎÊýÉèÖÃ" desc="¸öÐÔ»¯²ÎÊýÉèÖÃ">
-				<!-- ×ÊÔ´²Ù×÷-DO -->
-				<operation key="QUERY" name="²éÑ¯" desc="²éÑ¯">
-					<address name="¸öÐÔ»¯²ÎÊýÐÞ¸ÄÒ³Ãæ" url="/pages/auth/individual/selfConfigSetting.shtml"/>
-					<address name="¸öÐÔ»¯²ÎÊý²éÑ¯" url="/pendTaskSetting/get.ajax"/>
-					<address name="¸öÐÔ»¯²ÎÊýÉèÖÃ" url="/pendTaskSetting/update.ajax"/>
+			<resource key="auth_admin_sys_individual_selfconfig" name="ä¸ªæ€§åŒ–å‚æ•°è®¾ç½®" desc="ä¸ªæ€§åŒ–å‚æ•°è®¾ç½®">
+				<!-- èµ„æºæ“ä½œ-DO -->
+				<operation key="QUERY" name="æŸ¥è¯¢" desc="æŸ¥è¯¢">
+					<address name="ä¸ªæ€§åŒ–å‚æ•°ä¿®æ”¹é¡µé¢" url="/pages/auth/individual/selfConfigSetting.shtml"/>
+					<address name="ä¸ªæ€§åŒ–å‚æ•°æŸ¥è¯¢" url="/pendTaskSetting/get.ajax"/>
+					<address name="ä¸ªæ€§åŒ–å‚æ•°è®¾ç½®" url="/pendTaskSetting/update.ajax"/>
 				</operation>
 			</resource>
 		</resource-category>
-		<resource-category key="auth_admin_sys_dept" name="×éÖ¯¹ÜÀí" desc="×éÖ¯¹ÜÀí">
-				<resource key="auth_admin_sys_dept_deptManage" name="×éÖ¯¹ÜÀí" desc="×éÖ¯¹ÜÀí">
-					<!-- ×ÊÔ´²Ù×÷-->
-					<operation key="QUERY" name="×éÖ¯²éÑ¯" desc="×éÖ¯²éÑ¯">
-						<address name="×éÖ¯¹ÜÀíÒ³Ãæ" url="/pages/auth/dept.shtml"/>
-						<address name="×éÖ¯Ê÷²éÑ¯" url="/department/listDepartmentTree.ajax"/>
-						<address name="×éÖ¯²éÑ¯" url="/department/findDepartment.ajax"/>
-						<address name="×éÖ¯ÏêÇé²éÑ¯" url="/department/findDepartmentInfo.ajax"/>
-						<address name="¸üÐÂ×éÖ¯" url="/department/updateDepartment.ajax"/>
-						<address name="É¾³ý×éÖ¯" url="/department/delDepartment.ajax"/>
+		<resource-category key="auth_admin_sys_dept" name="ç»„ç»‡ç®¡ç†" desc="ç»„ç»‡ç®¡ç†">
+				<resource key="auth_admin_sys_dept_deptManage" name="ç»„ç»‡ç®¡ç†" desc="ç»„ç»‡ç®¡ç†">
+					<!-- èµ„æºæ“ä½œ-->
+					<operation key="QUERY" name="ç»„ç»‡æŸ¥è¯¢" desc="ç»„ç»‡æŸ¥è¯¢">
+						<address name="ç»„ç»‡ç®¡ç†é¡µé¢" url="/pages/auth/dept.shtml"/>
+						<address name="ç»„ç»‡æ ‘æŸ¥è¯¢" url="/department/listDepartmentTree.ajax"/>
+						<address name="ç»„ç»‡æŸ¥è¯¢" url="/department/findDepartment.ajax"/>
+						<address name="ç»„ç»‡è¯¦æƒ…æŸ¥è¯¢" url="/department/findDepartmentInfo.ajax"/>
+						<address name="æ›´æ–°ç»„ç»‡" url="/department/updateDepartment.ajax"/>
+						<address name="åˆ é™¤ç»„ç»‡" url="/department/delDepartment.ajax"/>
 					</operation>
-					<operation key="MODIFY" name="×éÖ¯ÐÞ¸Ä" desc="×éÖ¯ÐÞ¸Ä">
-						<address name="¸üÐÂ×éÖ¯" url="/department/updateDepartment.ajax"/>
+					<operation key="MODIFY" name="ç»„ç»‡ä¿®æ”¹" desc="ç»„ç»‡ä¿®æ”¹">
+						<address name="æ›´æ–°ç»„ç»‡" url="/department/updateDepartment.ajax"/>
 					</operation>
-					<operation key="DELETE" name="×éÖ¯É¾³ý" desc="×éÖ¯É¾³ý">
-						<address name="É¾³ý×éÖ¯" url="/department/delDepartment.ajax"/>
+					<operation key="DELETE" name="ç»„ç»‡åˆ é™¤" desc="ç»„ç»‡åˆ é™¤">
+						<address name="åˆ é™¤ç»„ç»‡" url="/department/delDepartment.ajax"/>
 					</operation>
-					<operation key="ROLE2DEPT" name="×éÖ¯Ìí¼Ó½ÇÉ«" desc="×éÖ¯Ìí¼Ó½ÇÉ«">
-						<address name="Ìí¼Ó×éÖ¯½ÇÉ«" url="/department/updateDepartmentRole.ajax"/>
-						<address name="²éÑ¯×éÖ¯½ÇÉ«ÁÐ±í" url="/department/listDepartmentRoles.ajax"/>
+					<operation key="ROLE2DEPT" name="ç»„ç»‡æ·»åŠ è§’è‰²" desc="ç»„ç»‡æ·»åŠ è§’è‰²">
+						<address name="æ·»åŠ ç»„ç»‡è§’è‰²" url="/department/updateDepartmentRole.ajax"/>
+						<address name="æŸ¥è¯¢ç»„ç»‡è§’è‰²åˆ—è¡¨" url="/department/listDepartmentRoles.ajax"/>
 					</operation>
-					<operation key="STAFF2DEPT" name="×éÖ¯Ìí¼ÓÓÃ»§" desc="×éÖ¯Ìí¼ÓÓÃ»§">
-						<address name="²éÑ¯×éÖ¯ÓÃ»§ÁÐ±í" url="/staff/listStaff.ajax"/>
-						<address name="Ìí¼Ó×éÖ¯ÓÃ»§" url="/staff/updateStaffDepartment.ajax"/>
+					<operation key="STAFF2DEPT" name="ç»„ç»‡æ·»åŠ ç”¨æˆ·" desc="ç»„ç»‡æ·»åŠ ç”¨æˆ·">
+						<address name="æŸ¥è¯¢ç»„ç»‡ç”¨æˆ·åˆ—è¡¨" url="/staff/listStaff.ajax"/>
+						<address name="æ·»åŠ ç»„ç»‡ç”¨æˆ·" url="/staff/updateStaffDepartment.ajax"/>
 					</operation>
-					<operation key="AUTH2STAFF" name="×éÖ¯³ÉÔ±ÊÚÈ¨" desc="×éÖ¯³ÉÔ±ÊÚÈ¨">
-						<address name="²éÑ¯½ÇÉ«¹ØÁªÏÂÓÃ»§ÁÐ±í" url="/staff/listRoleByStaffIds.ajax"/>
-						<address name="×éÖ¯ÀïÓÃ»§È¨ÏÞÐÞ¸Ä" url="/staff/updateStaffRolesDepartment.ajax"/>
+					<operation key="AUTH2STAFF" name="ç»„ç»‡æˆå‘˜æŽˆæƒ" desc="ç»„ç»‡æˆå‘˜æŽˆæƒ">
+						<address name="æŸ¥è¯¢è§’è‰²å…³è”ä¸‹ç”¨æˆ·åˆ—è¡¨" url="/staff/listRoleByStaffIds.ajax"/>
+						<address name="ç»„ç»‡é‡Œç”¨æˆ·æƒé™ä¿®æ”¹" url="/staff/updateStaffRolesDepartment.ajax"/>
 					</operation>
 				</resource>
 				
 		</resource-category>
-		<resource-category key="auth_admin_sys_staff" name="³ÉÔ±¹ÜÀí" desc="³ÉÔ±¹ÜÀí">
-			<resource key="auth_admin_sys_staff_staffManage" name="³ÉÔ±¹ÜÀí" desc="³ÉÔ±¹ÜÀí">
-				<!-- ×ÊÔ´²Ù×÷-->
-				<operation key="QUERY" name="²éÑ¯" desc="²éÑ¯">
-					<address name="³ÉÔ±¹ÜÀíÒ³Ãæ" url="/pages/auth/staff.shtml"/>
-					<address name="²éÑ¯ÇëÇó" url="/staff/listStaff.ajax"/>
+		<resource-category key="auth_admin_sys_staff" name="æˆå‘˜ç®¡ç†" desc="æˆå‘˜ç®¡ç†">
+			<resource key="auth_admin_sys_staff_staffManage" name="æˆå‘˜ç®¡ç†" desc="æˆå‘˜ç®¡ç†">
+				<!-- èµ„æºæ“ä½œ-->
+				<operation key="QUERY" name="æŸ¥è¯¢" desc="æŸ¥è¯¢">
+					<address name="æˆå‘˜ç®¡ç†é¡µé¢" url="/pages/auth/staff.shtml"/>
+					<address name="æŸ¥è¯¢è¯·æ±‚" url="/staff/listStaff.ajax"/>
 				</operation>
-				<operation key="ADD" name="´´½¨" desc="´´½¨ÓÃ»§">
-					<address name="²éÑ¯ÓÃ»§ÊÇ·ñ´æÔÚ" url="/staff/checkStaffLoginName.ajax"/>
-					<address name="²éÑ¯ÓÃ»§ÊÇ·ñ´æÔÚ" url="/staff/checkStaffMobile.ajax"/>
-					<address name="²éÑ¯ÓÃ»§ÊÇ·ñ´æÔÚ" url="/staff/checkStaffEmail.ajax"/>
-					<address name="´´½¨ÇëÇó" url="/staff/createStaff.ajax"/>
-					<address name="²éÑ¯¸öÈËÀ©Õ¹ÊôÐÔ" url="/staff/findStaffExtendProperties.ajax"/>
+				<operation key="ADD" name="åˆ›å»º" desc="åˆ›å»ºç”¨æˆ·">
+					<address name="æŸ¥è¯¢ç”¨æˆ·æ˜¯å¦å­˜åœ¨" url="/staff/checkStaffLoginName.ajax"/>
+					<address name="æŸ¥è¯¢ç”¨æˆ·æ˜¯å¦å­˜åœ¨" url="/staff/checkStaffMobile.ajax"/>
+					<address name="æŸ¥è¯¢ç”¨æˆ·æ˜¯å¦å­˜åœ¨" url="/staff/checkStaffEmail.ajax"/>
+					<address name="åˆ›å»ºè¯·æ±‚" url="/staff/createStaff.ajax"/>
+					<address name="æŸ¥è¯¢ä¸ªäººæ‰©å±•å±žæ€§" url="/staff/findStaffExtendProperties.ajax"/>
 				</operation>
 				
-				<operation key="UPDATE" name="ÐÞ¸Ä" desc="¸üÐÂÓÃ»§">
-					<address name="²éÑ¯ÓÃ»§ÊÇ·ñ´æÔÚ" url="/staff/checkStaffLoginName.ajax"/>
-					<address name="»ñÈ¡ÓÃ»§ÏêÇé" url="/staff/findStaff.ajax"/>
-					<address name="¸üÐÂ" url="/staff/updateStaff.ajax"/>
-					<address name="²éÑ¯¸öÈËÀ©Õ¹ÊôÐÔ" url="/staff/findStaffExtendProperties.ajax"/>
+				<operation key="UPDATE" name="ä¿®æ”¹" desc="æ›´æ–°ç”¨æˆ·">
+					<address name="æŸ¥è¯¢ç”¨æˆ·æ˜¯å¦å­˜åœ¨" url="/staff/checkStaffLoginName.ajax"/>
+					<address name="èŽ·å–ç”¨æˆ·è¯¦æƒ…" url="/staff/findStaff.ajax"/>
+					<address name="æ›´æ–°" url="/staff/updateStaff.ajax"/>
+					<address name="æŸ¥è¯¢ä¸ªäººæ‰©å±•å±žæ€§" url="/staff/findStaffExtendProperties.ajax"/>
 				</operation>
-				<operation key="DELETE" name="É¾³ý" desc="É¾³ýÓÃ»§">
-					<address name="É¾³ýÇëÇó" url="/staff/deleteStaff.ajax"/>
+				<operation key="DELETE" name="åˆ é™¤" desc="åˆ é™¤ç”¨æˆ·">
+					<address name="åˆ é™¤è¯·æ±‚" url="/staff/deleteStaff.ajax"/>
 				</operation>
-				<operation key="LOCKSTAFF" name="Ëø¶¨" desc="²éÑ¯">
-					<address name="Ëø¶¨ÇëÇó" url="/staff/lockStaff.ajax"/>
+				<operation key="LOCKSTAFF" name="é”å®š" desc="æŸ¥è¯¢">
+					<address name="é”å®šè¯·æ±‚" url="/staff/lockStaff.ajax"/>
 				</operation>
-				<operation key="RESETPWD" name="ÖØÖÃÃÜÂë" desc="ÖØÖÃÃÜÂë">
-					<address name="ÖØÖÃÃÜÂëÇëÇó" url="/staff/resetPwd.ajax"/>
+				<operation key="RESETPWD" name="é‡ç½®å¯†ç " desc="é‡ç½®å¯†ç ">
+					<address name="é‡ç½®å¯†ç è¯·æ±‚" url="/staff/resetPwd.ajax"/>
 				</operation>
-				<operation key="AUTHSTAFF" name="ÊÚÈ¨" desc="ÓÃ»§ÊÚÈ¨">
-					<address name="»ñÈ¡ÓÃ»§ÏêÇé" url="/staff/findStaff.ajax"/>
-					<address name="²éÑ¯ÓÃ»§½ÇÉ«ÁÐ±í" url="/staff/listStaffRoles.ajax"/>
-					<address name="¸üÐÂÓÃ»§½ÇÉ«" url="/staff/updateStaffRole.ajax"/>
+				<operation key="AUTHSTAFF" name="æŽˆæƒ" desc="ç”¨æˆ·æŽˆæƒ">
+					<address name="èŽ·å–ç”¨æˆ·è¯¦æƒ…" url="/staff/findStaff.ajax"/>
+					<address name="æŸ¥è¯¢ç”¨æˆ·è§’è‰²åˆ—è¡¨" url="/staff/listStaffRoles.ajax"/>
+					<address name="æ›´æ–°ç”¨æˆ·è§’è‰²" url="/staff/updateStaffRole.ajax"/>
 				</operation>
 			</resource>
 
 		</resource-category>
-		<resource-category key="auth_admin_sys_role" name="½ÇÉ«¹ÜÀí" desc="½ÇÉ«¹ÜÀí">
-			<resource key="auth_admin_sys_role_roleManage" name="½ÇÉ«¹ÜÀí" desc="½ÇÉ«¹ÜÀí">
-				<operation key="QUERY" name="²éÑ¯" desc="²éÑ¯">
-					<address name="ä¯ÀÀ½ÇÉ«Ò³Ãæ" url="/pages/auth/role.shtml"/>
-					<address name="²é¿´" url="/role/listRoles.ajax"/>
+		<resource-category key="auth_admin_sys_role" name="è§’è‰²ç®¡ç†" desc="è§’è‰²ç®¡ç†">
+			<resource key="auth_admin_sys_role_roleManage" name="è§’è‰²ç®¡ç†" desc="è§’è‰²ç®¡ç†">
+				<operation key="QUERY" name="æŸ¥è¯¢" desc="æŸ¥è¯¢">
+					<address name="æµè§ˆè§’è‰²é¡µé¢" url="/pages/auth/role.shtml"/>
+					<address name="æŸ¥çœ‹" url="/role/listRoles.ajax"/>
 				</operation>
-				<operation key="ADD" name="ÐÂÔö½ÇÉ«" desc="ÐÂÔö½ÇÉ«" depend="QUERY">
-					<address name="²éÑ¯½ÇÉ«Öú¼ÇÂëÊÇ·ñ´æÔÚ" url="/role/checkRoleKey.ajax"/>
-					<address name="Ìí¼Ó" url="/role/updateRole.ajax"/>
+				<operation key="ADD" name="æ–°å¢žè§’è‰²" desc="æ–°å¢žè§’è‰²" depend="QUERY">
+					<address name="æŸ¥è¯¢è§’è‰²åŠ©è®°ç æ˜¯å¦å­˜åœ¨" url="/role/checkRoleKey.ajax"/>
+					<address name="æ·»åŠ " url="/role/updateRole.ajax"/>
 				</operation>
-				<operation key="MODIFY" name="ÐÞ¸Ä½ÇÉ«" desc="ÐÞ¸Ä½ÇÉ«" depend="QUERY">
-					<address name="²éÑ¯½ÇÉ«Öú¼ÇÂëÊÇ·ñ´æÔÚ" url="/role/checkRoleKey.ajax"/>
-					<address name="²éÑ¯½ÇÉ«ÏêÇé" url="/role/findRole.ajax"/>
-					<address name="ÐÞ¸Ä" url="/role/updateRole.ajax"/>
+				<operation key="MODIFY" name="ä¿®æ”¹è§’è‰²" desc="ä¿®æ”¹è§’è‰²" depend="QUERY">
+					<address name="æŸ¥è¯¢è§’è‰²åŠ©è®°ç æ˜¯å¦å­˜åœ¨" url="/role/checkRoleKey.ajax"/>
+					<address name="æŸ¥è¯¢è§’è‰²è¯¦æƒ…" url="/role/findRole.ajax"/>
+					<address name="ä¿®æ”¹" url="/role/updateRole.ajax"/>
 				</operation>
-				<operation key="DELETE" name="É¾³ý½ÇÉ«" desc="É¾³ý½ÇÉ«" depend="QUERY">
-					<address name="É¾³ý½ÇÉ«" url="/role/deleteRole.ajax"/>
+				<operation key="DELETE" name="åˆ é™¤è§’è‰²" desc="åˆ é™¤è§’è‰²" depend="QUERY">
+					<address name="åˆ é™¤è§’è‰²" url="/role/deleteRole.ajax"/>
 				</operation>
-				<operation key="AUTHROLE" name="½ÇÉ«¹ØÁªÈ¨ÏÞ" desc="½ÇÉ«¹ØÁªÈ¨ÏÞ">
-					<address name="ä¯ÀÀ½ÇÉ«Ò³Ãæ" url="/pages/auth/roleSetting.shtml"/>
-					<address name="È¨ÏÞÁÐ±í" url="/role/listRoleResource.ajax"/>
-					<address name="¹ØÁª½ÇÉ«È¨ÏÞ" url="/role/updateRoleResource.ajax"/>
+				<operation key="AUTHROLE" name="è§’è‰²å…³è”æƒé™" desc="è§’è‰²å…³è”æƒé™">
+					<address name="æµè§ˆè§’è‰²é¡µé¢" url="/pages/auth/roleSetting.shtml"/>
+					<address name="æƒé™åˆ—è¡¨" url="/role/listRoleResource.ajax"/>
+					<address name="å…³è”è§’è‰²æƒé™" url="/role/updateRoleResource.ajax"/>
 				</operation>
 			</resource>
 		</resource-category>
