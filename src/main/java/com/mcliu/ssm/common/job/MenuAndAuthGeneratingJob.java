@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aspire.webbas.core.util.SpringContextHolder;
-import com.mcliu.ssm.web.service.MenuService;
+import com.mcliu.ssm.web.service.MenuAndAuthService;
 
 /**
  * 菜单和权限自动生成JOB
@@ -18,10 +18,10 @@ public class MenuAndAuthGeneratingJob implements StatefulJob {
     @Override
     public void execute(JobExecutionContext arg0) throws JobExecutionException {
         LOGGER.debug("菜单和权限自动生成JOB 启动开始..............................");
-        MenuService menuService = SpringContextHolder.getBean("menuService");
+        MenuAndAuthService menuAndAuthService = SpringContextHolder.getBean("menuAndAuthService");
         try {
             LOGGER.debug("菜单和权限自动生成JOB 业务逻辑开始...");
-            menuService.insertMenuAndAuth();
+            menuAndAuthService.insertMenuAndAuth();
             LOGGER.debug("菜单和权限自动生成JOB 业务逻辑结束...");
             LOGGER.debug("菜单和权限自动生成JOB 执行结束..............................");
         } catch (Exception e) {

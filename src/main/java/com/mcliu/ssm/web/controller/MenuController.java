@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aspire.webbas.core.web.BaseController;
 import com.aspire.webbas.portal.common.entity.Staff;
-import com.mcliu.ssm.web.service.MenuService;
+import com.mcliu.ssm.web.service.MenuAndAuthService;
 import com.mcliu.ssm.web.tree.MenuTreeNode;
 
 @Controller
@@ -21,7 +21,7 @@ import com.mcliu.ssm.web.tree.MenuTreeNode;
 public class MenuController extends BaseController {
     @Autowired
     @Qualifier("menuService")
-    private MenuService menuService;
+    private MenuAndAuthService menuService;
 
     @RequestMapping({"/menu.ajax"})
     @ResponseBody
