@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- <%--       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%> -->
-        <title>Dashboard - Ace Admin</title>
+        <title>后台管理系统</title>
 <!-- <%--       <c:url value="/" var="baseUrl" /> --%> -->
 
 <!--        <meta name="description" content="overview &amp; stats" /> -->

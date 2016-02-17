@@ -20,8 +20,8 @@ import com.mcliu.ssm.web.tree.MenuTreeNode;
 @RequestMapping({"/menu"})
 public class MenuController extends BaseController {
     @Autowired
-    @Qualifier("menuService")
-    private MenuAndAuthService menuService;
+    @Qualifier("menuAndAuthService")
+    private MenuAndAuthService menuAndAuthService;
 
     @RequestMapping({"/menu.ajax"})
     @ResponseBody
@@ -34,7 +34,7 @@ public class MenuController extends BaseController {
             HttpSession session = getSession();
 
             List<MenuTreeNode> menuTree =
-                    this.menuService.buildMenuTree("", session.getId(),
+                    this.menuAndAuthService.buildMenuTree("", session.getId(),
                             getRequest().getContextPath());
             return success(menuTree);
         } catch (Exception e) {

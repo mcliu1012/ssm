@@ -63,4 +63,7 @@
             )
         </foreach>
     </insert>
+    <delete id="deleteAll">
+        delete from menu
+    </delete>
 </mapper> 

@@ -9,6 +9,8 @@ public abstract interface MenuDao {
     
     public abstract int insert(Menu menu);
     
+    public abstract void deleteAll();
+    
     /**
      * 批量插入
      */

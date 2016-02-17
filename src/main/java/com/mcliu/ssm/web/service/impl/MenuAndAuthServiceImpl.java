@@ -11,16 +11,25 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aspire.webbas.configuration.config.ConfigurationHelper;
 import com.aspire.webbas.portal.common.entity.Menu;
+import com.aspire.webbas.portal.common.entity.Operation;
+import com.aspire.webbas.portal.common.entity.OperationAddress;
+import com.aspire.webbas.portal.common.entity.Resource;
 import com.aspire.webbas.portal.common.entity.ResourceCategory;
 import com.aspire.webbas.portal.common.entity.SubSystem;
 import com.mcliu.ssm.util.Constant;
 import com.mcliu.ssm.util.FileUtil;
 import com.mcliu.ssm.web.dao.MenuDao;
+import com.mcliu.ssm.web.dao.OperationAddressDao;
+import com.mcliu.ssm.web.dao.OperationDao;
+import com.mcliu.ssm.web.dao.ResourceCategoryDao;
+import com.mcliu.ssm.web.dao.ResourceDao;
 import com.mcliu.ssm.web.service.MenuAndAuthService;
 import com.mcliu.ssm.web.tree.MenuTreeNode;
 import com.mcliu.ssm.web.tree.TreeNode;
@@ -28,7 +37,9 @@ import com.mcliu.ssm.web.tree.TreeNode;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-@Service("menuService")
+@Service("menuAndAuthService")
+@Configuration
+@ComponentScan("com.aspire.webbas.webbas-portal-authapi")
 public class MenuAndAuthServiceImpl implements MenuAndAuthService {
     private static Map<String, SubSystem> subSystemMap = null;
     @Autowired
@@ -37,6 +48,17 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
 //    private SubSystemDao subSystemDao;
 //    @Autowired
 //    private AuthService authService;
+    @Autowired
+    private ResourceCategoryDao resourceCategoryMapper;
+    
+    @Autowired
+    private ResourceDao resourceMapper;
+    
+    @Autowired
+    private OperationDao operationMapper;
+    
+    @Autowired
+    private OperationAddressDao addressMapper;
 
     public List<MenuTreeNode> buildMenuTree(String loginName, String ticket, String defaultPath)
             throws Exception {
@@ -142,21 +164,27 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
      */
     public void insertMenuAndAuth() {
         // 1.生成菜单
+        menuDao.deleteAll();
         // 1.1系统级别菜单
-        String systemPath = getClass().getResource("/").getPath() + File.separator + "metadata_system_menu.json";
-        insertMenuByPath(systemPath);
+        insertMenuByPath("metadata_system_menu.json");
         // 1.2用户级别菜单
-        String userPath = getClass().getResource("/").getPath() + File.separator + "metadata_menu.json";
-        insertMenuByPath(userPath);
+        insertMenuByPath("metadata_menu.json");
         
         // 2.生成权限
+        // 2.1添加普通资源权限
+        resourceCategoryMapper.deleteAll();
+        insertAuth("metadata_auth_auth.xml");
+        insertAuth("metadata_auth_exclude.xml");
+        insertAuth("metadata_system_auth_auth.xml");
     }
     
     /**
      * 根据指定文件目录，生成菜单
      */
     @Transactional(rollbackFor = Exception.class)
-    private void insertMenuByPath(String path) {
+    private void insertMenuByPath(String fileName) {
+        String basePath = ConfigurationHelper.getBasePath();
+        String path = basePath + "/metadata/menu/" + fileName;
         String JsonContext = FileUtil.readFile(path);
         // 获取原始文件的JSON对象
         JSONObject jsonObjectOrigin = JSONObject.fromObject(JsonContext);
@@ -218,7 +246,7 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
     /**
      * 添加资源权限
      */
-    private void insertAuth() {
+    private void insertAuth(String fileName) {
         try {
             // 将src下面的xml转换为输入流
 //            InputStream inputStream = this.getClass().getResourceAsStream("/metadata_auth_auth.xml");
@@ -231,7 +259,7 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
             
             // 方式二：通过file对象来读取（必须是绝对地址）
             String basePath = ConfigurationHelper.getBasePath();
-            Document document = saxReader.read(new File(basePath + "/metadata/auth/metadata_auth_auth.xml"));
+            Document document = saxReader.read(new File(basePath + "/metadata/auth/" + fileName));
             // 取得根节点
             Element rootElement = document.getRootElement();
             if (null == rootElement) {
@@ -239,17 +267,11 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
             }
             String domain = rootElement.attributeValue("id");
             String metadata_id = rootElement.attributeValue("subsystem");
-            System.out.println("domain:" + domain);
-            System.out.println("metadata_id:" + metadata_id);
             // 资源分类－第一级
             Element parentResourceCategory = rootElement.element("resource-category");
             if (null == parentResourceCategory) {
                 return;
             }
-            System.out.println("key:" + parentResourceCategory.attributeValue("key"));
-            System.out.println("name:" + parentResourceCategory.attributeValue("name"));
-            System.out.println("desc:" + parentResourceCategory.attributeValue("desc"));
-            System.out.println("orderKey:" + parentResourceCategory.attributeValue("orderKey"));
             // 构造父ResourceCategory
             ResourceCategory parentCategory = new ResourceCategory();
             parentCategory.setCategoryKey(parentResourceCategory.attributeValue("key"));
@@ -259,22 +281,63 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
             parentCategory.setMetadataId(metadata_id);
             parentCategory.setDomain(domain);
             // insert sec_resource_category 表
+            resourceCategoryMapper.insertResourceCategory(parentCategory);
             
             // 第二级 <resource-category> 集合
             List<Element> childResourceCategoryList = parentResourceCategory.elements("resource-category");
-            for (Element e : childResourceCategoryList) {
-                System.out.println("key:" + e.attributeValue("key"));
-                System.out.println("name:" + e.attributeValue("name"));
-                System.out.println("desc:" + e.attributeValue("desc"));
+            for (Element childResourceCategoryE : childResourceCategoryList) {
                 ResourceCategory childCategory = new ResourceCategory();
-                childCategory.setParentId(parentCategory.getParentId());
-                childCategory.setCategoryKey(e.attributeValue("key"));
-                childCategory.setCategoryName(e.attributeValue("name"));
-                childCategory.setCategoryDesc(e.attributeValue("desc"));
+                childCategory.setParentId(parentCategory.getCategoryId());
+                childCategory.setCategoryKey(childResourceCategoryE.attributeValue("key"));
+                childCategory.setCategoryName(childResourceCategoryE.attributeValue("name"));
+                childCategory.setCategoryDesc(childResourceCategoryE.attributeValue("desc"));
                 childCategory.setOrderKey(100);
                 childCategory.setMetadataId(metadata_id);
                 childCategory.setDomain(domain);
                 // insert sec_resource_category 表
+                resourceCategoryMapper.insertResourceCategory(childCategory);
+                
+                // 第三级 <resource> 集合
+                List<Element> resourceList = childResourceCategoryE.elements("resource");
+                for (Element resourceE : resourceList) {
+                    Resource resource = new Resource();
+                    resource.setResourceKey(resourceE.attributeValue("key"));
+                    resource.setResourceName(resourceE.attributeValue("name"));
+                    resource.setResourceDesc(resourceE.attributeValue("desc"));
+                    resource.setCategoryId(childCategory.getCategoryId());
+                    resource.setAuthType("AUTH");
+                    resource.setMetadataId(metadata_id);
+                    resource.setDomain(domain);
+                    resource.setOrderKey(100);
+                    resourceMapper.insertResource(resource);
+                    
+                    // 第四级 <operation> 集合
+                    List<Element> operationList = resourceE.elements("operation");
+                    for (Element operationE : operationList) {
+                        Operation operation = new Operation();
+                        operation.setResourceId(resource.getResourceId());
+                        operation.setOperationKey(operationE.attributeValue("key"));
+                        operation.setOperationName(operationE.attributeValue("name"));
+                        operation.setOperationDesc(operationE.attributeValue("desc"));
+                        operation.setMetadataId(metadata_id);
+                        operation.setDomain(domain);
+                        operation.setOrderKey(100);
+                        operationMapper.insertOperation(operation);
+                        
+                        // 第五级 <address> 集合
+                        List<Element> addressList = operationE.elements("address");
+                        for (Element addressE : addressList) {
+                            OperationAddress address = new OperationAddress();
+                            address.setResourceId(operation.getResourceId());
+                            address.setOperationKey(operation.getOperationKey());
+                            address.setOperationAddressName(addressE.attributeValue("name"));
+                            address.setOperationAddressUrl(addressE.attributeValue("url"));
+                            address.setMetadataId(metadata_id);
+                            address.setDomain(domain);
+                            addressMapper.insertOperationAddress(address);
+                        }
+                    }
+                }
             }
             
         } catch (Exception e) {
