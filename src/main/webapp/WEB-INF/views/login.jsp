@@ -48,7 +48,7 @@
                         <div class="login-container">
                             <div class="center">
                                 <h1>
-                                    <i class="ace-icon fa fa-leaf green"></i>
+                                    <i class="ace-icon fa fa-globe green"></i>
                                     <span class="red">SSM</span>
                                     <span class="white" id="id-text2">后台管理系统</span>
                                 </h1>
@@ -190,29 +190,36 @@
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="email" class="form-control" placeholder="请输入邮箱地址" />
-                                                            <i class="ace-icon fa fa-envelope"></i>
-                                                        </span>
-                                                    </label>
-
-                                                    <label class="block clearfix">
-                                                        <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control" placeholder="请输入用户名" />
+                                                            <input id="signup-loginname" name="loginName" class="form-control" placeholder="用户名" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="form-control" placeholder="请输入密码" />
+                                                            <input type="password" id="signup-password" name="passwordFirst" class="form-control" placeholder="密码" />
                                                             <i class="ace-icon fa fa-lock"></i>
                                                         </span>
                                                     </label>
 
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="form-control" placeholder="请再次输入密码" />
+                                                            <input type="password" id="signup-password-confirm" name="password" class="form-control" placeholder="确认密码" />
                                                             <i class="ace-icon fa fa-retweet"></i>
+                                                        </span>
+                                                    </label>
+                                                    
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input id="signup-realname" name="realname" class="form-control" placeholder="真实姓名" />
+                                                            <i class="ace-icon fa fa-male"></i>
+                                                        </span>
+                                                    </label>
+                                                    
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="email" id="signup-email" name="email" class="form-control" placeholder="电子邮箱" />
+                                                            <i class="ace-icon fa fa-envelope"></i>
                                                         </span>
                                                     </label>
 
@@ -223,7 +230,7 @@
                                                         </span>
                                                     </label>
 
-                                                    <div class="space-24"></div>
+                                                    <div id="errorMsg" class="center red" style="margin: 10px 0px 10px; min-height: 20px;"></div>
 
                                                     <div class="clearfix">
                                                         <button type="reset" class="width-30 pull-left btn btn-sm">
