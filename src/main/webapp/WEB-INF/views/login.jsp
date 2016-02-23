@@ -4,40 +4,17 @@
 <!--        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
 <!--        <meta charset="utf-8" /> -->
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <%@include file="/root.jsp" %>
+        <%@include file="commonImport.jsp" %>
         <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- <%--       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%> -->
         <title>后台管理系统</title>
 <!-- <%--       <c:url value="/" var="baseUrl" /> --%> -->
-
-<!--        <meta name="description" content="overview &amp; stats" /> -->
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" /> -->
-
-        <!-- bootstrap & fontawesome -->
-        <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css" />
-
-        <!-- text fonts -->
-        <link rel="stylesheet" href="resources/assets/css/ace-fonts.css" />
-
-        <!-- ace styles -->
-        <link rel="stylesheet" href="resources/assets/css/ace.min.css" />
-
-        <!--[if lte IE 9]>
-            <link rel="stylesheet" href="resources/assets/css/ace-part2.min.css" />
-        <![endif]-->
-        <link rel="stylesheet" href="resources/assets/css/ace-rtl.min.css" />
-
-        <!--[if lte IE 9]>
-          <link rel="stylesheet" href="resources/assets/css/ace-ie.min.css" />
-        <![endif]-->
-        <link rel="stylesheet" href="resources/assets/css/ace.onpage-help.css" />
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-        <!--[if lt IE 9]>
-        <script src="resources/assets/js/html5shiv.js"></script>
-        <script src="resources/assets/js/respond.min.js"></script>
-        <![endif]-->
+        <style>
+            html {
+                background-color: transparent;
+            }
+        </style>
     </head>
 
     <body class="login-layout blur-login">
@@ -62,7 +39,7 @@
                                     <div class="widget-body">
                                         <div class="widget-main">
                                             <h4 class="header blue lighter bigger">
-                                                <i class="ace-icon fa fa-pencil green"></i> 请填写登录信息
+                                                <i class="ace-icon fa fa-pencil green"></i> 填写登录信息
                                             </h4>
 
                                             <div class="space-6"></div>
@@ -186,7 +163,7 @@
                                             <div class="space-6"></div>
                                             <p> 请填写您的个人信息: </p>
 
-                                            <form>
+                                            <form id="signup-form">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
@@ -230,15 +207,18 @@
                                                         </span>
                                                     </label>
 
-                                                    <div id="errorMsg" class="center red" style="margin: 10px 0px 10px; min-height: 20px;"></div>
+                                                    <%-- 提示信息 --%>
+                                                    <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
+                                                        <span id="signup-msg" style="display:none;"></span>
+                                                    </div>
 
                                                     <div class="clearfix">
-                                                        <button type="reset" class="width-30 pull-left btn btn-sm">
+                                                        <button type="reset" id="signup-reset" class="width-30 pull-left btn btn-sm">
                                                             <i class="ace-icon fa fa-refresh"></i>
                                                             <span class="bigger-110">重置</span>
                                                         </button>
 
-                                                        <button type="button" class="width-65 pull-right btn btn-sm btn-success">
+                                                        <button type="button" id="signup" class="width-65 pull-right btn btn-sm btn-success">
                                                             <span class="bigger-110">注册</span>
 
                                                             <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
@@ -279,22 +259,6 @@
 
         <!-- basic scripts -->
 
-        <!--[if !IE]> -->
-        <script type="text/javascript">
-            window.jQuery || document.write("<script src='resources/assets/js/jquery.min.js'>"+"<"+"/script>");
-        </script>
-
-        <!-- <![endif]-->
-
-        <!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='resources/assets/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
-        <script type="text/javascript">
-            if('ontouchstart' in document.documentElement) document.write("<script src='resources/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-        </script>
-
         <!-- inline scripts related to this page -->
         <script type="text/javascript">
             jQuery(function($) {
@@ -334,5 +298,6 @@
              
             });
         </script>
+        <script src="resources/js/login.js"></script>
     </body>
 </html>

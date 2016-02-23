@@ -174,14 +174,33 @@ var ifmAutoHeight =  function(){
 			min : $.validator.format("最小为{0} 的值")
 		});
 		// validator 手机校验
+		$.validator.addMethod("number_2",function(value,element){
+			var lengthStr=value;
+			if((value+"").indexOf(".")!=-1){
+				lengthStr=value.substring(0,(value+"").indexOf("."));
+			var reg = /^\d+\.+\d{1,2}$/;
+				if(reg.test(value)){
+					if(lengthStr.length>8){
+						return false;
+					}
+					return true;
+				}else{
+					return false;
+				}
+			}
+			if(lengthStr.length>8){
+				return false;
+			}
+			return true;
+		},"最多只能有八位整数和两位小数")
 		$.validator.addMethod("mobile", function(value, element) {
 			var tel = /^1\d{10}$/;
 			return this.optional(element) || (tel.test(value));
 		}, "请输入有效的手机号码");
-		$.validator.addMethod("password_1", function(value, element) {
+		$.validator.addMethod("password", function(value, element) {
 			var reg = /^(?=.*\d)(?=.*[A-Za-z])[0-9a-zA-Z]/;
 			return this.optional(element) || (reg.test(value));
-		}, "必须同时包含数字和字母");
+		}, "密码必须同时包含数字和字母");
 		$.validator.addMethod("maxlength", function(value, element,param) {
 			var len = $.trim(value).replace(/[^\x00-\xff]/g, '..').length;
 			return this.optional(element) || (len <=param);
@@ -193,6 +212,10 @@ var ifmAutoHeight =  function(){
 		$.validator.addMethod("isLetterAndNum", function(value, element) {
 			var reg = /^[A-Za-z0-9]+$/;   
 			return this.optional(element) || (reg.test(value));
+		}, "只能数字和字母组合");
+		$.validator.addMethod("isNotCn", function(value, element) {
+			var reg = /.*[\u4e00-\u9fa5]+.*$/;   
+			return !this.optional(element) || (!reg.test(value));
 		}, "只能数字和字母组合");
 		$.validator.addMethod("mutipTelValid", function(value, element) {
 			if(value==null || $.trim(value)==""){
@@ -287,6 +310,9 @@ var ifmAutoHeight =  function(){
 				} else if (element.is('.chosen-select')) {
 					error.insertAfter(element
 							.siblings('[class*="chosen-container"]:eq(0)'));
+				}else if(element.is('.chosen-table')){
+					var span=element.nextAll('.error_span:eq(0)').eq(0);
+					$(span).html(error[0].innerHTML);
 				} else
 					error.insertAfter(element.parent());
 			}
@@ -303,14 +329,34 @@ var ifmAutoHeight =  function(){
 				}
 			}
 		}));**/
+		//设置时间datetimepicker控件默认值
+		/**$.fn.datetimepicker.defaults = {
+				language:  'zh-CN',
+				format : 'yyyy-mm-dd hh:ii:ss',
+		        weekStart: 1,
+		        todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				useSeconds : true,
+				initialDate : new Date()
+		};
+		$.extend($.fn.datepicker.defaults,{
+			language: 'zh-CN',
+			autoclose: true,
+			format: 'yyyy-mm-dd',
+			language: 'zh-CN',
+			todayBtn: true,
+			todayHighlight: true,
+			weekStart: 1
+		});**/
 	} catch (e) {
 	}
 	var ifmAutoFixCount = 0;
 	$(function(){
 		var ifmTimer = null;
 		function delayIfmAutoHeight(){
-			if (ifmTimer || ifmAutoFixCount > 5)return;
-			ifmTimer = setTimeout(function(){ifmAutoHeight();ifmAutoFixCount++;ifmTimer=null;},500);
+			if (ifmTimer || ifmAutoFixCount > 10)return;
+			ifmTimer = setTimeout(function(){ifmAutoHeight();ifmTimer=null;ifmAutoFixCount++},500);
 		}
 		if(window.attachEvent){
 			if (!!document.documentMode){
@@ -336,7 +382,6 @@ var ifmAutoHeight =  function(){
 			delayIfmAutoHeight();
 		},100);
 	});
-
 	$('a[data-action="collapse"]').on('click',function(){
 		var $content = $(this).closest('.widget-box').find('.search_tj_bar');
 		if (!$content)return;
@@ -781,6 +826,7 @@ var PlUploaderObj = function(contenterId) {
 		attachTypeId:'',
 		isView : false,
 		uploadCompleteCallBack : null,
+		deleteCompleteCallBack:null,
 		initData: []
 	};
 };
@@ -834,6 +880,9 @@ PlUploaderObj.prototype = {
 							_this._checkMaxSize();
 							_this._initHiddenName();
 						});
+						if(_this._options.deleteCompleteCallBack!=null){
+							_this._options.deleteCompleteCallBack();
+						}
 					}else{
 						alert('删除失败，请稍候再试!');
 					}
@@ -1117,6 +1166,44 @@ $.fn.extend({
 })(jQuery);
 
 /*
+ *创建图片预览，适合多附件
+ *htmlId:需要创建下载链接的页面元素ID
+ *list:附件数据结果集
+ */
+ function createAttachLogo($content,list){
+	 if(list ==null){
+		 return;
+	 }
+	 var _default = {
+	    		width :100,
+	    		height:100
+	};
+	if (Object.prototype.toString.call(list) === "[object String]" && list !==''){
+		var listUrl = ctxPaths + '/attachment/list.ajax';
+			$.ajaxSubmit(listUrl,{attachGroupId:list},function(rtn){
+				_init(rtn.data);
+			});
+	}else{
+		_init(list);
+	}
+	function _init(data){
+		var preUrl = ctxPaths + '/attachment/view.ajax';
+	     var links = [];
+	     if(data){
+	         var flen = data.length;
+	         if(flen>0){
+	           for(var i=0;i<flen;i++){
+	               var item = data[i];
+	               var fileId = item.attachFileId;
+	               links.push('<img src="' +preUrl + '?attachFileId=' + fileId + '" width="'+_default.width+'px" height="'+_default.height+'px" onload="autoResizeImage(this)"/>&nbsp;');
+	            }
+	         }
+	     }
+	     $content.empty().html(links.join(''));
+	}
+     
+}
+/*
  *创建附件下载链接，适合多附件
  *htmlId:需要创建下载链接的页面元素ID
  *list:附件数据结果集
@@ -1155,35 +1242,6 @@ $.fn.extend({
 	 }
      
 }
-
-/*
- *创建图片预览，适合多附件
- *htmlId:需要创建下载链接的页面元素ID
- *list:附件数据结果集
- */
- function createAttachLogo($content,list){
-	 if(list ==null){
-		 return;
-	 }
-	 var _default = {
-	    		width :100,
-	    		height:100
-	};
-     var preUrl = ctxPaths + '/attachment/view.ajax';
-     var links = [];
-     if(list){
-         var flen = list.length;
-         if(flen>0){
-           for(var i=0;i<flen;i++){
-               var item = list[i];
-               var fileId = item.attachFileId;
-               links.push('<img src="' +preUrl + '?attachFileId=' + fileId + '" width="'+_default.width+'px" height="'+_default.height+'px" onload="autoResizeImage(this)"/>&nbsp;');
-            }
-         }
-     }
-     $content.empty().html(links.join(''));
-}
-
 function autoResizeImage(objImg){
 	var img = new Image();
 	img.src = objImg.src;

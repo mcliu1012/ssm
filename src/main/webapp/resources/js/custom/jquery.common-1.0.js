@@ -84,14 +84,14 @@ $.extend({
 				var tmp = strs[i];
 				if (tmp.indexOf('[') != -1){
 					var pre = tmp.substring(0,tmp.indexOf('[')),num = tmp.substring(tmp.indexOf('[') + 1,tmp.indexOf(']'));
-					if (typeof (_tt) != 'undefined'&&typeof (_tt[pre]) != 'undefined'&& typeof (_tt[pre][num]) != 'undefined'){
+					if (typeof (_tt) != 'undefined' && _tt != null &&typeof (_tt[pre]) != 'undefined'&& typeof (_tt[pre][num]) != 'undefined'){
 						_tt = _tt[pre][num];
 						continue;
 					}else{
 						return null;
 					}
 				}
-				if (typeof (_tt) != 'undefined' && typeof (_tt[strs[i]]) != 'undefined' && typeof (_tt[strs[i]]) != 'undefined'){
+				if (typeof (_tt) != 'undefined' && _tt != null  && typeof (_tt[strs[i]]) != 'undefined' && typeof (_tt[strs[i]]) != 'undefined'){
 					_tt = _tt[strs[i]];
 					continue;
 				}else{
@@ -259,18 +259,27 @@ $.extend({
  */
 ;
 $.extend({
-	ajaxSubmit: function(url, params, callback) {
+	ajaxSubmit: function(url, params, callback,$btn) {
+		if ($btn){
+			$btn.attr("disabled","disabled");
+		}
 		jQuery.ajax({
 			url: url,
 			type: 'POST',
 			dataType: 'json',
 			data: params,
 			success: function(data) {
+				if ($btn){
+					$btn.removeAttr("disabled");
+				}
 				if (typeof callback == 'function') {
 					callback(data);
 				}
 			},
 			error: function() {
+				if ($btn){
+					$btn.removeAttr("disabled");
+				}
 				alert('发生系统错误');
 			},
 			beforeSend: function() {
