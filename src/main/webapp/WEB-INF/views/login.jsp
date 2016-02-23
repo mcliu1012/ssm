@@ -44,23 +44,26 @@
 
                                             <div class="space-6"></div>
 
-                                            <form>
+                                            <form id="login-form" method="post" action="">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control" placeholder="用户名" />
+                                                            <input id="login-loginname" name="loginName" class="form-control" placeholder="用户名" autofocus/>
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="form-control" placeholder="密码" />
+                                                            <input type="password" id="login-password" name="password" class="form-control" placeholder="密码" />
                                                             <i class="ace-icon fa fa-lock"></i>
                                                         </span>
                                                     </label>
 
-                                                    <div class="space"></div>
+                                                    <%-- 提示信息 --%>
+                                                    <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
+                                                        <strong><span id="login-msg" style="display:none;"></span></strong>
+                                                    </div>
 
                                                     <div class="clearfix">
                                                         <label class="inline">
@@ -68,7 +71,7 @@
                                                             <span class="lbl"> 记住我</span>
                                                         </label>
 
-                                                        <button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+                                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                                             <i class="ace-icon fa fa-key"></i>
                                                             <span class="bigger-110">登录</span>
                                                         </button>
@@ -126,7 +129,7 @@
                                             <p> 验证码将会发送至该邮箱，以找回密码。
                                             </p>
 
-                                            <form>
+                                            <form id="forgot-form">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
@@ -201,15 +204,15 @@
                                                     </label>
 
                                                     <label class="block">
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"> 我同意此
+                                                        <input type="checkbox" id="protocol-checkbox" class="ace" />
+                                                        <span class="lbl"> 我已阅读并同意此
                                                             <a href="#">用户协议</a>
                                                         </span>
                                                     </label>
 
                                                     <%-- 提示信息 --%>
                                                     <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
-                                                        <span id="signup-msg" style="display:none;"></span>
+                                                        <strong><span id="signup-msg" style="display:none;"></span></strong>
                                                     </div>
 
                                                     <div class="clearfix">

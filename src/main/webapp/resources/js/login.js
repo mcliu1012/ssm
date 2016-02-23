@@ -1,17 +1,26 @@
-var pLoginValidator = null;
+var signUpValidator = null;
 
 $(function() {
+    setInit();
     setListener();
     setValidator();
 });
+
+function setInit() {
+    $("#login-form")[0].reset();
+    $("#forgot-form")[0].reset();
+    $("#signup-form")[0].reset();
+}
 
 function setListener() {
     // 点击【重置】按钮
     setResetBtnClickHandler();
     // 点击【注册】按钮
     setRegistBtnClickHandler();
-    // 点击【Login】按钮
+    // 点击【登录】按钮
     setLoginBtnClickHandler();
+    // 点击【找回密码】按钮
+    setForgotBtnClickHandler();
 }
 
 
@@ -23,15 +32,6 @@ function setResetBtnClickHandler() {
         $("#signup-loginname").focus();
     });
 }
-
-/**
- * 状态初始化
- */
-//function setStatusInit() {
-//    pLoginValidator.resetForm();
-//    $("#pLoginEmailInput").focus();
-//    $("#signup-form")[0].reset();
-//}
 
 /**
  * 点击【注册】按钮
@@ -60,12 +60,19 @@ function setRegistBtnClickHandler() {
             return;
         }
         if ($("#signup-form").valid()) {
+            if (!$("#protocol-checkbox").prop("checked")) {
+                $("#signup-msg").removeClass("green").addClass("red").txtCrossFade("请勾选“我已阅读并同意此用户协议”");
+                return;
+            }
             $.ajaxSubmit(ctxPaths + "/signup.ajax", $("#signup-form").serializeJson(), function(data) {
                 if (data.success == true) {
-                    $("#signup-msg").removeClass("red").addClass("green").txtCrossFade("恭喜你！注册成功");
-//                    setTimeout(function() {
-//                        $(".back-to-login-link").trigger("click");
-//                    }, 1500);
+                    $("#signup-msg").removeClass("red").addClass("green").txtCrossFade("注册成功！即将跳转到登录页面……");
+                    setTimeout(function() {
+                        // 重置表单
+                        $("#signup-form")[0].reset();
+                        // 返回登录页面
+                        $(".back-to-login-link").trigger("click");
+                    }, 4000);
                 } else {
                     $("#signup-msg").removeClass("green").addClass("red").txtCrossFade(data.message);
                 }
@@ -76,7 +83,7 @@ function setRegistBtnClickHandler() {
 }
 
 function setValidator() {
-    pLoginValidator = $("#signup-form").validate({
+    signUpValidator = $("#signup-form").validate({
       onfocusout: false, // 是否在获取焦点时验证 默认:true
       onkeyup: false, // 是否在敲击键盘时验证 默认:true
 //      focusInvalid:false, // 提交表单后,未通过验证的表单(第一个或提交之前获得焦点的未通过验证的表单)会获得焦点 默认:true
@@ -84,22 +91,24 @@ function setValidator() {
       rules: {
           loginName: {
               required: true,
-              maxlength: 64
+              minlength: 6,
+              maxlength: 14
           },
           passwordFirst: {
               required: true,
-              minlength: 2,
+              minlength: 6,
               maxlength: 14
           },
           password: {
               required: true,
-              minlength: 2,
+              minlength: 6,
               maxlength: 14,
               equalTo: "#signup-password" // #id名
           },
           realname: {
               required: true,
-              maxlength: 64
+              minlength: 6,
+              maxlength: 14
           },
           email: {
               required: true,
@@ -110,27 +119,29 @@ function setValidator() {
       messages: {
           loginName: {
               required: "请输入用户名",
-              maxlength: "不能超过64个字符"
+              minlength: "用户名不能少于6个字符",
+              maxlength: "用户名不能超过14个字符"
           },
           passwordFirst: {
               required: "请输入密码",
-              minlength: "密码长度不能小于2",
-              maxlength: "密码长度不能大于14"
+              minlength: "密码不能少于6个字符",
+              maxlength: "密码不能超过14个字符"
           },
           password: {
               required: "请输入密码",
-              minlength: "密码长度不能小于2",
-              maxlength: "密码长度不能大于14",
+              minlength: "用户名不能少于6个字符",
+              maxlength: "用户名不能超过14个字符",
               equalTo: "两次输入的密码不一致"
           },
           realname: {
               required: "请输入真实姓名",
-              maxlength: "不能超过64个字符"
+              minlength: "真实姓名不能少于6个字符",
+              maxlength: "真实姓名不能超过14个字符"
           },
           email: {
               required: "请输入Email地址",
               email: "E-mail地址格式不正确",
-              maxlength: "不能超过128个字符"
+              maxlength: "Email地址不能超过128个字符"
           }
       },
       submitHandler: function(form) {
@@ -139,25 +150,34 @@ function setValidator() {
       errorPlacement: function(error, element) {
 //          error.insertAfter(element.parent());
 //          error.appendTo(element.parent());
-          $("#signup-msg").removeClass("green").addClass("red").txtCrossFade(error[0].innerHTML);
+          if ("" !== error[0].innerHTML) {
+              $("#signup-msg").removeClass("green").addClass("red").txtCrossFade(error[0].innerHTML);
+          }
       }
   });
 }
 
 /**
- * 点击【Login】按钮
+ * 点击【登录】按钮
  */
 function setLoginBtnClickHandler() {
-//    $("#signup-form").off("submit").on("submit", function() {
-//        var loginNameInput = $("#loginNameInput").val();
-//        var passwordInput = $("#passwordInput").val();
-//        if (loginNameInput === "") {
-//            $("#loginNameInput").focus();
-//            return false;
-//        } else if (passwordInput === "") {
-//            $("#passwordInput").focus();
-//            return false;
-//        }
-//        return true;
-//    });
+    $("#login-form").off("submit").on("submit", function() {
+        var loginNameInput = $("#login-loginname").val();
+        var passwordInput = $("#login-password").val();
+        if (loginNameInput === "") {
+            $("#login-loginname").focus();
+            return false;
+        } else if (passwordInput === "") {
+            $("#login-password").focus();
+            return false;
+        }
+        return true;
+    });
+}
+
+/**
+ * 点击【找回密码】按钮
+ */
+function setForgotBtnClickHandler() {
+    
 }
