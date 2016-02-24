@@ -26,6 +26,8 @@ import org.slf4j.LoggerFactory;
  */
 public class AESUtil {
 	private static final Logger LOG = LoggerFactory.getLogger(AESUtil.class);
+	
+	public static final String KEY = "rG+Pgknoltd00LODtQ6njmbmiT51mCHZtCgPAqNXW6+oYr1/1jPN5R+KvKePGVjyMmBJn5+cHkQrSe6g6WLJgk1J1ntVgPo+8W7ti26UvunvnAM3t2s25HetQA7QcgSm3y2omHak4RNXwoPFGqNTwn2c04TEGlRfJPTGMVrWBDDpkqj8elw+FGALBNjHEHuYYxhMudqXtdSGeRPoNNuTsbtkKC/Us3ru4i/+YRvNr1R+t1Dwvl0jhRdgrnjFpBuN7wHnWGiRqjt17R+T8t+M5yuUrI3MK2BMHdO8QR78zjdnMND+6Ijl1HDTGu5QMlu2PPR9xqbOEoXaiiAuUrslJvkypmS6GfHuyEg39IVl/CZvyOZcn/SCnYf2+A+ERaNVXd2Ibt5vVa/Il11EbgAyig==";
 
 	/**
 	 * 加密
@@ -169,9 +171,12 @@ public class AESUtil {
 		String key = "13802298818";
 		String data = "rG+Pgknoltd00LODtQ6njmbmiT51mCHZtCgPAqNXW6+oYr1/1jPN5R+KvKePGVjyMmBJn5+cHkQrSe6g6WLJgk1J1ntVgPo+8W7ti26UvunvnAM3t2s25HetQA7QcgSm3y2omHak4RNXwoPFGqNTwn2c04TEGlRfJPTGMVrWBDDpkqj8elw+FGALBNjHEHuYYxhMudqXtdSGeRPoNNuTsbtkKC/Us3ru4i/+YRvNr1R+t1Dwvl0jhRdgrnjFpBuN7wHnWGiRqjt17R+T8t+M5yuUrI3MK2BMHdO8QR78zjdnMND+6Ijl1HDTGu5QMlu2PPR9xqbOEoXaiiAuUrslJvkypmS6GfHuyEg39IVl/CZvyOZcn/SCnYf2+A+ERaNVXd2Ibt5vVa/Il11EbgAyig==";
 
-		System.out.println(AESUtil.decrypt(data, key));
+//		System.out.println(AESUtil.decrypt(data, key));
 
-		// System.out.println(AESUtil.decrypt(AESUtil.encrypt(data, key), key));
+//		 System.out.println(AESUtil.decrypt(AESUtil.encrypt(data, key), key));
+		
+		System.out.println(AESUtil.encrypt("aaa111", data));
+		System.out.println(AESUtil.decrypt("GaBWZc9LcVdRv7M8kaOCBg==", data));
 
 	}
 }

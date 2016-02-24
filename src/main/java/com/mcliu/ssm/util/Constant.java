@@ -41,4 +41,9 @@ public class Constant {
      * 系统菜单父节点ID
      */
     public static final Long PARENT_NODE_ID = 0L;
+    
+    /**
+     * Session Key
+     */
+    public static final String COOKIE_LOGIN_NAME = "login_name";
 }

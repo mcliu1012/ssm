@@ -7,8 +7,6 @@
 <meta http-equiv="Expires" content="0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title>MCLIU</title>
-
 <!-- bootstrap & fontawesome -->
 <link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/resources/assets/css/chosen.css">
@@ -91,6 +89,7 @@ if('ontouchstart' in document.documentElement) document.write("<script src='/res
 <script src="/resources/assets/js/jquery.ui.touch-punch.min.js"></script>
 <script src="/resources/assets/js/jquery.easypiechart.min.js"></script>
 <script src="/resources/assets/js/jquery.sparkline.min.js"></script>
+<script src="/resources/assets/js/jquery.cookie.js"></script>
 <script src="/resources/assets/js/flot/jquery.flot.min.js"></script>
 <script src="/resources/assets/js/flot/jquery.flot.pie.min.js"></script>
 <script src="/resources/assets/js/flot/jquery.flot.resize.min.js"></script>

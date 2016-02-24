@@ -79,6 +79,21 @@ $(function() {
     // $(this).addClass("selected").siblings("li.selected").removeClass("selected").find('li.selected').removeClass("selected");
     // });
 
+    // 从Session中取得当前登录用户
+    $.ajax({
+        // url: $.appendExtraParams(window.ctxPaths + '/menu.ajax'),
+        url: 'getSessionStaff.ajax',
+        type: 'POST',
+        timeout: 30000,
+        dataType: 'json',
+        success: function(data) {
+            if (data.success) {
+                $("#index-realname").html(data.data.realName);
+            }
+        }
+    
+    });
+    
     $.ajax({
         // url: $.appendExtraParams(window.ctxPaths + '/menu.ajax'),
         url: 'menu/menu.ajax',
@@ -95,8 +110,7 @@ $(function() {
         }
 
     });
-	
-	
+    
 });
 
 function initTab(title, url) {

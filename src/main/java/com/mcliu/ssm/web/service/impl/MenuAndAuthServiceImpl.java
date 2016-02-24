@@ -11,8 +11,6 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,8 +36,6 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Service("menuAndAuthService")
-@Configuration
-@ComponentScan("com.aspire.webbas.webbas-portal-authapi")
 public class MenuAndAuthServiceImpl implements MenuAndAuthService {
     private static Map<String, SubSystem> subSystemMap = null;
     @Autowired

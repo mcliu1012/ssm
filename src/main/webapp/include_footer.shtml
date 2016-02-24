@@ -25,6 +25,7 @@
 <script src="/resources/assets/js/jquery.ui.touch-punch.min.js"></script>
 <script src="/resources/assets/js/jquery.easypiechart.min.js"></script>
 <script src="/resources/assets/js/jquery.sparkline.min.js"></script>
+<script src="/resources/assets/js/jquery.cookie.js"></script>
 <script src="/resources/assets/js/flot/jquery.flot.min.js"></script>
 <script src="/resources/assets/js/flot/jquery.flot.pie.min.js"></script>
 <script src="/resources/assets/js/flot/jquery.flot.resize.min.js"></script>

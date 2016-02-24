@@ -4,11 +4,13 @@
 <!--        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
 <!--        <meta charset="utf-8" /> -->
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="icon" href="/resources/favicon/icon.ico" type="image/vnd.microsoft.icon">
+        <link rel="shortcut icon" href="/resources/favicon/icon.ico" type="image/vnd.microsoft.icon">
         <%@include file="/root.jsp" %>
         <%@include file="commonImport.jsp" %>
         <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- <%--       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%> -->
-        <title>后台管理系统</title>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+        <title>SSM后台管理系统</title>
 <!-- <%--       <c:url value="/" var="baseUrl" /> --%> -->
         <style>
             html {
@@ -44,34 +46,35 @@
 
                                             <div class="space-6"></div>
 
-                                            <form id="login-form" method="post" action="">
+                                            <form id="login-form">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input id="login-loginname" name="loginName" class="form-control" placeholder="用户名" autofocus/>
+                                                            <input id="login-loginname" name="loginName" value="${loginName}" class="form-control" placeholder="用户名" autofocus/>
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" id="login-password" name="password" class="form-control" placeholder="密码" />
+                                                            <input type="password" id="login-password" name="password" value="${password}" class="form-control" placeholder="密码" />
                                                             <i class="ace-icon fa fa-lock"></i>
                                                         </span>
                                                     </label>
 
                                                     <%-- 提示信息 --%>
                                                     <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
-                                                        <strong><span id="login-msg" style="display:none;"></span></strong>
+                                                        <strong><span id="login-msg" style="display: none"></span></strong>
                                                     </div>
 
                                                     <div class="clearfix">
                                                         <label class="inline">
-                                                            <input type="checkbox" class="ace" />
+                                                            <c:set var="checkFlag" value="${'on' == keepLoginName ? 'checked' : '' }"></c:set>
+                                                            <input type="checkbox" id="keepLoginName" name="keepLoginName" class="ace" checked="${checkFlag}" />
                                                             <span class="lbl"> 记住我</span>
                                                         </label>
 
-                                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                                        <button type="button" id="login-btn" class="width-35 pull-right btn btn-sm btn-primary">
                                                             <i class="ace-icon fa fa-key"></i>
                                                             <span class="bigger-110">登录</span>
                                                         </button>
@@ -129,17 +132,22 @@
                                             <p> 验证码将会发送至该邮箱，以找回密码。
                                             </p>
 
-                                            <form id="forgot-form">
+                                            <form id="forgot-form" onsubmit="return false;">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="email" class="form-control" placeholder="请输入邮箱地址" />
+                                                            <input type="email" id="forgot-email" name="email" class="form-control" placeholder="请输入邮箱地址" />
                                                             <i class="ace-icon fa fa-envelope"></i>
                                                         </span>
                                                     </label>
+                                                    
+                                                    <%-- 提示信息 --%>
+                                                    <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
+                                                        <strong><span id="forgot-msg" style="display:none;"></span></strong>
+                                                    </div>
 
                                                     <div class="clearfix">
-                                                        <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                                                        <button type="submit" id="forgot-btn" class="width-35 pull-right btn btn-sm btn-danger">
                                                             <i class="ace-icon fa fa-lightbulb-o"></i>
                                                             <span class="bigger-110">发送</span>
                                                         </button>
@@ -191,7 +199,7 @@
                                                     
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input id="signup-realname" name="realname" class="form-control" placeholder="真实姓名" />
+                                                            <input id="signup-realname" name="realName" class="form-control" placeholder="真实姓名" />
                                                             <i class="ace-icon fa fa-male"></i>
                                                         </span>
                                                     </label>

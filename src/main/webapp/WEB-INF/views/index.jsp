@@ -5,12 +5,15 @@
 <!--        <meta charset="utf-8" /> -->
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+        <% String year = (new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()));%>
 <!-- <%--       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%> -->
-        <title>后台管理系统</title>
+        <title>SSM后台管理系统</title>
 <!-- <%--       <c:url value="/" var="baseUrl" /> --%> -->
 
 <!--        <meta name="description" content="overview &amp; stats" /> -->
 <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" /> -->
+        <link rel="icon" href="/resources/favicon/icon.ico" type="image/vnd.microsoft.icon">
+        <link rel="shortcut icon" href="/resources/favicon/icon.ico" type="image/vnd.microsoft.icon">
 
         <!-- bootstrap & fontawesome -->
         <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css" />
@@ -72,10 +75,10 @@
                 <!-- /section:basics/sidebar.mobile.toggle -->
                 <div class="navbar-header pull-left">
                     <!-- #section:basics/navbar.layout.brand -->
-                    <a href="#" class="navbar-brand">
+                    <a href="" class="navbar-brand">
                         <small>
-                            <i class="fa fa-leaf"></i>
-                            Ace Admin
+                            <i class="fa fa-globe"></i>
+                            SSM后台管理系统
                         </small>
                     </a>
 
@@ -342,31 +345,31 @@
                                 <img class="nav-user-photo" src="resources/assets/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
-                                    Jason
+                                    <span id="index-realname">Jason</span>
                                 </span>
 
                                 <i class="ace-icon fa fa-caret-down"></i>
                             </a>
 
                             <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                                <li>
-                                    <a href="#">
-                                        <i class="ace-icon fa fa-cog"></i>
-                                        Settings
-                                    </a>
-                                </li>
+<!--                                 <li> -->
+<!--                                     <a href="#"> -->
+<!--                                         <i class="ace-icon fa fa-cog"></i> -->
+<!--                                         Settings -->
+<!--                                     </a> -->
+<!--                                 </li> -->
 
-                                <li>
-                                    <a href="profile.html">
-                                        <i class="ace-icon fa fa-user"></i>
-                                        Profile
-                                    </a>
-                                </li>
+<!--                                 <li> -->
+<!--                                     <a href="profile.html"> -->
+<!--                                         <i class="ace-icon fa fa-user"></i> -->
+<!--                                         Profile -->
+<!--                                     </a> -->
+<!--                                 </li> -->
 
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="/logout.ajax">
                                         <i class="ace-icon fa fa-power-off"></i>
                                         Logout
                                     </a>
@@ -464,8 +467,10 @@
                     <!-- #section:basics/footer -->
                     <div class="footer-content">
                         <span class="bigger-120">
-                            <span class="blue bolder">Ace</span>
-                            Application &copy; 2013-2014
+<!--                             <span class="blue bolder">Ace</span> -->
+<!--                             Application &copy; 2013-2014 -->
+                            Copyright © <%= year %> <a href="http://weibo.com/mcliu1012" target="_blank">LiuJia</a>, Inc. All Rights Reserved.
+   备案号：<a href="http://www.miitbeian.gov.cn/" target="_blank">辽ICP备15005389号</a>
                         </span>
 
                         &nbsp; &nbsp;
