@@ -129,8 +129,6 @@
                                             </h4>
 
                                             <div class="space-6"></div>
-                                            <p> 验证码将会发送至该邮箱，以找回密码。
-                                            </p>
 
                                             <form id="forgot-form" onsubmit="return false;">
                                                 <fieldset>

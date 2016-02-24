@@ -89,11 +89,18 @@ $(function() {
         success: function(data) {
             if (data.success) {
                 $("#index-realname").html(data.data.realName);
+                // 初始化菜单
+                initMenu(buildMenu);
             }
         }
-    
     });
     
+});
+
+/**
+ * 初始化菜单
+ */
+function initMenu(buildMenu) {
     $.ajax({
         // url: $.appendExtraParams(window.ctxPaths + '/menu.ajax'),
         url: 'menu/menu.ajax',
@@ -108,10 +115,8 @@ $(function() {
                 }
             }
         }
-
     });
-    
-});
+}
 
 function initTab(title, url) {
 	var $lis = $('.tabbable li'), lisLen = $lis.length;

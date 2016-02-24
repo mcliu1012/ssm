@@ -193,7 +193,13 @@ function setValidator() {
             }
             $.ajaxSubmit(ctxPaths + "/sendEmail.ajax", $(form).serialize(), function(data) {
                 if (data.success) {
-                    $("#forgot-msg").removeClass("red").addClass("green").txtCrossFade("邮件发送成功！");
+                    $("#forgot-msg").removeClass("red").addClass("green").txtCrossFade("邮件发送成功......");
+                    setTimeout(function() {
+                        // 重置表单
+                        $("#forgot-form")[0].reset();
+                        // 跳转到密码修改页面
+//                        $(".back-to-login-link").trigger("click");
+                    }, 4000);
                 } else {
                     $("#forgot-msg").removeClass("green").addClass("red").txtCrossFade(data.message);
                 }

@@ -1,9 +1,11 @@
 package com.mcliu.ssm.web.controller;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +28,11 @@ import com.aspire.webbas.portal.common.entity.Staff.Sex;
 import com.aspire.webbas.portal.common.entity.Staff.Status;
 import com.mcliu.ssm.util.AESUtil;
 import com.mcliu.ssm.util.Constant;
+import com.mcliu.ssm.util.mail.MailSenderInfo;
+import com.mcliu.ssm.util.mail.SimpleMailSender;
+import com.mcliu.ssm.web.entity.SecStaffPassword;
 import com.mcliu.ssm.web.service.LoginService;
+import com.mcliu.ssm.web.service.SecStaffPasswordService;
 import com.mcliu.ssm.web.service.StaffService;
 
 @Controller
@@ -38,6 +44,9 @@ public class LoginController extends BaseController {
 
     @Autowired
     private StaffService staffService;
+
+    @Autowired
+    private SecStaffPasswordService secStaffPasswordService;
     
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String login(Model model, HttpServletRequest request) throws Exception {
@@ -148,8 +157,65 @@ public class LoginController extends BaseController {
 
     @RequestMapping(value = "/sendEmail.ajax")
     @ResponseBody
-    public Map<String, Object> sendEmail() {
-        return super.success("成功");
+    public Map<String, Object> sendEmail(String email, HttpServletRequest request) throws Exception {
+        LOGGER.debug("==== sendEmail START ====");
+
+        Map<String, Object> map= new HashMap<String, Object>();
+        map.put("email", email);
+        List<Staff> staffs = staffService.getStaffByMap(map);
+        if (staffs.isEmpty()) {
+            return super.fail("未找到使用该邮箱地址的用户，请更换");
+        }
+
+        // 生成邮箱内的链接并发送邮件
+        // 生成邮箱内的链接
+        String secretKey = UUID.randomUUID().toString(); // 密钥
+        Timestamp outDate = new Timestamp(System.currentTimeMillis() + 30 * 60 * 1000);// 30分钟后过期
+        
+        // 追加sec_staff_password表
+        SecStaffPassword staffPassword = new SecStaffPassword();
+        staffPassword.setStaffId(staffs.get(0).getStaffId());
+        staffPassword.setValidateCode(secretKey);
+        staffPassword.setOutDate(outDate);
+        secStaffPasswordService.addSecStaffPassword(staffPassword);
+
+        LOGGER.debug("loginName ====> " + staffs.get(0).getLoginName());
+        long date = outDate.getTime() / 1000 * 1000;// 忽略毫秒数  mySql 取出时间是忽略毫秒数的
+        String key = staffs.get(0).getLoginName() + "$" + date + "$" + secretKey;
+        LOGGER.debug("key ====>" + key);
+//        String digitalSignature = EncryptUtil.encrypt(key);// 数字签名
+        String digitalSignature = AESUtil.encrypt(key, AESUtil.KEY);// 数字签名
+
+        String path = request.getContextPath();
+        String basePath = request.getScheme() + "://"
+                + request.getServerName() + ":"
+                + request.getServerPort() + path + "/";
+        String resetPassHref = basePath + "checkLink?sid="
+                + digitalSignature + "&loginName=" + staffs.get(0).getLoginName();
+        String emailContent = "请勿回复本邮件.点击下面的链接,重设密码<br/><a href="
+                + resetPassHref + " target='_BLANK'>" + resetPassHref
+                + "</a> <br/>或者    <a href=" + resetPassHref
+                + " target='_BLANK'>点击我重新设置密码</a>"
+                + "<br/>提示 : 本邮件超过30分钟,链接将会失效，需要重新申请'找回密码'。"
+                + "<br/>Thanks,<br/>来自MCLIU。";
+
+        // 发送邮件
+        // 这个类主要是设置邮件
+        MailSenderInfo mailInfo = new MailSenderInfo();
+        mailInfo.setMailServerHost("smtp.126.com");
+        mailInfo.setMailServerPort("25");
+        mailInfo.setValidate(true);
+        mailInfo.setUserName("mailsender1012@126.com");
+        mailInfo.setPassword("password");// 您的邮箱密码
+        mailInfo.setFromAddress("mailsender1012@126.com");
+        mailInfo.setToAddress(email);
+        mailInfo.setSubject("[MCLIU] 请重置你的密码");
+        mailInfo.setContent(emailContent);
+        // 这个类主要来发送邮件
+        SimpleMailSender.sendHtmlMail(mailInfo);// 发送html格式
+
+        LOGGER.debug("==== sendEmail END ====");
+        return super.success("邮件发送成功");
     }
     
     /**
