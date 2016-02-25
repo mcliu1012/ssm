@@ -24,6 +24,10 @@ public class StaffServiceImpl implements StaffService {
         staffDao.updateStaff(staff);
     }
 
+    public void updateStaffPassword(Staff staff) throws Exception {
+        staffDao.updateStaffPassword(staff);
+    }
+
     public Staff getStaff(Long staffId) throws Exception {
         return staffDao.findStaff(staffId);
     }

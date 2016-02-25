@@ -16,6 +16,17 @@
             html {
                 background-color: transparent;
             }
+            .email-box .toolbar {
+                background: #C16050;
+			    border-top: 2px solid #976559;
+			    padding: 9px 18px;
+            }
+            .email-box .back-to-login-link {
+                color: #FE9;
+			    font-size: 14px;
+			    font-weight: bold;
+			    text-shadow: 1px 0 1px rgba(0,0,0,0.25);
+            }
         </style>
     </head>
 
@@ -64,7 +75,10 @@
 
                                                     <%-- 提示信息 --%>
                                                     <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
-                                                        <strong><span id="login-msg" style="display: none"></span></strong>
+                                                        <strong>
+                                                            <span id="login-msg" style="display: none"></span>
+                                                            <span class="red">${error }</span>
+                                                        </strong>
                                                     </div>
 
                                                     <div class="clearfix">
@@ -161,6 +175,35 @@
                                         </div>
                                     </div><!-- /.widget-body -->
                                 </div><!-- /.forgot-box -->
+                                <div id="email-box" class="email-box widget-box no-border">
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <h4 class="header red lighter bigger">
+                                                <i class="ace-icon fa fa-key"></i> 邮件已经发送！
+                                            </h4>
+
+                                            <div class="space-6"></div>
+
+                                            <form>
+                                                <fieldset>
+                                                    <p>
+											          我们发给您一封电子邮件,其中包含一个链接,将允许您在接下来的30分钟内重置您的密码。<br/><br/>
+											          如果电子邮件在几分钟内不出现，请检查您的垃圾邮件文件夹。
+											        </p>
+                                                </fieldset>
+                                            </form>
+                                        </div><!-- /.widget-main -->
+
+                                        <div class="toolbar center">
+                                            <a href="#" style="display:none;" data-target="#email-box" class="go-to-email-box"> 跳转到邮件发送成功页面
+                                                <i class="ace-icon fa fa-arrow-right"></i>
+                                            </a>
+                                            <a href="#" data-target="#login-box" class="back-to-login-link"> 返回登录
+                                                <i class="ace-icon fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div><!-- /.widget-body -->
+                                </div><!-- /.email-box -->
 
                                 <div id="signup-box" class="signup-box widget-box no-border">
                                     <div class="widget-body">

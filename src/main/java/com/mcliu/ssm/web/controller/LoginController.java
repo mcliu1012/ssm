@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aspire.webbas.core.web.BaseController;
@@ -28,6 +29,7 @@ import com.aspire.webbas.portal.common.entity.Staff.Sex;
 import com.aspire.webbas.portal.common.entity.Staff.Status;
 import com.mcliu.ssm.util.AESUtil;
 import com.mcliu.ssm.util.Constant;
+import com.mcliu.ssm.util.MD5Util;
 import com.mcliu.ssm.util.mail.MailSenderInfo;
 import com.mcliu.ssm.util.mail.SimpleMailSender;
 import com.mcliu.ssm.web.entity.SecStaffPassword;
@@ -164,7 +166,7 @@ public class LoginController extends BaseController {
         map.put("email", email);
         List<Staff> staffs = staffService.getStaffByMap(map);
         if (staffs.isEmpty()) {
-            return super.fail("未找到使用该邮箱地址的用户，请更换");
+            return super.fail("该邮箱还未注册，请更换后重试");
         }
 
         // 生成邮箱内的链接并发送邮件
@@ -184,7 +186,7 @@ public class LoginController extends BaseController {
         String key = staffs.get(0).getLoginName() + "$" + date + "$" + secretKey;
         LOGGER.debug("key ====>" + key);
 //        String digitalSignature = EncryptUtil.encrypt(key);// 数字签名
-        String digitalSignature = AESUtil.encrypt(key, AESUtil.KEY);// 数字签名
+        String digitalSignature = MD5Util.MD5(key);// 数字签名
 
         String path = request.getContextPath();
         String basePath = request.getScheme() + "://"
@@ -216,6 +218,112 @@ public class LoginController extends BaseController {
 
         LOGGER.debug("==== sendEmail END ====");
         return super.success("邮件发送成功");
+    }
+    
+    /**
+     * 点击邮件中的链接
+     *
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "checkLink", method = RequestMethod.GET)
+    public String checkLink(Model model, @RequestParam String sid, @RequestParam String loginName,
+                HttpServletRequest request) throws Exception {
+        LOGGER.debug("==== checkLink START ====");
+
+        LOGGER.debug("sid ====>" + sid);
+
+        if (StringUtils.isEmpty(sid) || StringUtils.isEmpty(loginName)) {
+            model.addAttribute("error", "邮件链接不完整");
+            return "redirect:/";
+        }
+
+        Staff staff = staffService.getStaffByLoginName(loginName);
+        if (null == staff) {
+            model.addAttribute("error", "邮件链接有误，未找到该用户");
+            return "redirect:/";
+        }
+
+        SecStaffPassword staffPassword = secStaffPasswordService.getByStaffId(staff.getStaffId());
+        if (null == staffPassword) {
+            model.addAttribute("error", "非法操作");
+            return "redirect:/";
+        }
+        Date outDate = staffPassword.getOutDate();
+        LOGGER.debug("outDate ====>" + outDate);
+        if (outDate.getTime() <= System.currentTimeMillis()) { // 表示已经过期
+            model.addAttribute("error", "邮件链接失效，请重新申请找回密码");
+            return "redirect:/";
+        }
+
+        String key = staff.getLoginName() + "$" + outDate.getTime() / 1000 * 1000 + "$" + staffPassword.getValidateCode();// 数字签名
+
+        LOGGER.debug("key link ====>" + key);
+        String digitalSignature = MD5Util.MD5(key);// 数字签名
+
+        LOGGER.debug("digitalSignature ====>" + digitalSignature);
+        if (!digitalSignature.equals(sid)) {
+            model.addAttribute("error", "数字签名不匹配");
+            return "redirect:/";
+        }
+        // 链接验证通过 转到修改密码页面
+        HttpSession session = request.getSession(true);
+        // save the user's information to session
+        session.setAttribute("staff", staff);
+        model.addAttribute("loginName", staff.getLoginName());
+
+        LOGGER.debug("==== checkLink END ====");
+        return "passwordReset";
+    }
+    
+    /**
+     * 重置密码
+     */
+    @ResponseBody
+    @RequestMapping(value = "passwordReset.ajax", method = RequestMethod.POST)
+    public Map<String, Object> passwordReset(Staff staff, HttpServletRequest request) throws Exception {
+        LOGGER.debug("==== passwordReset START ====");
+        if (StringUtils.isEmpty(staff.getLoginName())) {
+            LOGGER.error("找不到需要修改密码的用户");
+            return super.fail("找不到需要修改密码的用户");
+        }
+        
+        // セッションを削除
+        request.getSession().invalidate();
+
+        StringBuffer errorMessage = new StringBuffer();
+        if (!isParamCheckPassword(staff, errorMessage)) {
+            HttpSession session = request.getSession(true);
+            // save the user's information to session
+            session.setAttribute("userInfo", staff);
+            return super.fail(errorMessage.toString());
+        }
+        // 验证通过，重置密码
+        Staff staffDB = staffService.getStaffByLoginName(staff.getLoginName());
+        staffDB.setPassword(AESUtil.encrypt(staff.getPassword(), AESUtil.KEY));
+        staffService.updateStaffPassword(staffDB);
+        secStaffPasswordService.deleteByStaffId(staffDB.getStaffId());
+
+        LOGGER.debug("==== passwordReset END ====");
+        return super.success("密码重置成功");
+    }
+    
+    private boolean isParamCheckPassword(Staff staff, StringBuffer errorMessage) throws Exception {
+        // Password
+        if (StringUtils.isEmpty(staff.getPassword())) {
+            errorMessage.append("请输入密码(S)");
+            return false;
+        }
+        if (staff.getPassword().length() < 6) {
+            errorMessage.append("密码长度不能小于6(S)");
+            return false;
+        }
+        if (staff.getPassword().length() > 14) {
+            errorMessage.append("密码长度不能大于14(S)");
+            return false;
+        }
+        return true;
     }
     
     /**

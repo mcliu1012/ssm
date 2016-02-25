@@ -9,6 +9,8 @@ public interface StaffService {
     public void addStaff(Staff staff) throws Exception;
 
     public void updateStaff(Staff staff) throws Exception;
+
+    public void updateStaffPassword(Staff staff) throws Exception;
     
     public Staff getStaff(Long staffId) throws Exception;
 

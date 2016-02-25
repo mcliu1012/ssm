@@ -20,4 +20,12 @@ public class SecStaffPasswordServiceImpl implements SecStaffPasswordService {
     public void addSecStaffPassword(SecStaffPassword staffPassword) throws Exception {
         secStaffPasswordMapper.insert(staffPassword);
     }
+
+    public SecStaffPassword getByStaffId(Long staffId) throws Exception {
+        return secStaffPasswordMapper.selectByStaffId(staffId);
+    }
+
+    public void deleteByStaffId(Long staffId) throws Exception {
+        secStaffPasswordMapper.deleteByStaffId(staffId);
+    }
 }

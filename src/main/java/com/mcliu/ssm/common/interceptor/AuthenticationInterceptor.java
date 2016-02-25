@@ -13,8 +13,10 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
     Logger logger = LoggerFactory.getLogger(AuthenticationInterceptor.class);
 
     // 認証チェック以外のパス
-    public static String[] loginNotRequirePaths = new String[] {"sendEmail.ajax", "passwordReset", "checkLink",
-                                                                "passwordResetSuccess", ""};
+    public static String[] loginNotRequirePaths = new String[] {
+            "sendEmail.ajax", "passwordReset.ajax",
+            "checkLink",  ""
+            };
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
