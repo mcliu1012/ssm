@@ -77,7 +77,6 @@
                                                     <div class="center" style="margin: 10px 0px 10px; min-height: 22px;">
                                                         <strong>
                                                             <span id="login-msg" style="display: none"></span>
-                                                            <span class="red">${error }</span>
                                                         </strong>
                                                     </div>
 

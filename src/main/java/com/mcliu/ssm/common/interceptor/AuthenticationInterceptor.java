@@ -15,7 +15,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
     // 認証チェック以外のパス
     public static String[] loginNotRequirePaths = new String[] {
             "sendEmail.ajax", "passwordReset.ajax",
-            "checkLink",  ""
+            "checkLink",  "", "signup.ajax"
             };
 
     @Override

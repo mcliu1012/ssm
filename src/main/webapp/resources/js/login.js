@@ -231,7 +231,7 @@ function setLoginBtnClickHandler() {
         $.ajaxSubmit("", $("#login-form").serializeJson(), function(data) {
             if (data.success) {
                 // 登录成功，跳转到index页面
-                window.location.href = ctxPaths;
+                window.location.href = ctxPaths + "/";
             } else {
                 // 登录失败
                 $("#login-loginname").focus();
