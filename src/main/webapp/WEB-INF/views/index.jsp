@@ -344,7 +344,7 @@
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <img class="nav-user-photo" src="resources/assets/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
-                                    <small>Welcome,</small>
+                                    <small>欢迎您,</small>
                                     <span id="index-realname">Jason</span>
                                 </span>
 
@@ -370,8 +370,7 @@
 
                                 <li>
                                     <a href="/logout.ajax">
-                                        <i class="ace-icon fa fa-power-off"></i>
-                                        Logout
+                                        <i class="ace-icon fa fa-power-off"></i> 退出系统
                                     </a>
                                 </li>
                             </ul>
