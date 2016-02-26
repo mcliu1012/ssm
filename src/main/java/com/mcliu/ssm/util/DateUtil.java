@@ -1067,4 +1067,32 @@ public class DateUtil {
         }
         return sfstr;
     }
+    
+    /**
+     * 取得指定年月的第一天（需要注意的是：月份是从0开始的，比如说如果输入5的话，实际上显示的是4月份的第一天，千万不要搞错了哦）
+     * @param year 指定年
+     * @param month 指定月
+     * @return 指定年月的第一天
+     */
+    public static String getFirstDayOfMonth(int year, int month) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getMinimum(Calendar.DATE));
+        return dateToDateString((Date)cal.getTime().clone(), YYYY_MM_DD_EN);
+    }
+    
+    /**
+     * 取得指定年月的最后一天（需要注意的是：月份是从0开始的，比如说如果输入5的话，实际上显示的是4月份的最后一天，千万不要搞错了哦）
+     * @param year 指定年
+     * @param month 指定月
+     * @return 指定年月的最后一天
+     */
+    public static String getLastDayOfMonth(int year, int month) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DATE));
+        return dateToDateString((Date)cal.getTime().clone(), YYYY_MM_DD_EN);
+    }
 }
