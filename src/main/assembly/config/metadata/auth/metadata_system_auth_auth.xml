@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- <!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd"> -->
-<domain id="admin" subsystem="auth">
+<domain id="auth_admin" subsystem="auth">
 	<!-- 资源分类－第一级 -->
 	<resource-category key="auth_admin" orderKey="3000"  name="系统管理" desc="系统管理">
 		<!-- 资源-->

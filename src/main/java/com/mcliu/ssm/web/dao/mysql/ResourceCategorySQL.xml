@@ -58,6 +58,13 @@
         WHERE   category_id = #{value}
         ]]>
     </delete>
+
+    <delete id="deleteResourceCategoryByParentId" parameterType="long">
+        <![CDATA[
+        DELETE  FROM SEC_RESOURCE_CATEGORY
+        WHERE   PARENT_ID = #{value}
+        ]]>
+    </delete>
     
     <delete id="deleteResourceCategoryByMetadataId" parameterType="string">
         <![CDATA[
@@ -121,6 +128,21 @@
         </where> 
         
         order by ORDER_KEY         
+    </select>
+    <select id="selectParentResourceCategoryList" resultMap="ResourceCategoryMap" parameterType="com.aspire.webbas.portal.common.entity.ResourceCategory">    
+        <![CDATA[
+        SELECT *
+        FROM   SEC_RESOURCE_CATEGORY   
+        ]]>   
+        <where>
+            1=1
+            and PARENT_ID is null
+            <if test="domain != null">
+                and domain = #{domain}
+            </if>
+        </where>
+        order by ORDER_KEY
+        limit 1
     </select>
     
     <select id="listResourceCategoryByParentId" resultMap="ResourceCategoryMap" parameterType="string">

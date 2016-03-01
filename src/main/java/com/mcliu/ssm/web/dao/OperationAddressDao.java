@@ -7,6 +7,8 @@ import java.util.Map;
 public abstract interface OperationAddressDao {
     public abstract void insertOperationAddress(OperationAddress paramOperationAddress);
 
+    public abstract void updateOperationAddress(OperationAddress paramOperationAddress);
+
     public abstract void deleteOperationAddress(OperationAddress paramOperationAddress);
 
     public abstract OperationAddress findOperationAddress(String paramString);

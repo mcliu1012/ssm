@@ -8,6 +8,8 @@ public abstract interface ResourceCategoryDao {
 
     public abstract void deleteResourceCategoryById(Long paramLong);
 
+    public abstract void deleteResourceCategoryByParentId(Long parentId);
+
     public abstract void deleteResourceCategoryByMetadataId(String paramString);
     
     public abstract void deleteAll();
@@ -23,4 +25,6 @@ public abstract interface ResourceCategoryDao {
     public abstract List<ResourceCategory> listRootResourceCategory(ResourceCategory paramResourceCategory);
 
     public abstract List<ResourceCategory> listResourceCategoryByParentId(Long paramLong);
+
+    public abstract ResourceCategory selectParentResourceCategoryList(ResourceCategory paramResourceCategory);
 }

@@ -51,6 +51,21 @@
         ]]>       
     </insert>
     
+    <update id="updateResource" parameterType="com.aspire.webbas.portal.common.entity.Resource">
+        UPDATE SEC_RESOURCES
+            SET 
+               RESOURCE_KEY =  #{resourceKey}  ,
+               RESOURCE_NAME =  #{resourceName}   ,
+               RESOURCE_DESC =  #{resourceDesc}   ,
+               CATEGORY_ID  =  #{categoryId}    ,
+               METADATA_ID =  #{metadataId}     ,
+               AUTH_TYPE   =  #{authType}     ,
+               ORDER_KEY   =  #{orderKey},             
+               DOMAIN     =  #{domain}
+        WHERE 
+            RESOURCE_ID = #{resourceId}
+    </update>
+    
     <delete id="deleteResourceByMetadataId" 
              parameterType="string">
         <![CDATA[

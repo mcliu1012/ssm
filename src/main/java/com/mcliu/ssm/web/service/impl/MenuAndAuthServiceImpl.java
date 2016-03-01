@@ -168,7 +168,6 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
         
         // 2.生成权限
         // 2.1添加普通资源权限
-        resourceCategoryMapper.deleteAll();
         insertAuth("metadata_auth_auth.xml");
         insertAuth("metadata_auth_exclude.xml");
         insertAuth("metadata_system_auth_auth.xml");
@@ -263,7 +262,7 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
             }
             String domain = rootElement.attributeValue("id");
             String metadata_id = rootElement.attributeValue("subsystem");
-            // 资源分类－第一级
+            // 1.资源分类－第一级
             Element parentResourceCategory = rootElement.element("resource-category");
             if (null == parentResourceCategory) {
                 return;
@@ -276,51 +275,88 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
             parentCategory.setOrderKey(Integer.valueOf(parentResourceCategory.attributeValue("orderKey")));
             parentCategory.setMetadataId(metadata_id);
             parentCategory.setDomain(domain);
-            // insert sec_resource_category 表
-            resourceCategoryMapper.insertResourceCategory(parentCategory);
+            // 查询DB中是否存在
+            ResourceCategory resourceCategoryDB = resourceCategoryMapper.findResourceCategoryByKey(parentCategory.getCategoryKey());
+            if (null == resourceCategoryDB) {
+                // insert sec_resource_category 表
+                resourceCategoryMapper.insertResourceCategory(parentCategory);
+            } else {
+                // update sec_resource_category 表
+                resourceCategoryDB = getResourceCategory(resourceCategoryDB, parentCategory);
+                resourceCategoryMapper.updateResourceCategory(resourceCategoryDB);
+            }
             
-            // 第二级 <resource-category> 集合
+            // 2.第二级 <resource-category> 集合
             List<Element> childResourceCategoryList = parentResourceCategory.elements("resource-category");
             for (Element childResourceCategoryE : childResourceCategoryList) {
                 ResourceCategory childCategory = new ResourceCategory();
-                childCategory.setParentId(parentCategory.getCategoryId());
+                childCategory.setParentId(resourceCategoryDB == null ? parentCategory.getCategoryId() : resourceCategoryDB.getCategoryId());
                 childCategory.setCategoryKey(childResourceCategoryE.attributeValue("key"));
                 childCategory.setCategoryName(childResourceCategoryE.attributeValue("name"));
                 childCategory.setCategoryDesc(childResourceCategoryE.attributeValue("desc"));
                 childCategory.setOrderKey(100);
                 childCategory.setMetadataId(metadata_id);
                 childCategory.setDomain(domain);
-                // insert sec_resource_category 表
-                resourceCategoryMapper.insertResourceCategory(childCategory);
                 
-                // 第三级 <resource> 集合
+                ResourceCategory resourceCategoryChildDB = resourceCategoryMapper.findResourceCategoryByKey(childCategory.getCategoryKey());
+                if (null == resourceCategoryChildDB) {
+                    // insert sec_resource_category 表
+                    resourceCategoryMapper.insertResourceCategory(childCategory);
+                } else {
+                    // update
+                    resourceCategoryChildDB = getResourceCategory(resourceCategoryChildDB, childCategory);
+                    resourceCategoryMapper.updateResourceCategory(resourceCategoryChildDB);
+                }
+                
+                // 3.第三级 <resource> 集合
                 List<Element> resourceList = childResourceCategoryE.elements("resource");
                 for (Element resourceE : resourceList) {
                     Resource resource = new Resource();
                     resource.setResourceKey(resourceE.attributeValue("key"));
                     resource.setResourceName(resourceE.attributeValue("name"));
                     resource.setResourceDesc(resourceE.attributeValue("desc"));
-                    resource.setCategoryId(childCategory.getCategoryId());
+                    resource.setCategoryId(resourceCategoryChildDB == null ? childCategory.getCategoryId() : resourceCategoryChildDB.getCategoryId());
                     resource.setAuthType("AUTH");
                     resource.setMetadataId(metadata_id);
                     resource.setDomain(domain);
                     resource.setOrderKey(100);
-                    resourceMapper.insertResource(resource);
                     
-                    // 第四级 <operation> 集合
+                    Resource resourceDB = resourceMapper.findResourceByKey(resource.getResourceKey());
+                    if (null == resourceDB) {
+                        // insert
+                        resourceMapper.insertResource(resource);
+                    } else {
+                        // update
+                        resourceDB = getResource(resourceDB, resource);
+                        resourceMapper.updateResource(resourceDB);
+                    }
+                    
+                    // 4.第四级 <operation> 集合
                     List<Element> operationList = resourceE.elements("operation");
                     for (Element operationE : operationList) {
                         Operation operation = new Operation();
-                        operation.setResourceId(resource.getResourceId());
+                        operation.setResourceId(resourceDB == null ? resource.getResourceId() : resourceDB.getResourceId());
                         operation.setOperationKey(operationE.attributeValue("key"));
                         operation.setOperationName(operationE.attributeValue("name"));
                         operation.setOperationDesc(operationE.attributeValue("desc"));
                         operation.setMetadataId(metadata_id);
                         operation.setDomain(domain);
                         operation.setOrderKey(100);
-                        operationMapper.insertOperation(operation);
                         
-                        // 第五级 <address> 集合
+                        Operation paramOperation = new Operation();
+                        paramOperation.setResourceId(operation.getResourceId());
+                        paramOperation.setOperationKey(operation.getOperationKey());
+                        Operation operationDB = operationMapper.findOperation(paramOperation);
+                        if (null == operationDB) {
+                            // insert
+                            operationMapper.insertOperation(operation);
+                        } else {
+                            // update
+                            operationDB = getOperation(operationDB, operation);
+                            operationMapper.updateOperation(operationDB);
+                        }
+                        
+                        // 5.第五级 <address> 集合
                         List<Element> addressList = operationE.elements("address");
                         for (Element addressE : addressList) {
                             OperationAddress address = new OperationAddress();
@@ -330,7 +366,16 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
                             address.setOperationAddressUrl(addressE.attributeValue("url"));
                             address.setMetadataId(metadata_id);
                             address.setDomain(domain);
-                            addressMapper.insertOperationAddress(address);
+                            
+                            OperationAddress addressDB = addressMapper.findOperationAddress(address.getOperationAddressUrl());
+                            if (null == addressDB) {
+                                // insert
+                                addressMapper.insertOperationAddress(address);
+                            } else {
+                                // update
+                                addressDB = getOperationAddress(addressDB, address);
+                                addressMapper.updateOperationAddress(addressDB);
+                            }
                         }
                     }
                 }
@@ -339,5 +384,62 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    /**
+     * 取得更新用ResourceCategory对象
+     */
+    private ResourceCategory getResourceCategory(ResourceCategory categoryDB, ResourceCategory category) {
+        categoryDB.setParentId(category.getParentId());
+        categoryDB.setCategoryName(category.getCategoryName());
+        categoryDB.setCategoryDesc(category.getCategoryDesc());
+        categoryDB.setMetadataId(category.getMetadataId());
+        categoryDB.setDomain(category.getDomain());
+        categoryDB.setOrderKey(category.getOrderKey());
+        return categoryDB;
+    }
+
+    /**
+     * 取得更新用Resource对象
+     */
+    private Resource getResource(Resource resourceDB, Resource resource) {
+        resourceDB.setResourceKey(resource.getResourceKey());
+        resourceDB.setResourceName(resource.getResourceName());
+        resourceDB.setResourceDesc(resource.getResourceDesc());
+        resourceDB.setCategoryId(resource.getCategoryId());
+        resourceDB.setAuthType(resource.getAuthType());
+        resourceDB.setMetadataId(resource.getMetadataId());
+        resourceDB.setDomain(resource.getDomain());
+        resourceDB.setOrderKey(resource.getOrderKey());
+        return resourceDB;
+    }
+
+    /**
+     * 取得更新用Operation对象
+     */
+    private Operation getOperation(Operation operationDB, Operation operation) {
+        operationDB.setResourceId(operation.getResourceId());
+        operationDB.setOperationKey(operation.getOperationKey());
+        operationDB.setOperationName(operation.getOperationName());
+        operationDB.setOperationDesc(operation.getOperationDesc());
+        operationDB.setDependKey(operation.getDependKey());
+        operationDB.setDependByKey(operation.getDependByKey());
+        operationDB.setMetadataId(operation.getMetadataId());
+        operationDB.setDomain(operation.getDomain());
+        operationDB.setOrderKey(operation.getOrderKey());
+        return operationDB;
+    }
+
+    /**
+     * 取得更新用OperationAddress对象
+     */
+    private OperationAddress getOperationAddress(OperationAddress operationAddressDB, OperationAddress operationAddress) {
+        operationAddressDB.setResourceId(operationAddress.getResourceId());
+        operationAddressDB.setOperationKey(operationAddress.getOperationKey());
+        operationAddressDB.setOperationAddressName(operationAddress.getOperationAddressName());
+        operationAddressDB.setOperationAddressUrl(operationAddress.getOperationAddressUrl());
+        operationAddressDB.setMetadataId(operationAddress.getMetadataId());
+        operationAddressDB.setDomain(operationAddress.getDomain());
+        return operationAddressDB;
     }
 }
