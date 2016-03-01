@@ -464,7 +464,7 @@
             <div class="footer">
                 <div class="footer-inner">
                     <!-- #section:basics/footer -->
-                    <div class="footer-content">
+                    <div class="footer-content" style="padding:0;">
                         <span class="bigger-120">
 <!--                             <span class="blue bolder">Ace</span> -->
 <!--                             Application &copy; 2013-2014 -->

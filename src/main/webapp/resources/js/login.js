@@ -116,7 +116,7 @@ function setValidator() {
             },
             realName: {
                 required: true,
-                minlength: 6,
+                minlength: 2,
                 maxlength: 14
             },
             email: {
@@ -144,7 +144,7 @@ function setValidator() {
             },
             realName: {
                 required: "请输入真实姓名",
-                minlength: "真实姓名不能少于6个字符",
+                minlength: "真实姓名不能少于2个字符",
                 maxlength: "真实姓名不能超过14个字符"
             },
             email: {

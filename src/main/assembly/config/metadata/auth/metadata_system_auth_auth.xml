@@ -4,32 +4,6 @@
 	<!-- 资源分类－第一级 -->
 	<resource-category key="auth_admin" orderKey="3000"  name="系统管理" desc="系统管理">
 		<!-- 资源-->
-		<resource-category key="auth_admin_sys_individual" name="个人管理" desc="个人管理">
-			<resource key="auth_admin_sys_individual_modifyInfo" name="修改帐号信息" desc="修改帐号信息">
-				<!-- 资源操作-DO -->
-				<operation key="QUERY" name="修改" desc="修改">
-					<address name="个人管理页面" url="/pages/auth/individual/modifyInfo.shtml"/>
-					<address name="查询个人资料" url="/staff/findLoginStaff.ajax"/>
-					<address name="修改个人资料" url="/staff/updateStaff.ajax"/>
-					<address name="查询个人扩展属性" url="/staff/findStaffExtendProperties.ajax"/>
-				</operation>
-			</resource>
-			<resource key="auth_admin_sys_individual_modifyPwd" name="修改个人密码" desc="修改个人密码">
-				<!-- 资源操作-DO -->
-				<operation key="QUERY" name="修改" desc="修改">
-					<address name="修改个人密码页面" url="/pages/auth/individual/modifyPwd.shtml"/>
-					<address name="修改个人密码" url="/staff/changePwd.ajax"/>
-				</operation>
-			</resource>
-			<resource key="auth_admin_sys_individual_selfconfig" name="个性化参数设置" desc="个性化参数设置">
-				<!-- 资源操作-DO -->
-				<operation key="QUERY" name="查询" desc="查询">
-					<address name="个性化参数修改页面" url="/pages/auth/individual/selfConfigSetting.shtml"/>
-					<address name="个性化参数查询" url="/pendTaskSetting/get.ajax"/>
-					<address name="个性化参数设置" url="/pendTaskSetting/update.ajax"/>
-				</operation>
-			</resource>
-		</resource-category>
 		<resource-category key="auth_admin_sys_dept" name="组织管理" desc="组织管理">
 				<resource key="auth_admin_sys_dept_deptManage" name="组织管理" desc="组织管理">
 					<!-- 资源操作-->

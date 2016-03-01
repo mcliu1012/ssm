@@ -27,6 +27,16 @@
 			    font-weight: bold;
 			    text-shadow: 1px 0 1px rgba(0,0,0,0.25);
             }
+            .agreement-body {
+                max-height: 475px;
+                overflow-y: scroll;
+            }
+            #agreementModal .modal-footer {
+                padding: 6px;
+            }
+            #mcliu-a:hover {
+			    text-decoration: none;
+			}
         </style>
     </head>
 
@@ -42,7 +52,7 @@
                                     <span class="red">SSM</span>
                                     <span class="white" id="id-text2">后台管理系统</span>
                                 </h1>
-                                <h4 class="blue" id="id-company-text">&copy; MCLIU</h4>
+                                <h4 class="blue" id="id-company-text">&copy; <a id="mcliu-a" href="http://weibo.com/mcliu1012" target="_blank">MCLIU</a></h4>
                             </div>
 
                             <div class="space-6"></div>
@@ -252,9 +262,9 @@
                                                     </label>
 
                                                     <label class="block">
-                                                        <input type="checkbox" id="protocol-checkbox" class="ace" />
+                                                        <input type="checkbox" id="protocol-checkbox" class="ace" checked="checked" />
                                                         <span class="lbl"> 我已阅读并同意此
-                                                            <a href="#">用户协议</a>
+                                                            <a href="#" data-toggle="modal" data-target="#agreementModal">用户协议</a>
                                                         </span>
                                                     </label>
 
@@ -286,6 +296,25 @@
                                         </div>
                                     </div><!-- /.widget-body -->
                                 </div><!-- /.signup-box -->
+                                
+								<!-- 用户协议Modal -->
+								<div class="modal fade" id="agreementModal" tabindex="-1" role="dialog" aria-labelledby="agreementModalLabel">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								        <h4 class="modal-title" id="agreementModalLabel">用户注册协议</h4>
+								      </div>
+								      <div class="modal-body agreement-body">
+								        <%@include file="agreement.jsp" %>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+                                
                             </div><!-- /.position-relative -->
 
                             <div class="navbar-fixed-top align-right">
