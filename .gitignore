@@ -11,3 +11,6 @@
 .idea
 ssm.iml
 /bin/
+
+
+*/.svn/*
