@@ -13,6 +13,8 @@ public abstract interface OperationAddressDao {
 
     public abstract OperationAddress findOperationAddress(String paramString);
 
+    public abstract OperationAddress findOperationAddressByInfo(OperationAddress paramOperationAddress);
+
     public abstract List<OperationAddress> listOperationAddress(OperationAddress paramOperationAddress);
 
     public abstract List<OperationAddress> listOperationAddressByLoginName(String paramString);

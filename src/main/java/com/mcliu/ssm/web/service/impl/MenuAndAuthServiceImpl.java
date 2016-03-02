@@ -367,7 +367,11 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
                             address.setMetadataId(metadata_id);
                             address.setDomain(domain);
                             
-                            OperationAddress addressDB = addressMapper.findOperationAddress(address.getOperationAddressUrl());
+                            OperationAddress operationAddressParames = new OperationAddress();
+                            operationAddressParames.setOperationAddressUrl(address.getOperationAddressUrl());
+                            operationAddressParames.setResourceId(address.getResourceId());
+                            operationAddressParames.setOperationKey(address.getOperationKey());
+                            OperationAddress addressDB = addressMapper.findOperationAddressByInfo(operationAddressParames);
                             if (null == addressDB) {
                                 // insert
                                 addressMapper.insertOperationAddress(address);

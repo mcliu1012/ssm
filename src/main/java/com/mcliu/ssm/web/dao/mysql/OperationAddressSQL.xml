@@ -99,6 +99,30 @@
             WHERE  OPERATION_ADDRESS_URL = #{value}
         ]]>
       </select>
+
+     <select id="findOperationAddressByInfo" resultMap="operationAddressMap"  
+             parameterType="com.aspire.webbas.portal.common.entity.OperationAddress">
+        <![CDATA[
+            SELECT  
+                    ADDRESS_ID            ,
+                    RESOURCE_ID           ,
+                    OPERATION_KEY         ,
+                    OPERATION_ADDRESS_NAME,
+                    OPERATION_ADDRESS_URL ,
+                    PARAMETER_NAME1       ,
+                    PARAMETER_VALUE1      ,
+                    PARAMETER_NAME2       ,
+                    PARAMETER_VALUE2      ,
+                    PARAMETER_NAME3       ,
+                    PARAMETER_VALUE3      ,
+                    METADATA_ID           ,
+                    DOMAIN        
+            FROM    SEC_OPERATION_ADDRESS  
+            WHERE  OPERATION_ADDRESS_URL = #{operationAddressUrl}
+                and RESOURCE_ID = #{resourceId}
+                and OPERATION_KEY = #{operationKey}
+        ]]>
+      </select>
       
       <select id="listOperationAddress" 
               resultMap="operationAddressMap" 
