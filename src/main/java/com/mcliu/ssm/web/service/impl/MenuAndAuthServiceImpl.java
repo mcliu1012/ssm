@@ -10,11 +10,14 @@ import java.util.Map;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aspire.webbas.configuration.config.ConfigurationHelper;
+import com.aspire.webbas.core.exception.MyException;
 import com.aspire.webbas.portal.common.entity.Menu;
 import com.aspire.webbas.portal.common.entity.Operation;
 import com.aspire.webbas.portal.common.entity.OperationAddress;
@@ -28,6 +31,8 @@ import com.mcliu.ssm.web.dao.OperationAddressDao;
 import com.mcliu.ssm.web.dao.OperationDao;
 import com.mcliu.ssm.web.dao.ResourceCategoryDao;
 import com.mcliu.ssm.web.dao.ResourceDao;
+import com.mcliu.ssm.web.dao.SecRoleResourceOperationMapper;
+import com.mcliu.ssm.web.entity.SecRoleResourceOperation;
 import com.mcliu.ssm.web.service.MenuAndAuthService;
 import com.mcliu.ssm.web.tree.MenuTreeNode;
 import com.mcliu.ssm.web.tree.TreeNode;
@@ -37,6 +42,8 @@ import net.sf.json.JSONObject;
 
 @Service("menuAndAuthService")
 public class MenuAndAuthServiceImpl implements MenuAndAuthService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MenuAndAuthServiceImpl.class);
+    
     private static Map<String, SubSystem> subSystemMap = null;
     @Autowired
     private MenuDao menuDao;
@@ -55,6 +62,9 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
     
     @Autowired
     private OperationAddressDao addressMapper;
+
+    @Autowired
+    private SecRoleResourceOperationMapper secRoleResourceOperationMapper;
 
     public List<MenuTreeNode> buildMenuTree(String loginName, String ticket, String defaultPath)
             throws Exception {
@@ -158,6 +168,7 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
     /**
      * 生成菜单和权限
      */
+    @Transactional(rollbackFor = Exception.class)
     public void insertMenuAndAuth() {
         // 1.生成菜单
         menuDao.deleteAll();
@@ -167,10 +178,18 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
         insertMenuByPath("metadata_menu.json");
         
         // 2.生成权限
-        // 2.1添加普通资源权限
+        // 2.1添加资源权限
+        
+        // 2.1.1 备份sec_role_resource_operation数据
+        List<SecRoleResourceOperation> roleResourceOperations = secRoleResourceOperationMapper.selectAll();
+        // 2.1.2 删除数据
+        resourceCategoryMapper.deleteAll();
+        // 2.1.3 插入权限数据
         insertAuth("metadata_auth_auth.xml");
         insertAuth("metadata_auth_exclude.xml");
         insertAuth("metadata_system_auth_auth.xml");
+        // 2.1.4 恢复sec_role_resource_operation数据
+        recoveryRoleResourceOperation(roleResourceOperations);
     }
     
     /**
@@ -241,16 +260,17 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
     /**
      * 添加资源权限
      */
+    @Transactional(rollbackFor = Exception.class)
     private void insertAuth(String fileName) {
         try {
             // 将src下面的xml转换为输入流
-//            InputStream inputStream = this.getClass().getResourceAsStream("/metadata_auth_auth.xml");
+    //            InputStream inputStream = this.getClass().getResourceAsStream("/metadata_auth_auth.xml");
             // 创建SAXReader读取器，专门用于读取xml
             SAXReader saxReader = new SAXReader();
             // 根据saxReader的read重写方法可知，既可以通过inputStream输入流来读取，也可以通过file对象来读取
-
+    
             // 方式一：通过inputStream输入流来读取
-//            Document document = saxReader.read(inputStream);
+    //            Document document = saxReader.read(inputStream);
             
             // 方式二：通过file对象来读取（必须是绝对地址）
             String basePath = ConfigurationHelper.getBasePath();
@@ -275,38 +295,22 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
             parentCategory.setOrderKey(Integer.valueOf(parentResourceCategory.attributeValue("orderKey")));
             parentCategory.setMetadataId(metadata_id);
             parentCategory.setDomain(domain);
-            // 查询DB中是否存在
-            ResourceCategory resourceCategoryDB = resourceCategoryMapper.findResourceCategoryByKey(parentCategory.getCategoryKey());
-            if (null == resourceCategoryDB) {
-                // insert sec_resource_category 表
-                resourceCategoryMapper.insertResourceCategory(parentCategory);
-            } else {
-                // update sec_resource_category 表
-                resourceCategoryDB = getResourceCategory(resourceCategoryDB, parentCategory);
-                resourceCategoryMapper.updateResourceCategory(resourceCategoryDB);
-            }
+            // insert sec_resource_category 表
+            resourceCategoryMapper.insertResourceCategory(parentCategory);
             
             // 2.第二级 <resource-category> 集合
             List<Element> childResourceCategoryList = parentResourceCategory.elements("resource-category");
             for (Element childResourceCategoryE : childResourceCategoryList) {
                 ResourceCategory childCategory = new ResourceCategory();
-                childCategory.setParentId(resourceCategoryDB == null ? parentCategory.getCategoryId() : resourceCategoryDB.getCategoryId());
+                childCategory.setParentId(parentCategory.getCategoryId());
                 childCategory.setCategoryKey(childResourceCategoryE.attributeValue("key"));
                 childCategory.setCategoryName(childResourceCategoryE.attributeValue("name"));
                 childCategory.setCategoryDesc(childResourceCategoryE.attributeValue("desc"));
                 childCategory.setOrderKey(100);
                 childCategory.setMetadataId(metadata_id);
                 childCategory.setDomain(domain);
-                
-                ResourceCategory resourceCategoryChildDB = resourceCategoryMapper.findResourceCategoryByKey(childCategory.getCategoryKey());
-                if (null == resourceCategoryChildDB) {
-                    // insert sec_resource_category 表
-                    resourceCategoryMapper.insertResourceCategory(childCategory);
-                } else {
-                    // update
-                    resourceCategoryChildDB = getResourceCategory(resourceCategoryChildDB, childCategory);
-                    resourceCategoryMapper.updateResourceCategory(resourceCategoryChildDB);
-                }
+                // insert sec_resource_category 表
+                resourceCategoryMapper.insertResourceCategory(childCategory);
                 
                 // 3.第三级 <resource> 集合
                 List<Element> resourceList = childResourceCategoryE.elements("resource");
@@ -315,46 +319,27 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
                     resource.setResourceKey(resourceE.attributeValue("key"));
                     resource.setResourceName(resourceE.attributeValue("name"));
                     resource.setResourceDesc(resourceE.attributeValue("desc"));
-                    resource.setCategoryId(resourceCategoryChildDB == null ? childCategory.getCategoryId() : resourceCategoryChildDB.getCategoryId());
+                    resource.setCategoryId(childCategory.getCategoryId());
                     resource.setAuthType("AUTH");
                     resource.setMetadataId(metadata_id);
                     resource.setDomain(domain);
                     resource.setOrderKey(100);
-                    
-                    Resource resourceDB = resourceMapper.findResourceByKey(resource.getResourceKey());
-                    if (null == resourceDB) {
-                        // insert
-                        resourceMapper.insertResource(resource);
-                    } else {
-                        // update
-                        resourceDB = getResource(resourceDB, resource);
-                        resourceMapper.updateResource(resourceDB);
-                    }
+                    // insert
+                    resourceMapper.insertResource(resource);
                     
                     // 4.第四级 <operation> 集合
                     List<Element> operationList = resourceE.elements("operation");
                     for (Element operationE : operationList) {
                         Operation operation = new Operation();
-                        operation.setResourceId(resourceDB == null ? resource.getResourceId() : resourceDB.getResourceId());
+                        operation.setResourceId(resource.getResourceId());
                         operation.setOperationKey(operationE.attributeValue("key"));
                         operation.setOperationName(operationE.attributeValue("name"));
                         operation.setOperationDesc(operationE.attributeValue("desc"));
                         operation.setMetadataId(metadata_id);
                         operation.setDomain(domain);
                         operation.setOrderKey(100);
-                        
-                        Operation paramOperation = new Operation();
-                        paramOperation.setResourceId(operation.getResourceId());
-                        paramOperation.setOperationKey(operation.getOperationKey());
-                        Operation operationDB = operationMapper.findOperation(paramOperation);
-                        if (null == operationDB) {
-                            // insert
-                            operationMapper.insertOperation(operation);
-                        } else {
-                            // update
-                            operationDB = getOperation(operationDB, operation);
-                            operationMapper.updateOperation(operationDB);
-                        }
+                        // insert
+                        operationMapper.insertOperation(operation);
                         
                         // 5.第五级 <address> 集合
                         List<Element> addressList = operationE.elements("address");
@@ -366,27 +351,40 @@ public class MenuAndAuthServiceImpl implements MenuAndAuthService {
                             address.setOperationAddressUrl(addressE.attributeValue("url"));
                             address.setMetadataId(metadata_id);
                             address.setDomain(domain);
-                            
-                            OperationAddress operationAddressParames = new OperationAddress();
-                            operationAddressParames.setOperationAddressUrl(address.getOperationAddressUrl());
-                            operationAddressParames.setResourceId(address.getResourceId());
-                            operationAddressParames.setOperationKey(address.getOperationKey());
-                            OperationAddress addressDB = addressMapper.findOperationAddressByInfo(operationAddressParames);
-                            if (null == addressDB) {
-                                // insert
-                                addressMapper.insertOperationAddress(address);
-                            } else {
-                                // update
-                                addressDB = getOperationAddress(addressDB, address);
-                                addressMapper.updateOperationAddress(addressDB);
-                            }
+                            // insert
+                            addressMapper.insertOperationAddress(address);
                         }
                     }
                 }
             }
-            
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("导入菜单和权限时发生错误：{}", e.getMessage());
+            throw new MyException("导入菜单和权限时发生错误：" + e.getMessage());
+        }
+    }
+    
+    /**
+     * 恢复sec_role_resource_operation数据
+     * 
+     * @param roleResourceOperations 备份的sec_role_resource_operation数据
+     */
+    @Transactional(rollbackFor = Exception.class)
+    private void recoveryRoleResourceOperation(List<SecRoleResourceOperation> roleResourceOperations) {
+        for (SecRoleResourceOperation info : roleResourceOperations) {
+            Resource resource = resourceMapper.findResourceByKey(info.getResourceKey());
+            if (null != resource) {
+                Operation paramOperation = new Operation();
+                paramOperation.setResourceId(resource.getResourceId());
+                paramOperation.setOperationKey(info.getOperationKey());
+                Operation operation = operationMapper.findOperation(paramOperation);
+                if (null != operation) {
+                    SecRoleResourceOperation roleResourceOperation = new SecRoleResourceOperation();
+                    roleResourceOperation.setRoleId(info.getRoleId());
+                    roleResourceOperation.setResourceId(operation.getResourceId());
+                    roleResourceOperation.setOperationKey(operation.getOperationKey());
+                    secRoleResourceOperationMapper.insert(roleResourceOperation);
+                }
+            }
         }
     }
     

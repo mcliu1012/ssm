@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mcliu.ssm.web.dao.SecRoleResourceOperationMapper" >
+  <resultMap id="BaseResultMap" type="com.mcliu.ssm.web.entity.SecRoleResourceOperation" >
+    <id column="OPERATION_KEY" property="operationKey" jdbcType="VARCHAR" />
+    <id column="RESOURCE_ID" property="resourceId" jdbcType="BIGINT" />
+    <id column="ROLE_ID" property="roleId" jdbcType="BIGINT" />
+    <id column="RESOURCE_KEY" property="resourceKey" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT srro.*, sr.RESOURCE_KEY
+	FROM sec_role_resource_operation srro, sec_resources sr
+	where srro.RESOURCE_ID = sr.RESOURCE_ID
+	ORDER BY srro.ROLE_ID, srro.RESOURCE_ID;
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.mcliu.ssm.web.entity.SecRoleResourceOperation" >
+    delete from sec_role_resource_operation
+    where OPERATION_KEY = #{operationKey,jdbcType=VARCHAR}
+      and RESOURCE_ID = #{resourceId,jdbcType=BIGINT}
+      and ROLE_ID = #{roleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mcliu.ssm.web.entity.SecRoleResourceOperation" >
+    insert into sec_role_resource_operation (OPERATION_KEY, RESOURCE_ID, ROLE_ID
+      )
+    values (#{operationKey,jdbcType=VARCHAR}, #{resourceId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mcliu.ssm.web.entity.SecRoleResourceOperation" >
+    insert into sec_role_resource_operation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="operationKey != null" >
+        OPERATION_KEY,
+      </if>
+      <if test="resourceId != null" >
+        RESOURCE_ID,
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="operationKey != null" >
+        #{operationKey,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>
