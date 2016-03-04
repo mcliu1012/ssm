@@ -38,52 +38,6 @@
                     "menuKey": "partner_manager_self"
                 }
             ]
-        }, {
-            "id": "10200",
-            "text": "订单管理",
-            "iconCls": "nav",
-            "menuOrder": "2",
-            "leaf": false,
-            "icon": "menu-icon fa fa-credit-card",
-            "menuKey": "order_manager",
-			"children": [
-                {
-                    "text": "订单列表",
-                    "menuOrder": "1",
-                    "leaf": "true",
-                    "url": "/pages/orderInfo_list.shtml",
-                    "id": "10201",
-		    		"icon":"icon-user",
-                    "menuKey": "order_manager_lisst"
-                }
-            ]
-        }, {
-            "id": "10300",
-            "text": "客户管理",
-            "iconCls": "nav",
-            "menuOrder": "3",
-            "leaf": false,
-            "icon": "menu-icon fa fa-users",
-            "menuKey": "customer_manager",
-            "children": [
-                {
-                    "text": "客户管理",
-                    "menuOrder": "1",
-                    "leaf": "true",
-                    "url": "/pages/customerInfo_list.shtml",
-                    "id": "10301",
-		    		"icon":"icon-user",
-                    "menuKey": "customer_manager_zc"
-                },{
-                    "text": "客户微信配置管理",
-                    "menuOrder": "2",
-                    "leaf": "true",
-                    "url": "/pages/card/wxAccessConf_list.shtml",
-                    "id": "10302",
-		    		"icon":"icon-user",
-                    "menuKey": "customer_wxAccessConf"
-                }
-            ]
         }
     ]
 }
