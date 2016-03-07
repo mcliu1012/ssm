@@ -69,11 +69,36 @@
     <!-- Spring管理SpringContextHolder -->
     <!-- SpringContextHolder.getBean() -->
     <bean class="com.aspire.webbas.core.util.SpringContextHolder" lazy-init="false"/>
-
+    
+    <!-- 分页拦截器 -->
+    <bean id="myInterceptor" class="com.mcliu.ssm.common.interceptor.cache.PaginationDispatchInterceptor" >
+        <property name="databaseType" value="mysql"/> 
+    </bean>
+    
+    <!-- 缓存拦截器   如果配置的话，需要同时配置memcached/servers.xml -->
+<!--     <bean id="cacheInterceptor" class="com.mcliu.ssm.common.interceptor.CacheInterceptor" > -->
+<!--         <property name="databaseType" value="mysql"/>  -->
+<!--     </bean> -->
+    
     <!-- mybatis文件配置，扫描所有mapper文件 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"
-          p:configLocation="classpath:mybatis-config.xml"
-          p:mapperLocations="classpath:com/mcliu/ssm/web/dao/mysql/*.xml"/>
+    <!-- 写法一 -->
+<!--     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource" -->
+<!--           p:configLocation="classpath:mybatis-config.xml" -->
+<!--           p:mapperLocations="classpath:com/mcliu/ssm/web/dao/mysql/*.xml"/> -->
+    
+    <!-- 写法二 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:com/mcliu/ssm/web/dao/mysql/*.xml" />
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        
+        <property name="plugins">
+            <list>
+                <ref bean="myInterceptor" />
+<!--                 <ref bean="cacheInterceptor" /> -->
+            </list>
+        </property>
+    </bean>
 
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="com.mcliu.ssm.web.dao"

@@ -4,38 +4,21 @@
     "data": [
       	{
             "id": "10100",
-            "text": "合作伙伴管理",
+            "text": "用户管理",
             "iconCls": "nav",
             "menuOrder": "1",
             "leaf": false,
-            "icon": "menu-icon fa fa-user-md",
-            "menuKey": "partner_manager",
+            "icon": "menu-icon fa fa-users",
+            "menuKey": "user_manager",
 			"children": [
 				{
-                    "text": "流量下发监控",
+                    "text": "用户信息",
                     "menuOrder": "1",
                     "leaf": "true",
-                    "url": "/pages/activityOverview.shtml",
+                    "url": "/pages/userInfo_list.shtml",
                     "id": "10101",
 		    		"icon":"icon-user",
-                    "menuKey": "partner_manager_activityOverview"
-                },
-                {
-                    "text": "合作伙伴列表",
-                    "menuOrder": "2",
-                    "leaf": "true",
-                    "url": "/pages/partnerInfo_list.shtml",
-                    "id": "10102",
-		    		"icon":"icon-user",
-                    "menuKey": "partner_manager_list"
-                },{
-                    "text": "我的信息",
-                    "menuOrder": "3",
-                    "leaf": "true",
-                    "url": "/pages/partnerInfo_self_view.shtml",
-                    "id": "10103",
-		    		"icon":"icon-user",
-                    "menuKey": "partner_manager_self"
+                    "menuKey": "user_manager_userinfo"
                 }
             ]
         }

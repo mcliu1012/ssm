@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aspire.webbas.core.web.BaseController;
-import com.aspire.webbas.portal.common.entity.Staff;
 import com.mcliu.ssm.web.service.MenuAndAuthService;
 import com.mcliu.ssm.web.tree.MenuTreeNode;
 

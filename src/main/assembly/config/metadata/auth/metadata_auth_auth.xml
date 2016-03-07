@@ -2,57 +2,27 @@
 <!-- <!DOCTYPE domain SYSTEM "Metadata_Auth_Main.dtd"> -->
 <domain id="admin" subsystem="fmp-admin">
 	<!-- 资源分类－第一级 -->
-	<resource-category key="manager" orderKey="2000"
-		name="流量营销管理平台" desc="流量营销管理平台">
-		<resource-category key="auth_partner_manager" name="合作伙伴管理"
-			desc="合作伙伴管理">
-			<resource key="auth_partner_manager_activityOverview" name="流量下发监控"
-				desc="合作伙伴列表">
-				<operation key="get" name="流量下发监控" desc="流量下发监控">
-					<address name="流量下发监控" url="/pages/activityOverview.shtml" />
-					<address name="看板内容" url="/businessBoard/initReportForm.ajax" />
-					<address name="top5数据" url="/businessBoard/initData.ajax" />
-				</operation>
-				</resource>
-			<resource key="auth_partner_manager_list" name="合作伙伴列表"
-				desc="合作伙伴列表">
+	<resource-category key="manager" orderKey="2000" name="SSM后台管理平台" desc="SSM后台管理平台">
+		<resource-category key="auth_user_manager" name="用户管理" desc="用户管理">
+			<resource key="auth_user_manager_list" name="用户信息" desc="用户信息">
 				<operation key="query" name="列表" desc="列表">
-					<address name="合作伙伴列表" url="/pages/partnerInfo_list.shtml" />
-					<address name="查询请求" url="/partnerInfo/query.ajax" />
+					<address name="用户信息列表" url="/pages/userInfo_list.shtml" />
+					<address name="查询请求" url="/userInfo/query.ajax" />
 				</operation>
 				<operation key="detail" name="详情" desc="详情">
-					<address name="合作伙伴列表" url="/pages/partnerInfo_view.shtml" />
-					<address name="查询请求" url="/partnerInfo/get.ajax" />
-					<address name="初始化账户信息" url="/partnerInfo/initBalance.ajax" />
-					<address name="初始化产品协议订单历史记录" url="/orderDealRecord/getOrderDealRecord.ajax" />
-					<address name="下载" url="/orderDealRecord/download.ajax" />
+					<address name="用户信息详情" url="/pages/userInfo_view.shtml" />
+					<address name="查询请求" url="/userInfo/get.ajax" />
 				</operation>
 				<operation key="add" name="新增/修改" desc="新增/修改">
-					<address name="页面" url="/pages/partnerInfo_add.shtml" />
-					<address name="新增请求" url="/partnerInfo/add.ajax" />
-					<address name="获取详情请求" url="/partnerInfo/get.ajax" />
-					<address name="查询帐户请求" url="/partnerInfo/queryStaff.ajax" />
-					<address name="查询产品信息" url="/flowProductInfo/getByProductType.ajax" />
-					<address name="账号唯一判断" url="/partnerInfo/soloAccount.ajax" />
-					<address name="删除产品关联" url="/partnerInfo/deleteBySeqId.ajax" />
+					<address name="页面" url="/pages/userInfo_add.shtml" />
+					<address name="新增请求" url="/userInfo/add.ajax" />
+					<address name="获取详情请求" url="/userInfo/get.ajax" />
 				</operation>
-				<operation key="changestatus" name="修改状态" desc="修改状态">
-					<address name="修改状态请求" url="/partnerInfo/changeStatus.ajax" />
-				</operation>
-				<operation key="resetPassword" name="重置密码" desc="重置密码">
-					<address name="重置密码" url="/partnerInfo/resetPassword.ajax" />
-				</operation>
-
 				<operation key="delete" name="删除" desc="删除">
-					<address name="删除" url="/partnerInfo/delete.ajax" />
+					<address name="删除" url="/userInfo/delete.ajax" />
 				</operation>
-
-				<operation key="self" name="个人信息" desc="个人信息">
-					<address name="信息展示页面" url="/pages/partnerInfo_self_view.shtml" />
-					<address name="获取个人信息" url="/partnerInfo/getSelf.ajax" />
-					<address name="初始化账户信息" url="/partnerInfo/initBalance.ajax" />
-					<address name="初始化产品协议订单历史记录" url="/orderDealRecord/getOrderDealRecord.ajax" />
-					<address name="下载" url="/orderDealRecord/download.ajax" />
+				<operation key="download" name="下载" desc="下载">
+					<address name="下载" url="/userInfo/download.ajax" />
 				</operation>
 			</resource>
 		</resource-category>

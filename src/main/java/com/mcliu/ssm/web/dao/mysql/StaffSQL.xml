@@ -229,48 +229,55 @@
         FROM SEC_STAFF
         <where>
             1=1  
-            
-            <if test="params['keyword'] != null and  params['keyword'] != ''">
+            <if test="params['staffId'] != null and  params['staffId'] != ''">
+                and STAFF_ID = trim(#{params.staffId})
+            </if>
+            <if test="params['staffId'] == null or  params['staffId'] == ''">
+                <if test="params['keyword'] != null and  params['keyword'] != ''">
                  and (LOGIN_NAME like CONCAT(CONCAT('%', TRIM(#{params.keyword})), '%') OR REAL_NAME like CONCAT(CONCAT('%', TRIM(#{params.keyword})), '%'))
-            </if> 
-            <if test="params['status'] != null and  params['status'] != ''">
-                and STATUS = trim(#{params.status})
+	            </if> 
+	            <if test="params['status'] != null and  params['status'] != ''">
+	                and STATUS = trim(#{params.status})
+	            </if>
+	            <if  test="params['departmentId'] != null and  params['departmentId'] != ''">
+	                and DEPARTMENT_ID = trim(#{params.departmentId})
+	            </if>
+	            <if test="params['email'] != null and  params['email'] != ''">
+	                and EMAIL like concat('%', trim(#{params.email}) ,'%')
+	            </if>
+	            <if  test="params['departmentIds'] != null and  params['departmentIds'] != ''">
+	                and DEPARTMENT_ID in (${params.departmentIds})
+	            </if>
+	            <if test="params['status'] == null or  params['status'] == ''">
+	                <![CDATA[
+	                    and STATUS != 'DELETED'
+	                ]]>
+	            </if>
+	            
+	            <!--  
+	            <if test="loginName != null and loginName != ''">
+	                 and LOGIN_NAME like CONCAT(CONCAT('%', TRIM(#{loginName})),'%')  
+	            </if>
+	            <if test="realName != null and realName != ''">
+	                 and REAL_NAME like  CONCAT(CONCAT('%', TRIM(#{realName})), '%') 
+	            </if>
+	            
+	            
+	            <if test="departmentId != null and departmentId != ''">
+	                and DEPARTMENT_ID = trim(#{departmentId})
+	            </if>
+	            <if test="others.departmentIds != null and others.departmentIds != ''">
+	                and DEPARTMENT_ID in (${others.departmentIds})
+	            </if>
+	            <if test="others.staffIds != null and others.staffIds != ''">
+	                and STAFF_ID in (${others.staffIds})
+	            </if>
+	            
+	            <if test="others.beforeDays != null and others.beforeDays != ''">
+	                and  ((last_update_date > SYSDATE() - ${others.beforeDays}) or (status = 'INITIAL' and CREATE_DATE > SYSDATE() - ${others.beforeDays})) 
+	            </if>
+	            -->
             </if>
-            <if  test="params['departmentId'] != null and  params['departmentId'] != ''">
-                and DEPARTMENT_ID = trim(#{params.departmentId})
-            </if>
-            <if  test="params['departmentIds'] != null and  params['departmentIds'] != ''">
-                and DEPARTMENT_ID in (${params.departmentIds})
-            </if>
-            <if test="params['status'] == null or  params['status'] == ''">
-                <![CDATA[
-                    and STATUS != 'DELETED'
-                ]]>
-            </if>
-            
-            <!--  
-            <if test="loginName != null and loginName != ''">
-                 and LOGIN_NAME like CONCAT(CONCAT('%', TRIM(#{loginName})),'%')  
-            </if>
-            <if test="realName != null and realName != ''">
-                 and REAL_NAME like  CONCAT(CONCAT('%', TRIM(#{realName})), '%') 
-            </if>
-            
-            
-            <if test="departmentId != null and departmentId != ''">
-                and DEPARTMENT_ID = trim(#{departmentId})
-            </if>
-            <if test="others.departmentIds != null and others.departmentIds != ''">
-                and DEPARTMENT_ID in (${others.departmentIds})
-            </if>
-            <if test="others.staffIds != null and others.staffIds != ''">
-                and STAFF_ID in (${others.staffIds})
-            </if>
-            
-            <if test="others.beforeDays != null and others.beforeDays != ''">
-                and  ((last_update_date > SYSDATE() - ${others.beforeDays}) or (status = 'INITIAL' and CREATE_DATE > SYSDATE() - ${others.beforeDays})) 
-            </if>
-            -->
         </where> 
         
     </select>

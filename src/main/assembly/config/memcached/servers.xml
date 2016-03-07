@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<servers>
+	<!--memcached 服务器地址和端口号配置，支持多个ip,以逗号隔开-->
+	<!-- 该配置文件和CacheInterceptor.java缓存拦截器需同时存在 -->
+	<server>10.1.5.31:11211</server>
+</servers>

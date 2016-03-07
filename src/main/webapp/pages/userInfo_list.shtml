@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<!--#include virtual="/root.jsp"  -->
+<title>用户信息</title>
+<!--#include virtual="/include.shtml"  -->
+</head>
+<body>
+	<div class="page-content">
+		<div class="table-responsive">
+			<!-- PAGE CONTENT BEGINS -->
+			<form id="queryForm" onsubmit="return false;">
+				<div class="widget-box">
+					<div class="widget-header widget-header-flat search_tj_bar_tit">
+						<h5 class="widget-title">查询条件</h5>
+						<div class="widget-toolbar">
+							<a href="javascript:;" data-action="collapse"> <i
+								class="1 ace-icon fa fa-chevron-up bigger-125"></i>
+							</a>
+						</div>
+					</div>
+					<div class="row search_tj_bar">
+						<div class="col-xs-12">
+							<div class="center">
+								<div class="row">
+									<div class="col-xs-4">
+										<span> <label class="col-xs-12 col-sm-3">用户名：</label>
+											<div class="input-group col-xs-12 col-sm-9">
+											    <input type="hidden"  id="loginname-select" name="params['staffId']" class="form-control search-query"/>
+											</div>
+										</span>
+									</div>
+									<div class="col-xs-4">
+										<span> <label class="col-xs-12 col-sm-3">邮箱地址：</label>
+											<div class="input-group col-xs-12 col-sm-9">
+												<input name="params['email']" class="form-control search-query">
+											</div>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bs_btn">
+							<button id="addBtn" type="button" class="btn btn-sm btn-success">
+								<i class="ace-icon fa fa-hand-o-right bigger-120"></i> 新增
+							</button>
+							<button id="resetBtn" type="button" class="btn btn-sm">
+								<i class="ace-icon fa fa-undo bigger-110"></i> 重 置
+							</button>
+							<button id="seachBtn" type="button" class="btn btn-purple btn-sm">
+								<i class="ace-icon fa fa-search icon-on-right bigger-110"></i> 查找
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="space-6"></div>
+			<table id="grid-table" class="text-center"></table>
+			<div id="grid-pager"></div>
+			<!-- PAGE CONTENT ENDS -->
+		</div>
+	</div>
+	<!--#include virtual="/include_footer.shtml"  -->
+
+	<script type="text/javascript">
+		var list_url = ctxPaths + '/userInfo/query.ajax';
+		var delete_url = ctxPaths + '/userInfo/delete.ajax';
+		var grid_selector = "#grid-table";
+		var pager_selector = "#grid-pager";
+		function initSelect2() {
+			$("#loginname-select").removeClass().css("width", "240px").css("margin-left", "-40px").select2({
+				placeholder : "请输入用户名称关键字",
+				minimumInputLength : 1,
+				ajax : {
+					url : ctxPaths + '/userInfo/selectStaffByLoginName.ajax',
+					dataType : 'json',
+					data : function(term) {
+						return {
+							"loginName" : term
+						};
+					},
+					results : function(data) {
+						return {
+							results : $.map(data.userList, function(item) {
+								return {
+									id : item.staffId,
+									text : item.loginName
+								}
+							})
+						};
+					}
+				}
+			});
+		}
+		$(function($) {
+			initSelect2();
+			jqGrid_init($(grid_selector), pager_selector, {
+				url : list_url,
+				sortable : true,
+				sortname : 'create_date',
+				sortorder : 'desc',
+				colNames : [ '用户ID', '用户名', '真实姓名', '邮箱地址', '成员状态', '创建者', '创建时间', '操作' ],
+				colModel : [ {
+					name : 'staffId',
+					index : 'staffId',
+					hidden : true
+				}, {
+					name : 'loginName',
+					index : 'loginName',
+					sortable : true,
+					sortname : 'login_name',
+					width : 100,
+					formatter : formatName
+				}, {
+					name : 'realName',
+					index : 'realName',
+					sortable : true,
+					sortname : 'real_name',
+					width : 100
+				}, {
+					name : 'email',
+					index : 'email',
+					sortable : true,
+					sortname : 'email',
+					width : 100
+				}, {
+					name : 'status',
+					index : 'status',
+					sortable : true,
+					sortname : 'status',
+					width : 100
+				}, {
+					name : 'createUser',
+					index : 'createUser',
+					sortable : true,
+					sortname : 'create_user',
+					width : 100
+				}, {
+					name : 'createDate',
+					index : 'createDate',
+					sortable : true,
+					sortname : 'create_date',
+					width : 100,
+				}, {
+					name : 'myac',
+					index : '',
+					width : 140,
+					fixed : true,
+					sortable : false,
+					resize : false,
+					formatter : actionButtons
+				} ]
+			});
+			function formatName(cellvalue, options, rowObject) {
+                return '<a href="javascript:;" onclick="viewEvent(\'' + rowObject['staffId'] + '\')">' + cellvalue + '</a>';
+            }
+            function actionButtons(cellvalue, options, rowObject) {
+                return '<div >' 
+                    +      '<button onclick=\"viewEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-success\" data-rel=\"tooltip\" title=\"详情\" >' 
+                    +          '<i class=\"ace-icon fa fa-eye bigger-120\"></i>' 
+                    +      '</button>' 
+                    +      '<button onclick=\"editEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-info\" data-rel=\"tooltip\" title=\"编辑\" >' 
+                    +          '<i class=\"ace-icon fa fa-pencil bigger-120\"></i>' 
+                    +      '</button>' 
+                    +      '<button onclick=\"deleteEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-danger\" data-rel=\"tooltip\" title=\"删除\" >' 
+                    +          '<i class=\"ace-icon fa fa-trash-o bigger-120\"></i>' 
+                    +      '</button>' 
+                    + '</div>';
+            }
+
+		});
+
+		function editEvent(id) {
+			window.location.href = ctxPaths + '/pages/userInfo_add.shtml?staffId=' + id;
+		};
+		function viewEvent(id) {
+			window.location.href = ctxPaths + '/pages/userInfo_view.shtml?staffId=' + id;
+		};
+		function deleteEvent(id) {
+			Q_Confirm("是否要删除？", function(result) {
+				if (result) {
+					$.ajaxSubmit(delete_url, {
+						'staffId' : id
+					}, function(data) {
+						if (data.success == true) {
+							$(grid_selector).jqGrid('setGridParam', {
+								page : 1
+							}).trigger("reloadGrid");
+						} else {
+							Q_Alert_Fail(data.message);
+						}
+					});
+				}
+			});
+		};
+
+		$('#addBtn').on('click', function() {
+			window.location.href = ctxPaths + '/pages/userInfo_add.shtml';
+		});
+
+		$('#seachBtn').on('click', function() {
+			$(grid_selector).jqGrid('setGridParam', {
+				postData : $('#queryForm').serializeJson(),
+				page : 1
+			}).trigger("reloadGrid");
+		});
+		$('#resetBtn').on('click', function() {
+			$("#loginname-select").select2("val", "");
+			resetForm($('#queryForm'));
+		});
+	</script>
+</body>
+</html>
