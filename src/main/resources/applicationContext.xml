@@ -75,10 +75,10 @@
         <property name="databaseType" value="mysql"/> 
     </bean>
     
-    <!-- 缓存拦截器   如果配置的话，需要同时配置memcached/servers.xml -->
-<!--     <bean id="cacheInterceptor" class="com.mcliu.ssm.common.interceptor.CacheInterceptor" > -->
-<!--         <property name="databaseType" value="mysql"/>  -->
-<!--     </bean> -->
+    <!-- 缓存拦截器  -->
+    <bean id="cacheInterceptor" class="com.mcliu.ssm.common.interceptor.CacheInterceptor" >
+        <property name="databaseType" value="mysql"/> 
+    </bean>
     
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <!-- 写法一 -->
@@ -95,7 +95,7 @@
         <property name="plugins">
             <list>
                 <ref bean="myInterceptor" />
-<!--                 <ref bean="cacheInterceptor" /> -->
+                <ref bean="cacheInterceptor" />
             </list>
         </property>
     </bean>
