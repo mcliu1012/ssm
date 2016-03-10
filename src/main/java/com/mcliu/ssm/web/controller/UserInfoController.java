@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aspire.webbas.core.pagination.mybatis.pager.Page;
-import com.aspire.webbas.core.web.BaseController;
 import com.aspire.webbas.portal.common.entity.Staff;
 import com.mcliu.ssm.web.service.StaffService;
 
 @Controller
 @RequestMapping("/userInfo")
-public class UserInfoController extends BaseController {
+public class UserInfoController extends BaseActionController {
 	private static final Logger LOG = LoggerFactory.getLogger(UserInfoController.class);
 	@Autowired
 	@Qualifier("staffService")
@@ -31,6 +30,7 @@ public class UserInfoController extends BaseController {
 	@RequestMapping(value = "/query.ajax")
 	@ResponseBody
 	public Map<String, Object> pageQuery(Page<Staff> page) throws Exception {
+	    LOG.info("=========当前登录用户：{}==========", getCurrentLogin().getLoginName());
 		Page<Staff> list = staffService.pageQuery(page);
 		return super.page(list);
 	}
