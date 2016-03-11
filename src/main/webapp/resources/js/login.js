@@ -28,6 +28,8 @@ function setListener() {
     setRegistBtnClickHandler();
     // 点击【登录】按钮
     setLoginBtnClickHandler();
+    // 回车事件
+    enterClickHandler();
 }
 
 
@@ -238,5 +240,18 @@ function setLoginBtnClickHandler() {
                 $("#login-msg").removeClass("green").addClass("red").txtCrossFade(data.message);
             }
         }, $(this));
+    });
+}
+
+/**
+ * 回车事件
+ */
+function enterClickHandler() {
+    $("#login-password").keydown(function(e) {
+        var curKey = e.which;
+        if (curKey == 13) {
+            $('#login-btn').trigger('click');
+            return false;
+        }
     });
 }

@@ -42,9 +42,6 @@
 							</div>
 						</div>
 						<div class="bs_btn">
-							<button id="addBtn" type="button" class="btn btn-sm btn-success">
-								<i class="ace-icon fa fa-hand-o-right bigger-120"></i> 新增
-							</button>
 							<button id="resetBtn" type="button" class="btn btn-sm">
 								<i class="ace-icon fa fa-undo bigger-110"></i> 重 置
 							</button>
@@ -94,82 +91,95 @@
 			});
 		}
 		$(function($) {
-			initSelect2();
-			jqGrid_init($(grid_selector), pager_selector, {
-				url : list_url,
-				sortable : true,
-				sortname : 'create_date',
-				sortorder : 'desc',
-				colNames : [ '用户ID', '用户名', '真实姓名', '邮箱地址', '成员状态', '创建者', '创建时间', '操作' ],
-				colModel : [ {
-					name : 'staffId',
-					index : 'staffId',
-					hidden : true
-				}, {
-					name : 'loginName',
-					index : 'loginName',
-					sortable : true,
-					sortname : 'login_name',
-					width : 100,
-					formatter : formatName
-				}, {
-					name : 'realName',
-					index : 'realName',
-					sortable : true,
-					sortname : 'real_name',
-					width : 100
-				}, {
-					name : 'email',
-					index : 'email',
-					sortable : true,
-					sortname : 'email',
-					width : 100
-				}, {
-					name : 'status',
-					index : 'status',
-					sortable : true,
-					sortname : 'status',
-					width : 100
-				}, {
-					name : 'createUser',
-					index : 'createUser',
-					sortable : true,
-					sortname : 'create_user',
-					width : 100
-				}, {
-					name : 'createDate',
-					index : 'createDate',
-					sortable : true,
-					sortname : 'create_date',
-					width : 100,
-				}, {
-					name : 'myac',
-					index : '',
-					width : 140,
-					fixed : true,
-					sortable : false,
-					resize : false,
-					formatter : actionButtons
-				} ]
-			});
-			function formatName(cellvalue, options, rowObject) {
+		    $.ajaxSubmit(ctxPaths + '/userInfo/getCurrentStaff.ajax', null, function(data) {
+                if (data.success) {
+                    initSelect2();
+                    initJqGrid(data.data);
+                } else {
+                    Q_Alert_Fail(data.message);
+                }
+            });
+		});
+		
+		function initJqGrid(staff) {
+		    jqGrid_init($(grid_selector), pager_selector, {
+                url : list_url,
+                sortable : true,
+                sortname : 'create_date',
+                sortorder : 'desc',
+                colNames : [ '用户ID', '用户名', '真实姓名', '性别', '手机号码', '邮箱地址', '成员状态', '操作' ],
+                colModel : [ {
+                    name : 'staffId',
+                    index : 'staffId',
+                    hidden : true
+                }, {
+                    name : 'loginName',
+                    index : 'loginName',
+                    sortable : true,
+                    sortname : 'login_name',
+                    width : 100,
+                    formatter : formatName
+                }, {
+                    name : 'realName',
+                    index : 'realName',
+                    sortable : true,
+                    sortname : 'real_name',
+                    width : 100
+                }, {
+                    name : 'sexName',
+                    index : 'sexName',
+                    sortable : true,
+                    sortname : 'sex',
+                    width : 100
+                }, {
+                    name : 'mobile',
+                    index : 'mobile',
+                    sortable : true,
+                    sortname : 'mobile',
+                    width : 100
+                }, {
+                    name : 'email',
+                    index : 'email',
+                    sortable : true,
+                    sortname : 'email',
+                    width : 100
+                }, {
+                    name : 'statusName',
+                    index : 'statusName',
+                    sortable : true,
+                    sortname : 'status',
+                    width : 100
+                }, {
+                    name : 'myac',
+                    index : '',
+                    width : 140,
+                    fixed : true,
+                    sortable : false,
+                    resize : false,
+                    formatter : actionButtons
+                } ]
+            });
+            function formatName(cellvalue, options, rowObject) {
                 return '<a href="javascript:;" onclick="viewEvent(\'' + rowObject['staffId'] + '\')">' + cellvalue + '</a>';
             }
             function actionButtons(cellvalue, options, rowObject) {
-                return '<div >' 
-                    +      '<button onclick=\"viewEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-success\" data-rel=\"tooltip\" title=\"详情\" >' 
-                    +          '<i class=\"ace-icon fa fa-eye bigger-120\"></i>' 
-                    +      '</button>' 
-                    +      '<button onclick=\"editEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-info\" data-rel=\"tooltip\" title=\"编辑\" >' 
-                    +          '<i class=\"ace-icon fa fa-pencil bigger-120\"></i>' 
-                    +      '</button>' 
-                    +      '<button onclick=\"deleteEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-danger\" data-rel=\"tooltip\" title=\"删除\" >' 
-                    +          '<i class=\"ace-icon fa fa-trash-o bigger-120\"></i>' 
-                    +      '</button>' 
-                    + '</div>';
+                var btnHtml = '<div >' 
+		                    +      '<button onclick=\"viewEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-success\" data-rel=\"tooltip\" title=\"详情\" >' 
+		                    +          '<i class=\"ace-icon fa fa-eye bigger-120\"></i>' 
+		                    +      '</button>' 
+		        // 只显示自己账户的【修改】和【删除】按钮
+		        if (staff.staffId === rowObject['staffId']) {
+		            btnHtml +=      '<button onclick=\"editEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-info\" data-rel=\"tooltip\" title=\"编辑\" >' 
+		                    +          '<i class=\"ace-icon fa fa-pencil bigger-120\"></i>' 
+		                    +      '</button>' 
+		                    +      '<button onclick=\"deleteEvent(' + rowObject['staffId'] + ')\" class=\"btn btn-xs btn-danger\" data-rel=\"tooltip\" title=\"删除\" >' 
+		                    +          '<i class=\"ace-icon fa fa-trash-o bigger-120\"></i>' 
+		                    +      '</button>' 
+		        }
+		        btnHtml += '</div>';
+                return btnHtml;
             }
-
-		});
+		}
 
 		function editEvent(id) {
 			window.location.href = ctxPaths + '/pages/userInfo_add.shtml?staffId=' + id;
@@ -195,10 +205,6 @@
 			});
 		};
 
-		$('#addBtn').on('click', function() {
-			window.location.href = ctxPaths + '/pages/userInfo_add.shtml';
-		});
-
 		$('#seachBtn').on('click', function() {
 			$(grid_selector).jqGrid('setGridParam', {
 				postData : $('#queryForm').serializeJson(),
@@ -206,8 +212,8 @@
 			}).trigger("reloadGrid");
 		});
 		$('#resetBtn').on('click', function() {
-			$("#loginname-select").select2("val", "");
 			resetForm($('#queryForm'));
+			$("#loginname-select").select2("val", "");
 		});
 	</script>
 </body>

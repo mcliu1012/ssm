@@ -1,8 +1,5 @@
 package com.mcliu.ssm.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 常量类
  */
@@ -46,4 +43,24 @@ public class Constant {
      * Session Key
      */
     public static final String COOKIE_LOGIN_NAME = "login_name";
+    
+    /**
+     * 手机号码-正则表达式
+     */
+    public static final String REGEX_MOBILE = "^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$";
+    
+    /**
+     * 正整数-正则表达式
+     */
+    public static final String REGEX_POSITIVE_INTEGER = "^[1-9]\\d*$";
+
+    /**
+     * 正浮点数-正则表达式
+     */
+    public static final String REGEX_POSITIVE_FLOAT = "^[0-9]+(\\.[0-9]*)?$";
+    
+    /**
+     * E-mail-正则表达式
+     */
+    public static final String REGEX_EMAIL = "^[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?";
 }

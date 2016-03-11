@@ -16,7 +16,7 @@ import net.sf.json.JSONObject;
 
 public class Test {
 
-    @org.junit.Test
+//    @org.junit.Test
     public void test() {
 //        String path = getClass().getResource("/").getPath() + java.io.File.separator + "metadata_menu.json";
         String path = getClass().getResource("/metadata_menu.json").getPath();
@@ -40,7 +40,7 @@ public class Test {
 //        }
     }
     
-    @org.junit.Test
+//    @org.junit.Test
     public void test2() {
         try {
             // 将src下面的xml转换为输入流
@@ -103,6 +103,11 @@ public class Test {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    @org.junit.Test
+    public void test3() {
+        System.out.println("test@test.com".matches(Constant.REGEX_EMAIL));
     }
 
 }
