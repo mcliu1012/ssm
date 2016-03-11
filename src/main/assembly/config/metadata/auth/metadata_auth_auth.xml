@@ -34,6 +34,11 @@
 				<operation key="list" name="主页面" desc="主页面">
 					<address name="工具箱页面" url="/pages/toolbox.shtml" />
 				</operation>
+				<operation key="network" name="网络工具" desc="网络工具">
+					<address name="网络工具页面" url="/pages/toolbox.shtml" />
+					<address name="页面初始化" url="/laboratory/network/init.ajax" />
+					<address name="ip地址查询" url="/laboratory/network/checkIp.ajax" />
+				</operation>
 			</resource>
 		</resource-category>
 
