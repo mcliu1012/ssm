@@ -8,6 +8,8 @@
 				<operation key="query" name="列表" desc="列表">
 					<address name="用户信息列表" url="/pages/userInfo_list.shtml" />
 					<address name="查询请求" url="/userInfo/query.ajax" />
+					<address name="获取当前登录用户" url="/userInfo/getCurrentStaff.ajax" />
+					<address name="根据名称查询用户" url="/userInfo/selectStaffByLoginName.ajax" />
 				</operation>
 				<operation key="detail" name="详情" desc="详情">
 					<address name="用户信息详情" url="/pages/userInfo_view.shtml" />
@@ -23,6 +25,14 @@
 				</operation>
 				<operation key="download" name="下载" desc="下载">
 					<address name="下载" url="/userInfo/download.ajax" />
+				</operation>
+			</resource>
+		</resource-category>
+
+		<resource-category key="auth_laboratory" name="实验室" desc="实验室">
+			<resource key="auth_laboratory_toolbox" name="工具箱" desc="工具箱">
+				<operation key="list" name="主页面" desc="主页面">
+					<address name="工具箱页面" url="/pages/toolbox.shtml" />
 				</operation>
 			</resource>
 		</resource-category>

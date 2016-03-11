@@ -21,6 +21,26 @@
                     "menuKey": "user_manager_userinfo"
                 }
             ]
+        },
+        {
+            "id": "10200",
+            "text": "实验室",
+            "iconCls": "nav",
+            "menuOrder": "2",
+            "leaf": false,
+            "icon": "menu-icon fa fa-lightbulb-o",
+            "menuKey": "laboratory",
+            "children": [
+                {
+                    "text": "工具箱",
+                    "menuOrder": "1",
+                    "leaf": "true",
+                    "url": "/pages/toolbox.shtml",
+                    "id": "10201",
+                    "icon":"icon-user",
+                    "menuKey": "laboratory_toolbox"
+                }
+            ]
         }
     ]
 }

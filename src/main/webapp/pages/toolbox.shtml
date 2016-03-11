@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<!--#include virtual="/root.jsp"  -->
+<title>工具箱</title>
+<!--#include virtual="/include.shtml"  -->
+</head>
+<body>
+	<div class="page-content">
+		<div class="table-responsive">
+			<!-- PAGE CONTENT BEGINS -->
+            <div class="page-header">
+                <h1>
+                    <small>一些奇奇怪怪的应用 </small>
+                </h1>
+            </div>
+            <div class="col-md-3">
+            <div class="statbox widget box box-shadow">
+              <div class="widget-content">
+                <div class="visual blue">
+                  <i class="fa fa-signal"></i>
+                </div>
+                <div class="title">Network Tools</div>
+                <div class="value">网络工具</div>
+                <a href="/laboratory/network/" class="more">打开<i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="statbox widget box box-shadow">
+              <div class="widget-content">
+                <div class="visual blue">
+                  <i class="fa fa-qrcode"></i>
+                </div>
+                <div class="title">QR CODE</div>
+                <div class="value">生成二维码</div>
+                <a href="/laboratory/qrcode/" class="more">打开<i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+			<!-- PAGE CONTENT ENDS -->
+		</div>
+	</div>
+	<!--#include virtual="/include_footer.shtml"  -->
+
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

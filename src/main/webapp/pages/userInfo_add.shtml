@@ -102,8 +102,7 @@
 							<i class="ace-icon fa fa-undo bigger-110"></i> 重 置
 						</button>
 						&nbsp; &nbsp; &nbsp;
-						<button class="btn" type="button"
-							onclick="javascript:history.back();">
+						<button class="btn" type="button" onclick="returnBack();">
 							<i class="ace-icon fa fa-arrow-left"></i> 返 回
 						</button>
 					</div>
@@ -185,7 +184,10 @@
                     }
                 });
             }
-        })
+        });
+        function returnBack() {
+            location.href = ctxPaths + '/pages/userInfo_list.shtml';
+        }
     </script>
 </body>
 </html>

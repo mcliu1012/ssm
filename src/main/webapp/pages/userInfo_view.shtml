@@ -8,7 +8,6 @@
 </head>
 <body>
 	<div class="page-content">
-		<!-- 新增活动按钮 -->
 		<div class="table-responsive">
 			<div class="page-header">
 				<h1>
@@ -84,8 +83,7 @@
 				</div>
 				<div class="clearfix form-actions">
 					<div class="center">
-						<button class="btn" type="button"
-							onclick="javascript:history.back();">
+						<button class="btn" type="button" onclick="returnBack();">
 							<i class="ace-icon fa fa-undo bigger-110"></i> 返 回
 						</button>
 					</div>
@@ -114,7 +112,10 @@
             } else {
                 Q_Alert_Fail('参数错误');
             }
-        })
+        });
+        function returnBack() {
+            location.href = ctxPaths + '/pages/userInfo_list.shtml';
+        }
     </script>
 </body>
 </html>
