@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<!--#include virtual="/root.jsp"  -->
+<title>二维码</title>
+<!--#include virtual="/include.shtml"  -->
+<style>
+#pQRCodeDiv {
+    min-width: 900px;
+}
+
+.div-qr-code {
+  min-width: 500px;
+  min-height: 100px;
+  margin: auto;
+  float: none;
+  border: 1px solid #ddd;
+}
+
+#div-qrcode-show {
+  margin: auto;
+}
+
+.label-width-tip {
+    text-align: left !important;
+    color: #3071a9;
+}
+
+#btn-qr-generate {
+    border-radius: 4px;
+    margin-top: -5px;
+}
+</style>
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="table-responsive">
+            <!-- PAGE CONTENT BEGINS -->
+              <div id="pQRCodeDiv" class="padding-20">
+		        <!-- 查询IP地址 -->
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <h3 class="panel-title"><i class="fa fa-qrcode"></i> QR Code</h3>
+		          </div>
+		          <div class="panel-body">
+		            <form class="form-horizontal">
+		              <div class="form-group">
+		                <label class="col-sm-3 control-label"><strong>文字 或 网址：</strong></label>
+		                <div class="col-sm-4">
+		                  <input id="input-qr-content" class="form-control" autofocus>
+		                </div>
+		                <div class="col-sm-2">
+		                  <button type="button" id="btn-qr-generate" class="btn btn-primary btn-block">生成二维码</button>
+		                </div>
+		              </div>
+		              <div class="form-group">
+		                <label class="col-sm-3 control-label"><strong>宽度：</strong></label>
+		                <div class="col-sm-2">
+		                  <input id="input-qr-width" class="form-control">
+		                </div>
+		                <label class="col-sm-3 control-label label-width-tip">宽度和高度介于100~500之间</label>
+		              </div>
+		              <div class="form-group">
+		                <label class="col-sm-3 control-label"><strong>高度：</strong></label>
+		                <div class="col-sm-2">
+		                  <input id="input-qr-height" class="form-control" disabled>
+		                </div>
+		              </div>
+		            </form>
+		            <div class="col-sm-12 textAlignCenter">
+		              <div class="col-sm-8 div-qr-code">
+		                <div id="div-qrcode-show"></div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+              
+              <div class="clearfix form-actions">
+                 <div class="center">
+                     <button class="btn" type="button" onclick="returnBack();">
+                         <i class="ace-icon fa fa-undo bigger-110"></i> 返 回
+                     </button>
+                 </div>
+              </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+    </div>
+    <!--#include virtual="/include_footer.shtml"  -->
+
+    <script type="text/javascript">
+	    $(function() {
+	        pQRSetListener();
+	    });
+	    
+	    function pQRSetListener() {
+	        // 焦点离开宽度输入框
+	        setQRWidthInputBlurHandler();
+	        // 点击生成二维码按钮
+	        setQRCodeBtnClickHandler();
+	    }
+
+	    /**
+	     * 焦点离开宽度输入框
+	     */
+	    function setQRWidthInputBlurHandler() {
+	        $("#input-qr-width").off("blur").on("blur", function() {
+	            var qr_width = $("#input-qr-width").val();
+	            if (isNum(qr_width) && (qr_width >= 100 && qr_width <= 500)) {
+	                $("#input-qr-height").val(parseInt(qr_width, 10));
+	            } else {
+	                $("#input-qr-height").val("");
+	            }
+	        });
+	    }
+
+	    /**
+	     * 点击生成二维码按钮
+	     */
+	    function setQRCodeBtnClickHandler() {
+	        $("#btn-qr-generate").off("click").on("click", function() {
+	            $("#div-qrcode-show").text("");
+	            $("#input-qr-content").focus();
+	            if ($("#input-qr-content").val() === "") {
+	                return;
+	            }
+	            setQRCodeBtnDisabledStatus();
+
+	            var qr_content = $("#input-qr-content").val();
+	            var qr_width = $("#input-qr-width").val();
+	            var qr_height = $("#input-qr-height").val();
+	            var qrWidth = isNum(qr_width) && (qr_width >= 100 && qr_width <= 500) ? parseInt(qr_width, 10) : 100;
+	            var qrHeight = isNum(qr_height) ? parseInt(qr_height, 10) : 100;
+
+	            // 生成二维码
+	            $("#div-qrcode-show").css("width", qrWidth + "px");
+	            $("#div-qrcode-show").css("height", qrHeight + "px");
+	            var qrcode = new QRCode($("#div-qrcode-show")[0], {
+	                width : qrWidth,//设置宽高
+	                height : qrHeight
+	            });
+	            qrcode.makeCode(qr_content);
+	        });
+	    }
+
+	    /**
+	     * 设置一秒钟后按钮变为可点击状态
+	     */
+	    function setQRCodeBtnDisabledStatus() {
+	        $("#btn-qr-generate").prop("disabled", true);
+	        setTimeout(function() {
+	            $("#btn-qr-generate").prop("disabled", false);
+	        }, 1000);
+	    }
+	
+	    function returnBack() {
+            location.href = ctxPaths + '/pages/toolbox.shtml';
+        }
+    </script>
+</body>
+</html>

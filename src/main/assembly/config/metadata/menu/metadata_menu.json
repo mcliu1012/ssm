@@ -39,6 +39,15 @@
                     "id": "10201",
                     "icon":"icon-user",
                     "menuKey": "laboratory_toolbox"
+                },
+                {
+                    "text": "游戏",
+                    "menuOrder": "2",
+                    "leaf": "true",
+                    "url": "/pages/game.shtml",
+                    "id": "10202",
+                    "icon":"icon-user",
+                    "menuKey": "laboratory_game"
                 }
             ]
         }

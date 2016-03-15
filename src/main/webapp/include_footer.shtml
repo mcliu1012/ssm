@@ -10,6 +10,7 @@
 <!-- <script src="/resources/assets/js/date-time/locales/bootstrap-datetimepicker.zh-CN.js"></script> -->
 
 <script src="/resources/assets/js/jquery.validate.min.js"></script>
+<script src="/resources/assets/js/jquery.qrcode.min.js"></script>
 <script src="/resources/assets/js/additional-methods.min.js"></script>
 <script src="/resources/assets/js/bootbox.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/js/custom/plupload.common.css">

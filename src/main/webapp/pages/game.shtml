@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<!--#include virtual="/root.jsp"  -->
+<title>游戏</title>
+<!--#include virtual="/include.shtml"  -->
+<style>
+.container {
+  padding: 0 20px
+}
+
+#pGameOutDiv a {
+  text-decoration: none;
+}
+
+#pGameOutDiv .value {
+    margin-top: 24px;
+}
+</style>
+</head>
+<body>
+	<div class="page-content">
+		<div class="table-responsive">
+			<!-- PAGE CONTENT BEGINS -->
+			<div class="page-header">
+                <h1>
+                    <small>小游戏 </small>
+                </h1>
+            </div>
+            <div id="pGameOutDiv" class="container" style="width:100%;">
+		        <div class="row margin-top-30">
+		          <div class="col-md-3">
+		            <div class="statbox widget box box-shadow">
+		              <div class="widget-content">
+		                <div class="visual">
+		                    <img id="pGame2048Img" alt="2048" src="/resources/assets/images/2048.png" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="一款风靡全球的数字类游戏，赶快来玩吧！">
+		                </div>
+		                <div class="title">2048</div>
+		                <div class="value">2048</div>
+		                <a href="/pages/2048.shtml" target="_blank" class="more">进入游戏<i class="fa fa-angle-right"></i></a>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+			<!-- PAGE CONTENT ENDS -->
+		</div>
+	</div>
+	<!--#include virtual="/include_footer.shtml"  -->
+	<script type="text/javascript">
+		$(function() {
+		    set2048ImgListener();
+		});
+	
+		/**
+		 * 2048 Image
+		 */
+		function set2048ImgListener() {
+		    $('[data-toggle="popover"]').popover();
+	
+		    $("#pGame2048Img").hover(function() {
+		        $("#pGame2048Img").next().children("div").eq(1).css("color", "chocolate");
+		    });
+		}
+		
+		function initGame2048() {
+		    window.location.href = ctxPaths + "/pages/2048.shtml";
+		}
+	</script>
+</body>
+</html>

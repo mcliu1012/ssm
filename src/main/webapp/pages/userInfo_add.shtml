@@ -84,7 +84,7 @@
 								for="email"> <span class="red">*</span> 电子邮箱:
 							</label>
 							<div class="col-sm-6">
-								<input type="text" name="email" id="email" class="form-control input-sm" />
+								<input type="text" name="email" id="email" class="form-control input-sm" readonly/>
 							</div>
 						</div>
 

@@ -32,6 +32,15 @@
 #pNetworkDiv .table {
   margin-bottom: 0;
 }
+
+table thead tr {
+    border-top: 1px solid #ddd;
+}
+
+#btn-check-ip {
+    border-radius: 4px;
+    margin-top: -5px;
+}
 </style>
 </head>
 
@@ -43,17 +52,17 @@
                 <!-- 查询IP地址 -->
                 <div id="pNetIpAddress" class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title"><i class="icon-signal"></i> 网络工具</h3>
+                    <h3 class="panel-title"><i class="fa fa-signal"></i> 网络工具</h3>
                   </div>
                   <div class="panel-body">
                     <form class="form-horizontal">
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">您的本机 IP：</label>
+                        <label class="col-sm-3 control-label"><strong>您的本机 IP：</strong></label>
                         <label class="col-sm-3 control-label"><code class="code-host-ip"></code></label>
                         <label class="col-sm-6 control-label"><span class="span-host-address"></span></label>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">IP 地址：</label>
+                        <label class="col-sm-3 control-label"><strong>IP 地址：</strong></label>
                         <div class="col-sm-3">
                           <input class="form-control textAlignCenter" id="input-check-ip" placeholder="请输入IP地址" autofocus>
                         </div>
@@ -84,7 +93,7 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3 class="panel-title">
-                            <i class="icon-reorder"></i> 公共 DNS 服务器
+                            <i class="fa fa-bars"></i> 公共 DNS 服务器
                           </h3>
                         </div>
                         <div class="panel-body">
@@ -157,7 +166,7 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3 class="panel-title">
-                            <i class="icon-reorder"></i> 全国电信 DNS 服务器
+                            <i class="fa fa-bars"></i> 全国电信 DNS 服务器
                           </h3>
                         </div>
                         <div class="panel-body">
@@ -290,7 +299,7 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3 class="panel-title">
-                            <i class="icon-reorder"></i> 全国联通 DNS 服务器
+                            <i class="fa fa-bars"></i> 全国联通 DNS 服务器
                           </h3>
                         </div>
                         <div class="panel-body">
@@ -393,7 +402,7 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3 class="panel-title">
-                            <i class="icon-reorder"></i> Apple TV DNS 服务器
+                            <i class="fa fa-bars"></i> Apple TV DNS 服务器
                           </h3>
                         </div>
                         <div class="panel-body">
@@ -428,6 +437,14 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              
+              <div class="clearfix form-actions">
+                 <div class="center">
+                     <button class="btn" type="button" onclick="returnBack();">
+                         <i class="ace-icon fa fa-undo bigger-110"></i> 返 回
+                     </button>
+                 </div>
               </div>
             <!-- PAGE CONTENT ENDS -->
         </div>
@@ -483,6 +500,10 @@
 	            $("#btn-check-ip").prop("disabled", false);
 	        }, 1000);
 	    }
+	    
+	    function returnBack() {
+            location.href = ctxPaths + '/pages/toolbox.shtml';
+        }
     </script>
 </body>
 </html>

@@ -61,7 +61,6 @@ public class UserInfoController extends BaseActionController {
             staffDB.setMobile(staff.getMobile());
             staffDB.setRealName(staff.getRealName());
             staffDB.setSex(staff.getSex());
-            staffDB.setEmail(staff.getEmail());
             staff = staffDB;
         }
         staffService.saveAndUpdate(staff);

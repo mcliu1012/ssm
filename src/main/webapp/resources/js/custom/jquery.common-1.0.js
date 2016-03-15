@@ -1192,3 +1192,8 @@ $(function() {
         }
     });
 });
+
+function isNum(s) {
+    var r = /^[1-9]\d*$/;
+    return r.test(s);
+}
